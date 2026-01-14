@@ -156,9 +156,9 @@ def format_results_table(results):
     lines.append("")
 
     # --------------------------------------------------
-    # Task 2: Bitext Retrieval
+    # Task 2: Bitext Retrieval (Embedding)
     # --------------------------------------------------
-    header("Task 2: Bitext Retrieval")
+    header("Task 2a: Bitext Retrieval (Embedding)")
 
     row(
         "Pass@1",
@@ -181,6 +181,40 @@ def format_results_table(results):
     row(
         "MRR",
         results.get("mrr"),
+        bad=0.05,
+        good=0.40,
+        best=0.75,
+        higher_is_better=True,
+    )
+
+    lines.append("")
+
+    # --------------------------------------------------
+    # Task 2b: Bitext Retrieval (Conditional Probability)
+    # --------------------------------------------------
+    header("Task 2b: Bitext Retrieval (Cond. Prob.)")
+
+    row(
+        "Pass@1 (PPL)",
+        results.get("pass@1_ppl"),
+        bad=0.01,
+        good=0.30,
+        best=0.65,
+        higher_is_better=True,
+    )
+
+    row(
+        "Pass@5 (PPL)",
+        results.get("pass@5_ppl"),
+        bad=0.05,
+        good=0.60,
+        best=0.90,
+        higher_is_better=True,
+    )
+
+    row(
+        "MRR (PPL)",
+        results.get("mrr_ppl"),
         bad=0.05,
         good=0.40,
         best=0.75,
@@ -315,6 +349,145 @@ def eval_retrieval(model, ds, en_id, fr_id, device, max_samples):
         "pass@5": float(np.mean(ranks <= 5)),
         "mrr": float(np.mean(1.0 / ranks)),
         "num_samples": len(ranks),
+    }
+
+# ---------------------------
+# Retrieval (conditional probability) - Alternative method
+# ---------------------------
+
+def compute_conditional_logprob(model, full_ids, tgt_start_id, device, pad_id=1):
+    """
+    Compute log P(target | source) from a full sequence.
+    
+    Args:
+        full_ids: list of token ids [en_id, src_tokens..., fr_id, tgt_tokens...]
+        tgt_start_id: token id that marks start of target (e.g., fr_id)
+        device: torch device
+        pad_id: padding token id
+    
+    Returns:
+        average log probability of target tokens
+    """
+    ids = torch.tensor([full_ids], device=device)
+    att = torch.ones_like(ids)
+    
+    # Find target start position
+    tgt_positions = (ids[0] == tgt_start_id).nonzero(as_tuple=False)
+    if tgt_positions.numel() == 0:
+        return -float('inf')
+    
+    tgt_start = tgt_positions[-1].item()
+    
+    # No target tokens after the marker
+    if tgt_start + 1 >= len(full_ids):
+        return -float('inf')
+    
+    with torch.no_grad():
+        out = model(input_ids=ids, attention_mask=att)
+        logp = F.log_softmax(out.logits, dim=-1)
+    
+    # Compute log prob of target tokens
+    target_positions = torch.arange(tgt_start + 1, len(full_ids), device=device)
+    target_tokens = ids[0, target_positions]
+    
+    # Filter out padding tokens
+    valid_mask = target_tokens != pad_id
+    if valid_mask.sum() == 0:
+        return -float('inf')
+    
+    target_positions = target_positions[valid_mask]
+    target_tokens = target_tokens[valid_mask]
+    
+    # logp[0, pos-1] predicts token at pos
+    token_logprobs = logp[0, target_positions - 1, target_tokens]
+    
+    return token_logprobs.mean().item()
+
+
+def eval_retrieval_by_ppl(model, ds, en_id, fr_id, device, max_samples=500, 
+                          num_candidates=50, pad_id=1):
+    """
+    Memory-efficient retrieval evaluation using conditional probability ranking.
+    
+    For each query EN sentence, rank candidate FR sentences by P(FR | EN).
+    
+    Args:
+        model: the language model
+        ds: dataset with 'input_ids' column
+        en_id: token id for <en>
+        fr_id: token id for <fr>
+        device: torch device
+        max_samples: number of queries to evaluate (default 500)
+        num_candidates: number of candidates per query (default 50)
+        pad_id: padding token id
+    
+    Memory safe for 12GB GPU with default parameters.
+    
+    Returns:
+        dict with pass@1, pass@5, mrr, num_samples
+    """
+    import random
+    
+    # Sample queries if needed
+    N = len(ds)
+    if max_samples and N > max_samples:
+        query_indices = np.random.choice(N, max_samples, replace=False).tolist()
+    else:
+        query_indices = list(range(N))
+    
+    # Extract all (src, tgt) pairs
+    all_pairs = []
+    for ex in ds:
+        src, tgt = split_pair_ids(ex["input_ids"], en_id, fr_id)
+        if len(src) > 0 and len(tgt) > 0:
+            all_pairs.append((src, tgt))
+    
+    if len(all_pairs) < 2:
+        return {"pass@1_ppl": 0.0, "pass@5_ppl": 0.0, "mrr_ppl": 0.0, "num_samples_ppl": 0}
+    
+    N_pairs = len(all_pairs)
+    ranks = []
+    
+    for i in tqdm(query_indices, desc="Retrieval by PPL"):
+        if i >= N_pairs:
+            continue
+            
+        query_src = all_pairs[i][0]  # EN tokens
+        
+        # Sample candidates (always include correct answer at position 0)
+        candidate_indices = [i]  # correct answer
+        other_indices = [j for j in range(N_pairs) if j != i]
+        
+        # Sample min(num_candidates-1, available) other candidates
+        n_sample = min(num_candidates - 1, len(other_indices))
+        candidate_indices.extend(random.sample(other_indices, n_sample))
+        
+        # Compute scores for all candidates
+        scores = []
+        for j in candidate_indices:
+            candidate_tgt = all_pairs[j][1]  # FR tokens
+            
+            # Build: <en> query_src <fr> candidate_tgt
+            full_ids = [en_id] + query_src + [fr_id] + candidate_tgt
+            
+            score = compute_conditional_logprob(model, full_ids, fr_id, device, pad_id)
+            scores.append(score)
+        
+        # Find rank of correct answer (index 0 in candidate_indices)
+        scores = np.array(scores)
+        sorted_indices = np.argsort(-scores)  # descending
+        rank = np.where(sorted_indices == 0)[0][0] + 1  # 1-indexed
+        ranks.append(rank)
+    
+    if len(ranks) == 0:
+        return {"pass@1_ppl": 0.0, "pass@5_ppl": 0.0, "mrr_ppl": 0.0, "num_samples_ppl": 0}
+    
+    ranks = np.array(ranks)
+    return {
+        "pass@1_ppl": float(np.mean(ranks == 1)),
+        "pass@5_ppl": float(np.mean(ranks <= 5)),
+        "mrr_ppl": float(np.mean(1.0 / ranks)),
+        "num_samples_ppl": len(ranks),
     }
 
 # ---------------------------
@@ -478,9 +651,18 @@ def main():
 
     res_ppl = eval_ppl(model, ds, EN_ID, FR_ID, device, args.max_n)
     res_ret = eval_retrieval(model, ds, EN_ID, FR_ID, device, args.max_n)
+    
+    # New: Conditional probability based retrieval (better for GPT-2)
+    res_ret_ppl = eval_retrieval_by_ppl(
+        model, ds, EN_ID, FR_ID, device, 
+        max_samples=min(500, len(ds)), 
+        num_candidates=50,
+        pad_id=pad_id
+    )
+    
     res_disc = eval_discrimination(model, ds, EN_ID, FR_ID, device, args.max_n)
 
-    results = {**res_ppl, **res_ret, **res_disc}
+    results = {**res_ppl, **res_ret, **res_ret_ppl, **res_disc}
 
     # --------------------------------------------------
     # Save JSON (machine-readable)
@@ -497,6 +679,34 @@ def main():
     txt_out = os.path.join(args.model_path, "validation_results.txt")
     with open(txt_out, "w") as f:
         f.write(table)
+    
+    # --------------------------------------------------
+    # Create unified experiment results
+    # --------------------------------------------------
+    unified_results = {"validation": results}
+    
+    # Load training summary if exists
+    training_summary_path = os.path.join(args.model_path, "training_summary.json")
+    if os.path.exists(training_summary_path):
+        with open(training_summary_path, "r") as f:
+            training_summary = json.load(f)
+        unified_results["training"] = training_summary
+    
+    # Load config if exists
+    config_path = os.path.join(args.model_path, "config.json")
+    if os.path.exists(config_path):
+        with open(config_path, "r") as f:
+            config = json.load(f)
+        unified_results["config"] = {
+            "run_name": config.get("run", {}).get("name"),
+            "model": config.get("model", {}),
+            "training": config.get("training", {}),
+        }
+    
+    # Save unified results
+    unified_out = os.path.join(args.model_path, "experiment_results.json")
+    with open(unified_out, "w") as f:
+        json.dump(unified_results, f, indent=2)
 
     # --------------------------------------------------
     # Print nicely
@@ -506,6 +716,7 @@ def main():
     print()
     print("Saved JSON results to:", json_out)
     print("Saved text report to:", txt_out)
+    print("Saved unified results to:", unified_out)
 
     detokenize_and_generate(model, tok, ds, EN_ID, FR_ID, device, n=5)
 

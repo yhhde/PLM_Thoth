@@ -13,6 +13,8 @@ ALL paths, hyperparameters, and metadata MUST come from config.json.
 import os
 import json
 import argparse
+import random
+import numpy as np
 import torch
 from torch.utils.data import DataLoader
 from torch.nn.utils.rnn import pad_sequence
@@ -21,6 +23,70 @@ from transformers import PreTrainedTokenizerFast, get_linear_schedule_with_warmu
 from tqdm.auto import tqdm
 
 from model import GPT2
+
+
+# --------------------------------------------------
+# Reproducibility
+# --------------------------------------------------
+
+def set_seed(seed: int = 42):
+    """Set random seeds for reproducibility."""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    # For deterministic behavior (may slow down training slightly)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    print(f"Random seed set to {seed}")
+
+
+# --------------------------------------------------
+# Logging
+# --------------------------------------------------
+
+import logging
+import sys
+from datetime import datetime
+
+def setup_logging(log_dir: str, run_name: str):
+    """
+    Setup logging to both console and file.
+    
+    Creates a log file at: {log_dir}/{run_name}/training.log
+    """
+    log_file = os.path.join(log_dir, "training.log")
+    
+    # Create formatter
+    formatter = logging.Formatter(
+        '%(asctime)s | %(levelname)s | %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    
+    # File handler
+    file_handler = logging.FileHandler(log_file, mode='a')
+    file_handler.setFormatter(formatter)
+    file_handler.setLevel(logging.INFO)
+    
+    # Console handler
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setFormatter(formatter)
+    console_handler.setLevel(logging.INFO)
+    
+    # Setup root logger
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    # Remove existing handlers to avoid duplicates
+    logger.handlers = []
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    
+    logging.info(f"=" * 60)
+    logging.info(f"Training started: {run_name}")
+    logging.info(f"Log file: {log_file}")
+    logging.info(f"=" * 60)
+    
+    return logger
 
 
 # --------------------------------------------------
@@ -97,6 +163,10 @@ def train(config, device_idx, resume_path=None):
     assert torch.cuda.is_available(), "CUDA is required"
     device = torch.device(f"cuda:{device_idx}")
     
+    # Set random seed for reproducibility
+    seed = config.get("training", {}).get("seed", 42)
+    set_seed(seed)
+    
     # Print GPU information
     print(f"\n=== GPU Information ===")
     print(f"CUDA available: {torch.cuda.is_available()}")
@@ -132,6 +202,17 @@ def train(config, device_idx, resume_path=None):
     ensure_dir(os.path.join(out_path, "checkpoints"))
     ensure_dir(os.path.join(out_path, "best_checkpoint"))
     ensure_dir(wandb_dir)
+    
+    # ---- Setup logging ----
+    setup_logging(out_path, run_name)
+    
+    logging.info(f"Output path: {out_path}")
+    
+    # ---- Save config copy ----
+    config_copy_path = os.path.join(out_path, "config.json")
+    with open(config_copy_path, "w") as f:
+        json.dump(config, f, indent=2)
+    logging.info(f"Config saved to: {config_copy_path}")
 
     # ---- Tokenizer ----
     tok = PreTrainedTokenizerFast.from_pretrained(tok_path)
@@ -214,6 +295,12 @@ def train(config, device_idx, resume_path=None):
         config=config,
         dir=wandb_dir,
     )
+    
+    # ---- Training history CSV ----
+    history_file = os.path.join(out_path, "training_history.csv")
+    with open(history_file, "w") as f:
+        f.write("step,epoch,train_loss,val_loss,lr,best_val,no_improve\n")
+    logging.info(f"Training history will be saved to: {history_file}")
 
     # ---- Loop ----
     best_val = float("inf")
@@ -252,6 +339,7 @@ def train(config, device_idx, resume_path=None):
             if step % log_cfg["checkpoint_steps"] == 0:
                 val_loss = eval_one_epoch(model, val_loader, device, pad_id)
 
+                # Log to wandb
                 wandb.log({
                     "step": step,
                     "epoch": epoch,
@@ -259,6 +347,20 @@ def train(config, device_idx, resume_path=None):
                     "val_loss": val_loss,
                     "lr": sched.get_last_lr()[0],
                 })
+                
+                # Log to file
+                logging.info(
+                    f"Step {step} | Epoch {epoch} | "
+                    f"Train Loss: {loss.item():.4f} | "
+                    f"Val Loss: {val_loss:.4f} | "
+                    f"LR: {sched.get_last_lr()[0]:.2e} | "
+                    f"No Improve: {no_improve}/{log_cfg['patience']}"
+                )
+                
+                # Save to CSV
+                with open(history_file, "a") as f:
+                    f.write(f"{step},{epoch},{loss.item():.6f},{val_loss:.6f},"
+                            f"{sched.get_last_lr()[0]:.8f},{best_val:.6f},{no_improve}\n")
 
                 model.save(os.path.join(out_path, "last_checkpoint.pt"))
 
@@ -266,16 +368,53 @@ def train(config, device_idx, resume_path=None):
                     best_val = val_loss
                     no_improve = 0
                     model.save(os.path.join(out_path, "best_checkpoint", "model.pt"))
+                    logging.info(f"New best model saved! Val Loss: {val_loss:.4f}")
                 else:
                     no_improve += 1
 
                 if no_improve >= log_cfg["patience"]:
-                    print("Early stopping.")
+                    logging.info(f"Early stopping triggered after {step} steps (patience={log_cfg['patience']})")
                     model.save(os.path.join(out_path, "final_checkpoint.pt"))
+                    logging.info(f"Final model saved to {out_path}/final_checkpoint.pt")
+                    
+                    # Save training summary
+                    training_summary = {
+                        "run_name": run_name,
+                        "status": "early_stopped",
+                        "total_steps": step,
+                        "total_epochs": epoch,
+                        "final_train_loss": loss.item(),
+                        "final_val_loss": val_loss,
+                        "best_val_loss": best_val,
+                        "early_stopped_at_step": step,
+                        "patience": log_cfg["patience"],
+                    }
+                    summary_path = os.path.join(out_path, "training_summary.json")
+                    with open(summary_path, "w") as f:
+                        json.dump(training_summary, f, indent=2)
+                    logging.info(f"Training summary saved to: {summary_path}")
+                    
                     run.finish()
                     return
 
+    # Save training summary for completed training
+    training_summary = {
+        "run_name": run_name,
+        "status": "completed",
+        "total_steps": step,
+        "total_epochs": train_cfg["epochs"],
+        "final_train_loss": loss.item(),
+        "final_val_loss": val_loss,
+        "best_val_loss": best_val,
+    }
+    summary_path = os.path.join(out_path, "training_summary.json")
+    with open(summary_path, "w") as f:
+        json.dump(training_summary, f, indent=2)
+    logging.info(f"Training summary saved to: {summary_path}")
+    
+    logging.info(f"Training completed after {step} steps")
     model.save(os.path.join(out_path, "final_checkpoint.pt"))
+    logging.info(f"Final model saved to {out_path}/final_checkpoint.pt")
     run.finish()
 
 
