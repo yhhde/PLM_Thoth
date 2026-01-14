@@ -1,0 +1,14 @@
+{
+  "ppl_fr_given_en": 8.450109270708296,
+  "ppl_en_given_fr": 22.18905939535771,
+  "num_samples_ppl": 100,
+  "pass@1": 0.84,
+  "pass@5": 0.89,
+  "mrr": 0.8658511348984473,
+  "num_samples_ret": 100,
+  "auc": 0.9564,
+  "avg_real_score": -1.4283637310471387,
+  "avg_fake_score": -3.3602258944511414,
+  "num_samples_disc": 100,
+  "model_name": "t5-base"
+}

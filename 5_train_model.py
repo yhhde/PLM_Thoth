@@ -4,7 +4,7 @@
 Training script for custom GPT-2 model.
 
 Works in two modes:
-1) Standalone: python training_loop.py --config config.json --device 0
+1) Standalone: python 5_train_model.py --config config.json --device 0
 2) Orchestrated: Called by run_experiments.py with generated config.json
 
 ALL paths, hyperparameters, and metadata MUST come from config.json.
@@ -143,10 +143,14 @@ def eval_one_epoch(model, loader, device, pad_id):
             ids = batch["input_ids"].to(device)
             att = batch["attention_mask"].to(device)
 
-            labels = ids.clone()
+            # Shift for next-token prediction
+            input_ids = ids[:, :-1]
+            attention_mask = att[:, :-1]
+
+            labels = ids[:, 1:].clone()
             labels[labels == pad_id] = -100
 
-            _, loss = model(ids, attention_mask=att, labels=labels)
+            _, loss = model(input_ids, attention_mask=attention_mask, labels=labels)
             n = (labels != -100).sum().item()
 
             total_loss += loss.item() * n
@@ -282,6 +286,9 @@ def train(config, device_idx, resume_path=None):
     warmup_steps = int(train_cfg["warmup_ratio"] * max_steps)
 
     sched = get_linear_schedule_with_warmup(opt, warmup_steps, max_steps)
+    use_sched = train_cfg.get("use_lr_scheduling", True)
+    if not use_sched:
+        sched = None
     scaler = torch.cuda.amp.GradScaler(enabled=train_cfg["mixed_precision"])
 
     # ---- WandB ----
@@ -317,11 +324,15 @@ def train(config, device_idx, resume_path=None):
             ids = batch["input_ids"].to(device)
             att = batch["attention_mask"].to(device)
 
-            labels = ids.clone()
+            # Shift for next-token prediction
+            input_ids = ids[:, :-1]
+            attention_mask = att[:, :-1]
+
+            labels = ids[:, 1:].clone()
             labels[labels == pad_id] = -100
 
             with torch.cuda.amp.autocast(enabled=train_cfg["mixed_precision"]):
-                _, loss = model(ids, attention_mask=att, labels=labels)
+                _, loss = model(input_ids, attention_mask=attention_mask, labels=labels)
 
             scaler.scale(loss).backward()
             scaler.unscale_(opt)
@@ -331,7 +342,8 @@ def train(config, device_idx, resume_path=None):
 
             scaler.step(opt)
             scaler.update()
-            sched.step()
+            if sched is not None:
+                sched.step()
 
             step += 1
             prog.set_postfix(loss=loss.item())
@@ -340,27 +352,29 @@ def train(config, device_idx, resume_path=None):
                 val_loss = eval_one_epoch(model, val_loader, device, pad_id)
 
                 # Log to wandb
+                current_lr = sched.get_last_lr()[0] if sched is not None else opt.param_groups[0]["lr"]
                 wandb.log({
                     "step": step,
                     "epoch": epoch,
                     "train_loss": loss.item(),
                     "val_loss": val_loss,
-                    "lr": sched.get_last_lr()[0],
+                    "lr": current_lr,
                 })
                 
                 # Log to file
+                current_lr = sched.get_last_lr()[0] if sched is not None else opt.param_groups[0]["lr"]
                 logging.info(
                     f"Step {step} | Epoch {epoch} | "
                     f"Train Loss: {loss.item():.4f} | "
                     f"Val Loss: {val_loss:.4f} | "
-                    f"LR: {sched.get_last_lr()[0]:.2e} | "
+                    f"LR: {current_lr:.2e} | "
                     f"No Improve: {no_improve}/{log_cfg['patience']}"
                 )
                 
                 # Save to CSV
                 with open(history_file, "a") as f:
                     f.write(f"{step},{epoch},{loss.item():.6f},{val_loss:.6f},"
-                            f"{sched.get_last_lr()[0]:.8f},{best_val:.6f},{no_improve}\n")
+                            f"{current_lr:.8f},{best_val:.6f},{no_improve}\n")
 
                 model.save(os.path.join(out_path, "last_checkpoint.pt"))
 

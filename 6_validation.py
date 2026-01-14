@@ -156,9 +156,9 @@ def format_results_table(results):
     lines.append("")
 
     # --------------------------------------------------
-    # Task 2: Bitext Retrieval (Embedding)
+    # Task 2: Bitext Retrieval
     # --------------------------------------------------
-    header("Task 2a: Bitext Retrieval (Embedding)")
+    header("Task 2: Bitext Retrieval")
 
     row(
         "Pass@1",
@@ -181,40 +181,6 @@ def format_results_table(results):
     row(
         "MRR",
         results.get("mrr"),
-        bad=0.05,
-        good=0.40,
-        best=0.75,
-        higher_is_better=True,
-    )
-
-    lines.append("")
-
-    # --------------------------------------------------
-    # Task 2b: Bitext Retrieval (Conditional Probability)
-    # --------------------------------------------------
-    header("Task 2b: Bitext Retrieval (Cond. Prob.)")
-
-    row(
-        "Pass@1 (PPL)",
-        results.get("pass@1_ppl"),
-        bad=0.01,
-        good=0.30,
-        best=0.65,
-        higher_is_better=True,
-    )
-
-    row(
-        "Pass@5 (PPL)",
-        results.get("pass@5_ppl"),
-        bad=0.05,
-        good=0.60,
-        best=0.90,
-        higher_is_better=True,
-    )
-
-    row(
-        "MRR (PPL)",
-        results.get("mrr_ppl"),
         bad=0.05,
         good=0.40,
         best=0.75,
@@ -301,204 +267,119 @@ def eval_ppl(model, ds, en_id, fr_id, device, max_samples):
     }
 
 # ---------------------------
-# Retrieval (embeddings)
+# Retrieval (conditional probability)
 # ---------------------------
 
-def embed_sequence_ids(model, ids_list, device):
-    """Build embedding for a short sequence of ids (list). Use model.transformer and mean-pool."""
-    if len(ids_list) == 0:
-        return None
-    ids = torch.tensor([ids_list], dtype=torch.long, device=device)
-    att = torch.ones_like(ids, device=device)
+def score_conditional_avg_logprob(model, src_ids, tgt_ids, en_id, fr_id, pad_id, target_len, device):
+    """
+    Returns average log P(tgt | src) per target token (length-normalized),
+    masking padding via attention_mask, and using correct next-token alignment.
+    """
+    # Build full sequence: <en> src <fr> tgt
+    full = build_pair_ids(src_ids, tgt_ids, en_id, fr_id)
+
+    # Pad / truncate to target_len
+    if len(full) >= target_len:
+        full_ids = full[:target_len]
+        att = [1] * target_len
+    else:
+        pad_len = target_len - len(full)
+        full_ids = full + [pad_id] * pad_len
+        att = [1] * len(full) + [0] * pad_len
+
+    input_ids = torch.tensor(full_ids, device=device).unsqueeze(0)
+    attention_mask = torch.tensor(att, device=device).unsqueeze(0)
+
+    ids = input_ids[0]
+
+    # Find <fr> position: target tokens start after it
+    fr_pos = (ids == fr_id).nonzero(as_tuple=False)
+    if fr_pos.numel() == 0:
+        return -1e9
+    tgt_start = int(fr_pos[-1].item())
+
+    # Positions of target tokens in the sequence
+    span = torch.arange(tgt_start + 1, ids.size(0), device=device)
+
+    # Mask to only include real (non-pad) tokens
+    valid = attention_mask[0, span].bool()
+    if valid.sum().item() == 0:
+        return -1e9
+
+    span = span[valid]
+    tgt_token_ids = ids[span]
+
     with torch.no_grad():
-        out = model.transformer(input_ids=ids, attention_mask=att)
-        hs = out.last_hidden_state  # [1, L, D]
-        mask = att.unsqueeze(-1).float()
-        pooled = (hs * mask).sum(1) / mask.sum(1)
-        pooled = F.normalize(pooled, p=2, dim=1)
-    return pooled[0].cpu()
+        out = model(input_ids=input_ids, attention_mask=attention_mask)
+        logp = F.log_softmax(out.logits, dim=-1)  # [1, T, V]
+
+    # IMPORTANT: next-token prediction alignment
+    # token at position `t` is predicted by logits at `t-1`
+    pred_pos = span - 1
+    tok_logp = logp[0, pred_pos, tgt_token_ids]  # [n_tokens]
+
+    return tok_logp.mean().item()  # length-normalized conditional log-prob
 
 def eval_retrieval(model, ds, en_id, fr_id, device, max_samples):
     if max_samples and len(ds) > max_samples:
         ds = ds.select(np.random.choice(len(ds), max_samples, replace=False))
 
-    src_embs, tgt_embs = [], []
-    for ex in tqdm(ds, desc="Embed"):
+    # Collect raw token lists for sources and targets
+    pairs = []
+    for ex in tqdm(ds, desc="Collect pairs"):
         src, tgt = split_pair_ids(ex["input_ids"], en_id, fr_id)
-        e_src = embed_sequence_ids(model, [en_id] + src, device)   # include en tag for context
-        e_tgt = embed_sequence_ids(model, [fr_id] + tgt, device)
-        if e_src is None or e_tgt is None:
+        if len(src) == 0 or len(tgt) == 0:
             continue
-        src_embs.append(e_src)
-        tgt_embs.append(e_tgt)
+        pairs.append((src, tgt, len(ex["input_ids"])))  # keep dataset fixed length
 
-    if len(src_embs) == 0:
+    if len(pairs) == 0:
         return {"pass@1": 0.0, "pass@5": 0.0, "mrr": 0.0, "num_samples": 0}
 
-    src_mat = torch.stack(src_embs)   # [N, D]
-    tgt_mat = torch.stack(tgt_embs)   # [N, D]
-    sim = (src_mat @ tgt_mat.T).numpy()
+    pad_id = model.config["tokenizer"]["pad_token_id"]
 
+    # Use a single target_len for scoring to match your dataset fixed length.
+    # If your dataset truly has fixed length for all examples, this is safe.
+    target_len = pairs[0][2]
+
+    N = len(pairs)
     ranks = []
-    for i in range(sim.shape[0]):
-        rank = np.where(np.argsort(-sim[i]) == i)[0][0] + 1
+
+    # Compute conditional scores row by row: score(i,j)=avg log P(tgt_j|src_i)
+    for i in tqdm(range(N), desc="Retrieval scoring"):
+        src_i, _, _ = pairs[i]
+        scores = np.empty(N, dtype=np.float32)
+
+        for j in range(N):
+            _, tgt_j, _ = pairs[j]
+            scores[j] = score_conditional_avg_logprob(
+                model=model,
+                src_ids=src_i,
+                tgt_ids=tgt_j,
+                en_id=en_id,
+                fr_id=fr_id,
+                pad_id=pad_id,
+                target_len=target_len,
+                device=device,
+            )
+
+        # Higher avg log-prob is better
+        # rank = 1 means the correct j==i is the top score
+        order = np.argsort(-scores)
+        rank = int(np.where(order == i)[0][0]) + 1
         ranks.append(rank)
+
     ranks = np.array(ranks)
     return {
         "pass@1": float(np.mean(ranks == 1)),
         "pass@5": float(np.mean(ranks <= 5)),
         "mrr": float(np.mean(1.0 / ranks)),
-        "num_samples": len(ranks),
+        "num_samples": int(len(ranks)),
     }
 
-# ---------------------------
-# Retrieval (conditional probability) - Alternative method
-# ---------------------------
-
-def compute_conditional_logprob(model, full_ids, tgt_start_id, device, pad_id=1):
-    """
-    Compute log P(target | source) from a full sequence.
-    
-    Args:
-        full_ids: list of token ids [en_id, src_tokens..., fr_id, tgt_tokens...]
-        tgt_start_id: token id that marks start of target (e.g., fr_id)
-        device: torch device
-        pad_id: padding token id
-    
-    Returns:
-        average log probability of target tokens
-    """
-    ids = torch.tensor([full_ids], device=device)
-    att = torch.ones_like(ids)
-    
-    # Find target start position
-    tgt_positions = (ids[0] == tgt_start_id).nonzero(as_tuple=False)
-    if tgt_positions.numel() == 0:
-        return -float('inf')
-    
-    tgt_start = tgt_positions[-1].item()
-    
-    # No target tokens after the marker
-    if tgt_start + 1 >= len(full_ids):
-        return -float('inf')
-    
-    with torch.no_grad():
-        out = model(input_ids=ids, attention_mask=att)
-        logp = F.log_softmax(out.logits, dim=-1)
-    
-    # Compute log prob of target tokens
-    target_positions = torch.arange(tgt_start + 1, len(full_ids), device=device)
-    target_tokens = ids[0, target_positions]
-    
-    # Filter out padding tokens
-    valid_mask = target_tokens != pad_id
-    if valid_mask.sum() == 0:
-        return -float('inf')
-    
-    target_positions = target_positions[valid_mask]
-    target_tokens = target_tokens[valid_mask]
-    
-    # logp[0, pos-1] predicts token at pos
-    token_logprobs = logp[0, target_positions - 1, target_tokens]
-    
-    return token_logprobs.mean().item()
-
-
-def eval_retrieval_by_ppl(model, ds, en_id, fr_id, device, max_samples=500, 
-                          num_candidates=50, pad_id=1):
-    """
-    Memory-efficient retrieval evaluation using conditional probability ranking.
-    
-    For each query EN sentence, rank candidate FR sentences by P(FR | EN).
-    
-    Args:
-        model: the language model
-        ds: dataset with 'input_ids' column
-        en_id: token id for <en>
-        fr_id: token id for <fr>
-        device: torch device
-        max_samples: number of queries to evaluate (default 500)
-        num_candidates: number of candidates per query (default 50)
-        pad_id: padding token id
-    
-    Memory safe for 12GB GPU with default parameters.
-    
-    Returns:
-        dict with pass@1, pass@5, mrr, num_samples
-    """
-    import random
-    
-    # Sample queries if needed
-    N = len(ds)
-    if max_samples and N > max_samples:
-        query_indices = np.random.choice(N, max_samples, replace=False).tolist()
-    else:
-        query_indices = list(range(N))
-    
-    # Extract all (src, tgt) pairs
-    all_pairs = []
-    for ex in ds:
-        src, tgt = split_pair_ids(ex["input_ids"], en_id, fr_id)
-        if len(src) > 0 and len(tgt) > 0:
-            all_pairs.append((src, tgt))
-    
-    if len(all_pairs) < 2:
-        return {"pass@1_ppl": 0.0, "pass@5_ppl": 0.0, "mrr_ppl": 0.0, "num_samples_ppl": 0}
-    
-    N_pairs = len(all_pairs)
-    ranks = []
-    
-    for i in tqdm(query_indices, desc="Retrieval by PPL"):
-        if i >= N_pairs:
-            continue
-            
-        query_src = all_pairs[i][0]  # EN tokens
-        
-        # Sample candidates (always include correct answer at position 0)
-        candidate_indices = [i]  # correct answer
-        other_indices = [j for j in range(N_pairs) if j != i]
-        
-        # Sample min(num_candidates-1, available) other candidates
-        n_sample = min(num_candidates - 1, len(other_indices))
-        candidate_indices.extend(random.sample(other_indices, n_sample))
-        
-        # Compute scores for all candidates
-        scores = []
-        for j in candidate_indices:
-            candidate_tgt = all_pairs[j][1]  # FR tokens
-            
-            # Build: <en> query_src <fr> candidate_tgt
-            full_ids = [en_id] + query_src + [fr_id] + candidate_tgt
-            
-            score = compute_conditional_logprob(model, full_ids, fr_id, device, pad_id)
-            scores.append(score)
-        
-        # Find rank of correct answer (index 0 in candidate_indices)
-        scores = np.array(scores)
-        sorted_indices = np.argsort(-scores)  # descending
-        rank = np.where(sorted_indices == 0)[0][0] + 1  # 1-indexed
-        ranks.append(rank)
-    
-    if len(ranks) == 0:
-        return {"pass@1_ppl": 0.0, "pass@5_ppl": 0.0, "mrr_ppl": 0.0, "num_samples_ppl": 0}
-    
-    ranks = np.array(ranks)
-    return {
-        "pass@1_ppl": float(np.mean(ranks == 1)),
-        "pass@5_ppl": float(np.mean(ranks <= 5)),
-        "mrr_ppl": float(np.mean(1.0 / ranks)),
-        "num_samples_ppl": len(ranks),
-    }
 
 # ---------------------------
 # Discrimination (AUC)
 # ---------------------------
-
-import torch
-import torch.nn.functional as F
-from tqdm import tqdm
-import numpy as np
-from sklearn.metrics import roc_auc_score
 
 def get_lang_positions(ids, lang_token_id):
     """Return last position of a language token ID in the sequence"""
@@ -507,15 +388,23 @@ def get_lang_positions(ids, lang_token_id):
 
 def score_pair_safe(model, ids, attn, lang_token_id, device):
     """
-    Compute average log-probability of target tokens safely,
-    avoiding out-of-vocab errors.
+    Compute average log-probability of target tokens (length-normalized),
+    excluding padding via attention_mask, and using correct next-token alignment.
     """
-    ids = ids[0]
+    ids = ids[0]  # [T]
+
     tgt_start = get_lang_positions(ids, lang_token_id)
     if tgt_start is None or tgt_start + 1 >= len(ids):
         return -1e9  # no target tokens
 
     span = torch.arange(tgt_start + 1, len(ids), device=device)
+
+    # Mask out padding / invalid positions
+    valid = attn[0, span].bool()
+    if valid.sum().item() == 0:
+        return -1e9
+
+    span = span[valid]
     token_ids = ids[span]
 
     with torch.no_grad():
@@ -523,12 +412,16 @@ def score_pair_safe(model, ids, attn, lang_token_id, device):
         log_probs = F.log_softmax(out.logits, dim=-1)
 
     vocab_size = log_probs.size(-1)
-
-    # Safety check: clip any token ID >= vocab_size
     if torch.any(token_ids >= vocab_size):
         token_ids = torch.clamp(token_ids, max=vocab_size - 1)
 
-    return log_probs[0, span, token_ids].mean().item()
+    # Correct next-token alignment: token at span is predicted by logits at span-1
+    pred_pos = span - 1
+    tok_logp = log_probs[0, pred_pos, token_ids]
+
+    # LENGTH NORMALIZATION: average per real target token
+    return tok_logp.mean().item()
+
 
 def eval_discrimination(model, ds, en_id, fr_id, device, max_samples=None):
     """
@@ -651,18 +544,9 @@ def main():
 
     res_ppl = eval_ppl(model, ds, EN_ID, FR_ID, device, args.max_n)
     res_ret = eval_retrieval(model, ds, EN_ID, FR_ID, device, args.max_n)
-    
-    # New: Conditional probability based retrieval (better for GPT-2)
-    res_ret_ppl = eval_retrieval_by_ppl(
-        model, ds, EN_ID, FR_ID, device, 
-        max_samples=min(500, len(ds)), 
-        num_candidates=50,
-        pad_id=pad_id
-    )
-    
     res_disc = eval_discrimination(model, ds, EN_ID, FR_ID, device, args.max_n)
 
-    results = {**res_ppl, **res_ret, **res_ret_ppl, **res_disc}
+    results = {**res_ppl, **res_ret, **res_disc}
 
     # --------------------------------------------------
     # Save JSON (machine-readable)

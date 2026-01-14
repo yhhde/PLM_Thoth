@@ -1,0 +1,18 @@
+{
+  "ppl_fr_given_en": 10.46256961379588,
+  "ppl_en_given_fr": 21.657411128972548,
+  "num_samples_ppl": 500,
+  "pass@1": 0.806,
+  "pass@5": 0.894,
+  "mrr": 0.850460257897582,
+  "num_samples_embed": 500,
+  "pass@1_ppl": 0.748,
+  "pass@5_ppl": 0.89,
+  "mrr_ppl": 0.8155046801882192,
+  "num_samples_ppl_ret": 500,
+  "auc": 0.940508,
+  "avg_real_score": -1.433555959055404,
+  "avg_fake_score": -3.4349415514469146,
+  "num_samples_disc": 500,
+  "model_name": "t5-base"
+}
