@@ -178,6 +178,7 @@ def main():
             args.eval_script,
             "--model_path", out_dir,
             "--data_path", cfg["paths"]["data"],
+            "--device", str(args.device),
         ])
 
 
