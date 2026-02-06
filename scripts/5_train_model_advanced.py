@@ -390,10 +390,15 @@ def train(config, device_idx, resume_path=None):
     train_ds = ds["train"]
     val_ds   = ds["validation"]
 
+    # Create generator for reproducible DataLoader shuffling
+    g = torch.Generator()
+    g.manual_seed(seed)
+
     train_loader = DataLoader(
         train_ds,
         batch_size=train_cfg["batch_size"],
         shuffle=True,
+        generator=g,  # Ensures reproducible shuffle order
         collate_fn=lambda b: collate_pretokenized(b, pad_id),
     )
 
