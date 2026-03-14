@@ -1,0 +1,9 @@
+{
+  "run_name": "r0v0_full",
+  "status": "completed",
+  "total_steps": 753138,
+  "total_epochs": 1,
+  "final_train_loss": 1.8720945119857788,
+  "final_val_loss": 1.9527655890034443,
+  "best_val_loss": 1.9527655890034443
+}

@@ -1,0 +1,193 @@
+2026-02-11 13:05:26 | INFO | ============================================================
+2026-02-11 13:05:26 | INFO | Training started: r0v4_lr5e5_cos_w05_wd01_d01_fp16
+2026-02-11 13:05:26 | INFO | Log file: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/training.log
+2026-02-11 13:05:26 | INFO | ============================================================
+2026-02-11 13:05:26 | INFO | Output path: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16
+2026-02-11 13:05:26 | INFO | Config saved to: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/config.json
+2026-02-11 13:05:26 | INFO | Mask first segment loss: DISABLED
+2026-02-11 13:08:27 | INFO | LR Scheduler: COSINE with 37656 warmup steps (5.0%)
+2026-02-11 13:08:27 | INFO | Mixed Precision: ENABLED (FP16)
+2026-02-11 13:08:48 | INFO | Training history will be saved to: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/training_history.csv
+2026-02-11 13:08:48 | INFO | Training metrics will be saved to: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/training_metrics.csv
+2026-02-11 13:08:48 | INFO | Logging interval: every 10 batches
+2026-02-11 13:08:48 | INFO | Accuracy computation: DISABLED (faster training)
+2026-02-11 13:08:48 | INFO | Progress checkpoints will be saved at: ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']
+2026-02-11 13:08:48 | INFO | Total batches: 753138, Save intervals: [75313, 150627, 225941, 301255, 376569, 451882, 527196, 602510, 677824, 753138]
+2026-02-11 16:58:01 | INFO | Step 10000 | Epoch 0 | Train Loss: 4.8783 | Val Loss: 4.9233 | LR: 1.33e-05 | No Improve: 0/5
+2026-02-11 16:58:10 | INFO | New best model saved! Val Loss: 4.9233
+2026-02-11 20:20:11 | INFO | Step 20000 | Epoch 0 | Train Loss: 4.1054 | Val Loss: 3.8557 | LR: 2.66e-05 | No Improve: 0/5
+2026-02-11 20:20:20 | INFO | New best model saved! Val Loss: 3.8557
+2026-02-11 23:42:39 | INFO | Step 30000 | Epoch 0 | Train Loss: 3.3765 | Val Loss: 3.1624 | LR: 3.98e-05 | No Improve: 0/5
+2026-02-11 23:42:48 | INFO | New best model saved! Val Loss: 3.1624
+2026-02-12 03:05:08 | INFO | Step 40000 | Epoch 0 | Train Loss: 3.1311 | Val Loss: 2.8050 | LR: 5.00e-05 | No Improve: 0/5
+2026-02-12 03:05:17 | INFO | New best model saved! Val Loss: 2.8050
+2026-02-12 06:27:34 | INFO | Step 50000 | Epoch 0 | Train Loss: 2.7898 | Val Loss: 2.6003 | LR: 5.00e-05 | No Improve: 0/5
+2026-02-12 06:27:45 | INFO | New best model saved! Val Loss: 2.6003
+2026-02-12 09:49:56 | INFO | Step 60000 | Epoch 0 | Train Loss: 2.7313 | Val Loss: 2.4725 | LR: 4.99e-05 | No Improve: 0/5
+2026-02-12 09:50:06 | INFO | New best model saved! Val Loss: 2.4725
+2026-02-12 13:12:19 | INFO | Step 70000 | Epoch 0 | Train Loss: 2.8817 | Val Loss: 2.3851 | LR: 4.97e-05 | No Improve: 0/5
+2026-02-12 13:12:29 | INFO | New best model saved! Val Loss: 2.3851
+2026-02-12 14:59:50 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_10_percent.pt (epoch=0, step=75313)
+2026-02-12 15:00:32 | INFO | Progress checkpoint saved: 10% | Step 75313/753138 | Train Loss: 2.9770 | Avg Loss: 3.6367 | Avg Acc: 0.0000 | Val Loss: 2.3518
+2026-02-12 15:00:45 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=75313)
+2026-02-12 16:49:30 | INFO | Step 80000 | Epoch 0 | Train Loss: 2.7631 | Val Loss: 2.3426 | LR: 4.96e-05 | No Improve: 0/5
+2026-02-12 16:49:40 | INFO | New best model saved! Val Loss: 2.3426
+2026-02-12 20:11:59 | INFO | Step 90000 | Epoch 0 | Train Loss: 2.5123 | Val Loss: 2.2790 | LR: 4.93e-05 | No Improve: 0/5
+2026-02-12 20:12:09 | INFO | New best model saved! Val Loss: 2.2790
+2026-02-12 23:34:21 | INFO | Step 100000 | Epoch 0 | Train Loss: 2.3374 | Val Loss: 2.2386 | LR: 4.91e-05 | No Improve: 0/5
+2026-02-12 23:34:31 | INFO | New best model saved! Val Loss: 2.2386
+2026-02-13 02:56:44 | INFO | Step 110000 | Epoch 0 | Train Loss: 2.4909 | Val Loss: 2.2055 | LR: 4.87e-05 | No Improve: 0/5
+2026-02-13 02:56:57 | INFO | New best model saved! Val Loss: 2.2055
+2026-02-13 06:19:01 | INFO | Step 120000 | Epoch 0 | Train Loss: 2.3843 | Val Loss: 2.1824 | LR: 4.84e-05 | No Improve: 0/5
+2026-02-13 06:19:11 | INFO | New best model saved! Val Loss: 2.1824
+2026-02-13 09:41:14 | INFO | Step 130000 | Epoch 0 | Train Loss: 2.2309 | Val Loss: 2.1559 | LR: 4.80e-05 | No Improve: 0/5
+2026-02-13 09:41:24 | INFO | New best model saved! Val Loss: 2.1559
+2026-02-13 13:03:26 | INFO | Step 140000 | Epoch 0 | Train Loss: 2.2580 | Val Loss: 2.1345 | LR: 4.75e-05 | No Improve: 0/5
+2026-02-13 13:03:36 | INFO | New best model saved! Val Loss: 2.1345
+2026-02-13 16:25:47 | INFO | Step 150000 | Epoch 0 | Train Loss: 2.3515 | Val Loss: 2.1164 | LR: 4.70e-05 | No Improve: 0/5
+2026-02-13 16:25:57 | INFO | New best model saved! Val Loss: 2.1164
+2026-02-13 16:38:46 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_20_percent.pt (epoch=0, step=150627)
+2026-02-13 16:39:28 | INFO | Progress checkpoint saved: 20% | Step 150627/753138 | Train Loss: 2.2424 | Avg Loss: 3.0608 | Avg Acc: 0.0000 | Val Loss: 2.1148
+2026-02-13 16:39:42 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=150627)
+2026-02-13 20:16:14 | INFO | Step 160000 | Epoch 0 | Train Loss: 2.6429 | Val Loss: 2.1139 | LR: 4.65e-05 | No Improve: 0/5
+2026-02-13 20:16:23 | INFO | New best model saved! Val Loss: 2.1139
+2026-02-13 23:38:41 | INFO | Step 170000 | Epoch 0 | Train Loss: 2.1574 | Val Loss: 2.0868 | LR: 4.59e-05 | No Improve: 0/5
+2026-02-13 23:38:50 | INFO | New best model saved! Val Loss: 2.0868
+2026-02-14 03:01:05 | INFO | Step 180000 | Epoch 0 | Train Loss: 2.4296 | Val Loss: 2.0706 | LR: 4.53e-05 | No Improve: 0/5
+2026-02-14 03:01:15 | INFO | New best model saved! Val Loss: 2.0706
+2026-02-14 06:23:31 | INFO | Step 190000 | Epoch 0 | Train Loss: 2.0697 | Val Loss: 2.0609 | LR: 4.46e-05 | No Improve: 0/5
+2026-02-14 06:23:41 | INFO | New best model saved! Val Loss: 2.0609
+2026-02-14 09:45:51 | INFO | Step 200000 | Epoch 0 | Train Loss: 2.4234 | Val Loss: 2.0489 | LR: 4.39e-05 | No Improve: 0/5
+2026-02-14 09:46:00 | INFO | New best model saved! Val Loss: 2.0489
+2026-02-14 13:08:24 | INFO | Step 210000 | Epoch 0 | Train Loss: 2.4543 | Val Loss: 2.0378 | LR: 4.32e-05 | No Improve: 0/5
+2026-02-14 13:08:33 | INFO | New best model saved! Val Loss: 2.0378
+2026-02-14 16:31:01 | INFO | Step 220000 | Epoch 0 | Train Loss: 2.2991 | Val Loss: 2.0269 | LR: 4.24e-05 | No Improve: 0/5
+2026-02-14 16:31:11 | INFO | New best model saved! Val Loss: 2.0269
+2026-02-14 18:31:22 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_30_percent.pt (epoch=0, step=225941)
+2026-02-14 18:32:04 | INFO | Progress checkpoint saved: 30% | Step 225941/753138 | Train Loss: 2.1823 | Avg Loss: 2.8235 | Avg Acc: 0.0000 | Val Loss: 2.0206
+2026-02-14 18:32:18 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=225941)
+2026-02-14 20:06:30 | INFO | Step 230000 | Epoch 0 | Train Loss: 2.2595 | Val Loss: 2.0242 | LR: 4.16e-05 | No Improve: 0/5
+2026-02-14 20:06:40 | INFO | New best model saved! Val Loss: 2.0242
+2026-02-14 23:29:10 | INFO | Step 240000 | Epoch 0 | Train Loss: 2.1316 | Val Loss: 2.0087 | LR: 4.08e-05 | No Improve: 0/5
+2026-02-14 23:29:19 | INFO | New best model saved! Val Loss: 2.0087
+2026-02-15 02:51:44 | INFO | Step 250000 | Epoch 0 | Train Loss: 2.3348 | Val Loss: 1.9981 | LR: 3.99e-05 | No Improve: 0/5
+2026-02-15 02:51:53 | INFO | New best model saved! Val Loss: 1.9981
+2026-02-15 06:14:16 | INFO | Step 260000 | Epoch 0 | Train Loss: 2.2886 | Val Loss: 1.9894 | LR: 3.90e-05 | No Improve: 0/5
+2026-02-15 06:14:26 | INFO | New best model saved! Val Loss: 1.9894
+2026-02-15 09:36:51 | INFO | Step 270000 | Epoch 0 | Train Loss: 2.1311 | Val Loss: 1.9821 | LR: 3.81e-05 | No Improve: 0/5
+2026-02-15 09:37:01 | INFO | New best model saved! Val Loss: 1.9821
+2026-02-15 12:59:24 | INFO | Step 280000 | Epoch 0 | Train Loss: 2.1517 | Val Loss: 1.9752 | LR: 3.71e-05 | No Improve: 0/5
+2026-02-15 12:59:34 | INFO | New best model saved! Val Loss: 1.9752
+2026-02-15 16:21:57 | INFO | Step 290000 | Epoch 0 | Train Loss: 2.3720 | Val Loss: 1.9662 | LR: 3.62e-05 | No Improve: 0/5
+2026-02-15 16:22:06 | INFO | New best model saved! Val Loss: 1.9662
+2026-02-15 19:44:30 | INFO | Step 300000 | Epoch 0 | Train Loss: 2.1486 | Val Loss: 1.9587 | LR: 3.52e-05 | No Improve: 0/5
+2026-02-15 19:44:40 | INFO | New best model saved! Val Loss: 1.9587
+2026-02-15 20:10:11 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_40_percent.pt (epoch=0, step=301255)
+2026-02-15 20:10:53 | INFO | Progress checkpoint saved: 40% | Step 301255/753138 | Train Loss: 2.1744 | Avg Loss: 2.6829 | Avg Acc: 0.0000 | Val Loss: 1.9577
+2026-02-15 20:11:06 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=301255)
+2026-02-15 23:33:15 | INFO | Step 310000 | Epoch 0 | Train Loss: 2.3421 | Val Loss: 1.9608 | LR: 3.42e-05 | No Improve: 0/5
+2026-02-16 02:55:47 | INFO | Step 320000 | Epoch 0 | Train Loss: 2.3446 | Val Loss: 1.9459 | LR: 3.31e-05 | No Improve: 1/5
+2026-02-16 02:55:56 | INFO | New best model saved! Val Loss: 1.9459
+2026-02-16 06:18:16 | INFO | Step 330000 | Epoch 0 | Train Loss: 2.1615 | Val Loss: 1.9386 | LR: 3.21e-05 | No Improve: 0/5
+2026-02-16 06:18:25 | INFO | New best model saved! Val Loss: 1.9386
+2026-02-16 09:40:45 | INFO | Step 340000 | Epoch 0 | Train Loss: 2.1137 | Val Loss: 1.9308 | LR: 3.10e-05 | No Improve: 0/5
+2026-02-16 09:40:55 | INFO | New best model saved! Val Loss: 1.9308
+2026-02-16 13:03:16 | INFO | Step 350000 | Epoch 0 | Train Loss: 2.1289 | Val Loss: 1.9238 | LR: 3.00e-05 | No Improve: 0/5
+2026-02-16 13:03:25 | INFO | New best model saved! Val Loss: 1.9238
+2026-02-16 16:25:46 | INFO | Step 360000 | Epoch 0 | Train Loss: 2.1628 | Val Loss: 1.9163 | LR: 2.89e-05 | No Improve: 0/5
+2026-02-16 16:25:55 | INFO | New best model saved! Val Loss: 1.9163
+2026-02-16 19:48:14 | INFO | Step 370000 | Epoch 0 | Train Loss: 2.1434 | Val Loss: 1.9094 | LR: 2.78e-05 | No Improve: 0/5
+2026-02-16 19:48:24 | INFO | New best model saved! Val Loss: 1.9094
+2026-02-16 22:01:07 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_50_percent.pt (epoch=0, step=376569)
+2026-02-16 22:01:49 | INFO | Progress checkpoint saved: 50% | Step 376569/753138 | Train Loss: 2.0813 | Avg Loss: 2.5885 | Avg Acc: 0.0000 | Val Loss: 1.9030
+2026-02-16 22:02:02 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=376569)
+2026-02-16 23:21:49 | INFO | Step 380000 | Epoch 0 | Train Loss: 2.2695 | Val Loss: 1.9108 | LR: 2.67e-05 | No Improve: 0/5
+2026-02-17 02:44:14 | INFO | Step 390000 | Epoch 0 | Train Loss: 2.1483 | Val Loss: 1.8970 | LR: 2.56e-05 | No Improve: 1/5
+2026-02-17 02:44:23 | INFO | New best model saved! Val Loss: 1.8970
+2026-02-17 06:06:51 | INFO | Step 400000 | Epoch 0 | Train Loss: 2.3410 | Val Loss: 1.8948 | LR: 2.45e-05 | No Improve: 0/5
+2026-02-17 06:07:00 | INFO | New best model saved! Val Loss: 1.8948
+2026-02-17 09:29:25 | INFO | Step 410000 | Epoch 0 | Train Loss: 2.3311 | Val Loss: 1.8852 | LR: 2.34e-05 | No Improve: 0/5
+2026-02-17 09:29:34 | INFO | New best model saved! Val Loss: 1.8852
+2026-02-17 12:51:52 | INFO | Step 420000 | Epoch 0 | Train Loss: 2.2117 | Val Loss: 1.8784 | LR: 2.23e-05 | No Improve: 0/5
+2026-02-17 12:52:02 | INFO | New best model saved! Val Loss: 1.8784
+2026-02-17 16:14:18 | INFO | Step 430000 | Epoch 0 | Train Loss: 2.0992 | Val Loss: 1.8715 | LR: 2.12e-05 | No Improve: 0/5
+2026-02-17 16:14:27 | INFO | New best model saved! Val Loss: 1.8715
+2026-02-17 19:36:46 | INFO | Step 440000 | Epoch 0 | Train Loss: 2.1795 | Val Loss: 1.8682 | LR: 2.01e-05 | No Improve: 0/5
+2026-02-17 19:37:00 | INFO | New best model saved! Val Loss: 1.8682
+2026-02-17 22:59:17 | INFO | Step 450000 | Epoch 0 | Train Loss: 2.1531 | Val Loss: 1.8600 | LR: 1.91e-05 | No Improve: 0/5
+2026-02-17 22:59:26 | INFO | New best model saved! Val Loss: 1.8600
+2026-02-17 23:37:37 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_60_percent.pt (epoch=0, step=451882)
+2026-02-17 23:38:19 | INFO | Progress checkpoint saved: 60% | Step 451882/753138 | Train Loss: 2.1845 | Avg Loss: 2.5156 | Avg Acc: 0.0000 | Val Loss: 1.8591
+2026-02-17 23:38:32 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=451882)
+2026-02-18 02:45:55 | INFO | Step 460000 | Epoch 0 | Train Loss: 2.3703 | Val Loss: 1.8636 | LR: 1.80e-05 | No Improve: 0/5
+2026-02-18 06:08:16 | INFO | Step 470000 | Epoch 0 | Train Loss: 2.0624 | Val Loss: 1.8513 | LR: 1.70e-05 | No Improve: 1/5
+2026-02-18 06:08:26 | INFO | New best model saved! Val Loss: 1.8513
+2026-02-18 09:30:48 | INFO | Step 480000 | Epoch 0 | Train Loss: 2.0010 | Val Loss: 1.8427 | LR: 1.59e-05 | No Improve: 0/5
+2026-02-18 09:30:57 | INFO | New best model saved! Val Loss: 1.8427
+2026-02-18 12:53:14 | INFO | Step 490000 | Epoch 0 | Train Loss: 2.0512 | Val Loss: 1.8361 | LR: 1.49e-05 | No Improve: 0/5
+2026-02-18 12:53:24 | INFO | New best model saved! Val Loss: 1.8361
+2026-02-18 16:15:44 | INFO | Step 500000 | Epoch 0 | Train Loss: 2.1270 | Val Loss: 1.8301 | LR: 1.39e-05 | No Improve: 0/5
+2026-02-18 16:15:53 | INFO | New best model saved! Val Loss: 1.8301
+2026-02-18 19:38:20 | INFO | Step 510000 | Epoch 0 | Train Loss: 2.1574 | Val Loss: 1.8246 | LR: 1.29e-05 | No Improve: 0/5
+2026-02-18 19:38:30 | INFO | New best model saved! Val Loss: 1.8246
+2026-02-18 23:00:53 | INFO | Step 520000 | Epoch 0 | Train Loss: 1.9303 | Val Loss: 1.8210 | LR: 1.20e-05 | No Improve: 0/5
+2026-02-18 23:01:03 | INFO | New best model saved! Val Loss: 1.8210
+2026-02-19 01:26:22 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_70_percent.pt (epoch=0, step=527196)
+2026-02-19 01:27:04 | INFO | Progress checkpoint saved: 70% | Step 527196/753138 | Train Loss: 1.9836 | Avg Loss: 2.4579 | Avg Acc: 0.0000 | Val Loss: 1.8148
+2026-02-19 01:27:17 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=527196)
+2026-02-19 02:32:25 | INFO | Step 530000 | Epoch 0 | Train Loss: 2.0956 | Val Loss: 1.8230 | LR: 1.11e-05 | No Improve: 0/5
+2026-02-19 05:54:57 | INFO | Step 540000 | Epoch 0 | Train Loss: 2.2604 | Val Loss: 1.8078 | LR: 1.02e-05 | No Improve: 1/5
+2026-02-19 05:55:06 | INFO | New best model saved! Val Loss: 1.8078
+2026-02-19 09:17:25 | INFO | Step 550000 | Epoch 0 | Train Loss: 1.9959 | Val Loss: 1.8031 | LR: 9.30e-06 | No Improve: 0/5
+2026-02-19 09:17:35 | INFO | New best model saved! Val Loss: 1.8031
+2026-02-19 12:39:50 | INFO | Step 560000 | Epoch 0 | Train Loss: 2.1119 | Val Loss: 1.7965 | LR: 8.46e-06 | No Improve: 0/5
+2026-02-19 12:40:00 | INFO | New best model saved! Val Loss: 1.7965
+2026-02-19 16:02:22 | INFO | Step 570000 | Epoch 0 | Train Loss: 2.3373 | Val Loss: 1.7908 | LR: 7.66e-06 | No Improve: 0/5
+2026-02-19 16:02:33 | INFO | New best model saved! Val Loss: 1.7908
+2026-02-19 19:24:42 | INFO | Step 580000 | Epoch 0 | Train Loss: 1.8220 | Val Loss: 1.7876 | LR: 6.88e-06 | No Improve: 0/5
+2026-02-19 19:24:52 | INFO | New best model saved! Val Loss: 1.7876
+2026-02-19 22:47:04 | INFO | Step 590000 | Epoch 0 | Train Loss: 2.2964 | Val Loss: 1.7828 | LR: 6.14e-06 | No Improve: 0/5
+2026-02-19 22:47:13 | INFO | New best model saved! Val Loss: 1.7828
+2026-02-20 02:09:32 | INFO | Step 600000 | Epoch 0 | Train Loss: 2.0289 | Val Loss: 1.7788 | LR: 5.44e-06 | No Improve: 0/5
+2026-02-20 02:09:41 | INFO | New best model saved! Val Loss: 1.7788
+2026-02-20 03:00:28 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_80_percent.pt (epoch=0, step=602510)
+2026-02-20 03:01:10 | INFO | Progress checkpoint saved: 80% | Step 602510/753138 | Train Loss: 2.1062 | Avg Loss: 2.4082 | Avg Acc: 0.0000 | Val Loss: 1.7776
+2026-02-20 03:01:23 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=602510)
+2026-02-20 05:54:18 | INFO | Step 610000 | Epoch 0 | Train Loss: 2.2411 | Val Loss: 1.7873 | LR: 4.78e-06 | No Improve: 0/5
+2026-02-20 09:16:42 | INFO | Step 620000 | Epoch 0 | Train Loss: 2.0906 | Val Loss: 1.7717 | LR: 4.15e-06 | No Improve: 1/5
+2026-02-20 09:16:51 | INFO | New best model saved! Val Loss: 1.7717
+2026-02-20 12:39:12 | INFO | Step 630000 | Epoch 0 | Train Loss: 1.9691 | Val Loss: 1.7672 | LR: 3.57e-06 | No Improve: 0/5
+2026-02-20 12:39:21 | INFO | New best model saved! Val Loss: 1.7672
+2026-02-20 16:01:39 | INFO | Step 640000 | Epoch 0 | Train Loss: 1.9333 | Val Loss: 1.7638 | LR: 3.02e-06 | No Improve: 0/5
+2026-02-20 16:01:48 | INFO | New best model saved! Val Loss: 1.7638
+2026-02-20 19:23:59 | INFO | Step 650000 | Epoch 0 | Train Loss: 1.9644 | Val Loss: 1.7606 | LR: 2.52e-06 | No Improve: 0/5
+2026-02-20 19:24:09 | INFO | New best model saved! Val Loss: 1.7606
+2026-02-20 22:46:39 | INFO | Step 660000 | Epoch 0 | Train Loss: 1.9802 | Val Loss: 1.7575 | LR: 2.06e-06 | No Improve: 0/5
+2026-02-20 22:46:48 | INFO | New best model saved! Val Loss: 1.7575
+2026-02-21 02:09:11 | INFO | Step 670000 | Epoch 0 | Train Loss: 1.8832 | Val Loss: 1.7558 | LR: 1.65e-06 | No Improve: 0/5
+2026-02-21 02:09:20 | INFO | New best model saved! Val Loss: 1.7558
+2026-02-21 04:47:23 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_90_percent.pt (epoch=0, step=677824)
+2026-02-21 04:48:05 | INFO | Progress checkpoint saved: 90% | Step 677824/753138 | Train Loss: 2.1533 | Avg Loss: 2.3670 | Avg Acc: 0.0000 | Val Loss: 1.7540
+2026-02-21 04:48:19 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=677824)
+2026-02-21 05:38:58 | INFO | Step 680000 | Epoch 0 | Train Loss: 2.0526 | Val Loss: 1.7641 | LR: 1.28e-06 | No Improve: 0/5
+2026-02-21 09:01:20 | INFO | Step 690000 | Epoch 0 | Train Loss: 1.9525 | Val Loss: 1.7518 | LR: 9.55e-07 | No Improve: 1/5
+2026-02-21 09:01:30 | INFO | New best model saved! Val Loss: 1.7518
+2026-02-21 12:23:54 | INFO | Step 700000 | Epoch 0 | Train Loss: 2.4661 | Val Loss: 1.7509 | LR: 6.77e-07 | No Improve: 0/5
+2026-02-21 12:24:04 | INFO | New best model saved! Val Loss: 1.7509
+2026-02-21 15:46:17 | INFO | Step 710000 | Epoch 0 | Train Loss: 1.9326 | Val Loss: 1.7500 | LR: 4.47e-07 | No Improve: 0/5
+2026-02-21 15:46:26 | INFO | New best model saved! Val Loss: 1.7500
+2026-02-21 19:08:40 | INFO | Step 720000 | Epoch 0 | Train Loss: 2.0238 | Val Loss: 1.7491 | LR: 2.64e-07 | No Improve: 0/5
+2026-02-21 19:08:49 | INFO | New best model saved! Val Loss: 1.7491
+2026-02-21 22:31:01 | INFO | Step 730000 | Epoch 0 | Train Loss: 1.8928 | Val Loss: 1.7486 | LR: 1.29e-07 | No Improve: 0/5
+2026-02-21 22:31:10 | INFO | New best model saved! Val Loss: 1.7486
+2026-02-22 01:53:38 | INFO | Step 740000 | Epoch 0 | Train Loss: 1.7600 | Val Loss: 1.7483 | LR: 4.16e-08 | No Improve: 0/5
+2026-02-22 01:53:48 | INFO | New best model saved! Val Loss: 1.7483
+2026-02-22 05:16:13 | INFO | Step 750000 | Epoch 0 | Train Loss: 2.0723 | Val Loss: 1.7483 | LR: 2.37e-09 | No Improve: 0/5
+2026-02-22 05:16:22 | INFO | New best model saved! Val Loss: 1.7483
+2026-02-22 06:19:52 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/progress/checkpoint_100_percent.pt (epoch=0, step=753138)
+2026-02-22 06:20:33 | INFO | Progress checkpoint saved: 100% | Step 753138/753138 | Train Loss: 1.8975 | Avg Loss: 2.3315 | Avg Acc: 0.0000 | Val Loss: 1.7483
+2026-02-22 06:20:47 | INFO | Checkpoint saved: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/checkpoints/latest_checkpoint.pt (epoch=0, step=753138)
+2026-02-22 06:20:50 | INFO | Training summary saved to: /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/training_summary.json
+2026-02-22 06:20:50 | INFO | Training completed after 753138 steps
+2026-02-22 06:20:55 | INFO | Final model saved to /scratch/hyonghua/thoth_project/models/experiments/r0/r0v4_lr5e5_cos_w05_wd01_d01_fp16/final_checkpoint.pt
+2026-02-22 06:20:56 | INFO | GPU memory cleared for validation

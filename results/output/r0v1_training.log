@@ -1,0 +1,161 @@
+2026-01-29 17:40:23 | INFO | ============================================================
+2026-01-29 17:40:23 | INFO | Training started: r2_full_lr1e4_wd1e3_warmup01
+2026-01-29 17:40:23 | INFO | Log file: /scratch/hyonghua/thoth_project/models/experiments/r2_full_lr1e4_wd1e3_warmup01/training.log
+2026-01-29 17:40:23 | INFO | ============================================================
+2026-01-29 17:40:23 | INFO | Output path: /scratch/hyonghua/thoth_project/models/experiments/r2_full_lr1e4_wd1e3_warmup01
+2026-01-29 17:40:23 | INFO | Config saved to: /scratch/hyonghua/thoth_project/models/experiments/r2_full_lr1e4_wd1e3_warmup01/config.json
+2026-01-29 17:40:24 | INFO | Mask first segment loss: DISABLED
+2026-01-29 17:41:04 | INFO | Training history will be saved to: /scratch/hyonghua/thoth_project/models/experiments/r2_full_lr1e4_wd1e3_warmup01/training_history.csv
+2026-01-29 20:06:05 | INFO | Step 10000 | Epoch 0 | Train Loss: 5.2850 | Val Loss: 4.9187 | LR: 1.33e-05 | No Improve: 0/5
+2026-01-29 20:06:14 | INFO | New best model saved! Val Loss: 4.9187
+2026-01-29 22:28:45 | INFO | Step 20000 | Epoch 0 | Train Loss: 3.9512 | Val Loss: 3.8476 | LR: 2.66e-05 | No Improve: 0/5
+2026-01-29 22:28:55 | INFO | New best model saved! Val Loss: 3.8476
+2026-01-30 00:51:20 | INFO | Step 30000 | Epoch 0 | Train Loss: 3.4052 | Val Loss: 3.1593 | LR: 3.98e-05 | No Improve: 0/5
+2026-01-30 00:51:30 | INFO | New best model saved! Val Loss: 3.1593
+2026-01-30 03:13:50 | INFO | Step 40000 | Epoch 0 | Train Loss: 3.0876 | Val Loss: 2.8080 | LR: 5.31e-05 | No Improve: 0/5
+2026-01-30 03:14:00 | INFO | New best model saved! Val Loss: 2.8080
+2026-01-30 05:36:22 | INFO | Step 50000 | Epoch 0 | Train Loss: 2.4595 | Val Loss: 2.6205 | LR: 6.64e-05 | No Improve: 0/5
+2026-01-30 05:36:34 | INFO | New best model saved! Val Loss: 2.6205
+2026-01-30 07:58:57 | INFO | Step 60000 | Epoch 0 | Train Loss: 2.8521 | Val Loss: 2.5035 | LR: 7.97e-05 | No Improve: 0/5
+2026-01-30 07:59:08 | INFO | New best model saved! Val Loss: 2.5035
+2026-01-30 10:21:29 | INFO | Step 70000 | Epoch 0 | Train Loss: 2.6342 | Val Loss: 2.4210 | LR: 9.29e-05 | No Improve: 0/5
+2026-01-30 10:21:38 | INFO | New best model saved! Val Loss: 2.4210
+2026-01-30 12:47:32 | INFO | Step 80000 | Epoch 0 | Train Loss: 2.6056 | Val Loss: 2.3515 | LR: 9.93e-05 | No Improve: 0/5
+2026-01-30 12:47:41 | INFO | New best model saved! Val Loss: 2.3515
+2026-01-30 15:09:59 | INFO | Step 90000 | Epoch 0 | Train Loss: 2.2784 | Val Loss: 2.2874 | LR: 9.78e-05 | No Improve: 0/5
+2026-01-30 15:10:08 | INFO | New best model saved! Val Loss: 2.2874
+2026-01-30 17:32:29 | INFO | Step 100000 | Epoch 0 | Train Loss: 2.5878 | Val Loss: 2.2335 | LR: 9.64e-05 | No Improve: 0/5
+2026-01-30 17:32:38 | INFO | New best model saved! Val Loss: 2.2335
+2026-01-30 19:55:02 | INFO | Step 110000 | Epoch 0 | Train Loss: 2.2589 | Val Loss: 2.1943 | LR: 9.49e-05 | No Improve: 0/5
+2026-01-30 19:55:11 | INFO | New best model saved! Val Loss: 2.1943
+2026-01-30 22:17:38 | INFO | Step 120000 | Epoch 0 | Train Loss: 2.5637 | Val Loss: 2.1590 | LR: 9.34e-05 | No Improve: 0/5
+2026-01-30 22:17:47 | INFO | New best model saved! Val Loss: 2.1590
+2026-01-31 00:40:09 | INFO | Step 130000 | Epoch 0 | Train Loss: 2.1882 | Val Loss: 2.1281 | LR: 9.19e-05 | No Improve: 0/5
+2026-01-31 00:40:18 | INFO | New best model saved! Val Loss: 2.1281
+2026-01-31 03:02:38 | INFO | Step 140000 | Epoch 0 | Train Loss: 2.4964 | Val Loss: 2.1026 | LR: 9.05e-05 | No Improve: 0/5
+2026-01-31 03:02:47 | INFO | New best model saved! Val Loss: 2.1026
+2026-01-31 05:25:10 | INFO | Step 150000 | Epoch 0 | Train Loss: 2.3373 | Val Loss: 2.0829 | LR: 8.90e-05 | No Improve: 0/5
+2026-01-31 05:25:20 | INFO | New best model saved! Val Loss: 2.0829
+2026-01-31 07:47:43 | INFO | Step 160000 | Epoch 0 | Train Loss: 2.5186 | Val Loss: 2.0662 | LR: 8.75e-05 | No Improve: 0/5
+2026-01-31 07:47:52 | INFO | New best model saved! Val Loss: 2.0662
+2026-01-31 10:10:14 | INFO | Step 170000 | Epoch 0 | Train Loss: 2.4842 | Val Loss: 2.0469 | LR: 8.60e-05 | No Improve: 0/5
+2026-01-31 10:10:24 | INFO | New best model saved! Val Loss: 2.0469
+2026-01-31 12:32:46 | INFO | Step 180000 | Epoch 0 | Train Loss: 2.3176 | Val Loss: 2.0336 | LR: 8.46e-05 | No Improve: 0/5
+2026-01-31 12:32:55 | INFO | New best model saved! Val Loss: 2.0336
+2026-01-31 14:55:17 | INFO | Step 190000 | Epoch 0 | Train Loss: 2.1548 | Val Loss: 2.0193 | LR: 8.31e-05 | No Improve: 0/5
+2026-01-31 14:55:27 | INFO | New best model saved! Val Loss: 2.0193
+2026-01-31 17:17:48 | INFO | Step 200000 | Epoch 0 | Train Loss: 2.0669 | Val Loss: 2.0026 | LR: 8.16e-05 | No Improve: 0/5
+2026-01-31 17:17:57 | INFO | New best model saved! Val Loss: 2.0026
+2026-01-31 19:40:18 | INFO | Step 210000 | Epoch 0 | Train Loss: 2.5005 | Val Loss: 1.9926 | LR: 8.01e-05 | No Improve: 0/5
+2026-01-31 19:40:28 | INFO | New best model saved! Val Loss: 1.9926
+2026-01-31 22:02:49 | INFO | Step 220000 | Epoch 0 | Train Loss: 2.2486 | Val Loss: 1.9799 | LR: 7.87e-05 | No Improve: 0/5
+2026-01-31 22:02:58 | INFO | New best model saved! Val Loss: 1.9799
+2026-02-01 00:25:21 | INFO | Step 230000 | Epoch 0 | Train Loss: 2.2373 | Val Loss: 1.9723 | LR: 7.72e-05 | No Improve: 0/5
+2026-02-01 00:25:30 | INFO | New best model saved! Val Loss: 1.9723
+2026-02-01 02:47:51 | INFO | Step 240000 | Epoch 0 | Train Loss: 2.1314 | Val Loss: 1.9607 | LR: 7.57e-05 | No Improve: 0/5
+2026-02-01 02:48:01 | INFO | New best model saved! Val Loss: 1.9607
+2026-02-01 05:10:21 | INFO | Step 250000 | Epoch 0 | Train Loss: 2.4797 | Val Loss: 1.9501 | LR: 7.42e-05 | No Improve: 0/5
+2026-02-01 05:10:30 | INFO | New best model saved! Val Loss: 1.9501
+2026-02-01 07:32:55 | INFO | Step 260000 | Epoch 0 | Train Loss: 2.1437 | Val Loss: 1.9428 | LR: 7.28e-05 | No Improve: 0/5
+2026-02-01 07:33:05 | INFO | New best model saved! Val Loss: 1.9428
+2026-02-01 09:55:26 | INFO | Step 270000 | Epoch 0 | Train Loss: 2.3035 | Val Loss: 1.9328 | LR: 7.13e-05 | No Improve: 0/5
+2026-02-01 09:55:35 | INFO | New best model saved! Val Loss: 1.9328
+2026-02-01 12:17:54 | INFO | Step 280000 | Epoch 0 | Train Loss: 2.1999 | Val Loss: 1.9268 | LR: 6.98e-05 | No Improve: 0/5
+2026-02-01 12:18:04 | INFO | New best model saved! Val Loss: 1.9268
+2026-02-01 14:40:22 | INFO | Step 290000 | Epoch 0 | Train Loss: 2.3289 | Val Loss: 1.9183 | LR: 6.83e-05 | No Improve: 0/5
+2026-02-01 14:40:31 | INFO | New best model saved! Val Loss: 1.9183
+2026-02-01 17:02:53 | INFO | Step 300000 | Epoch 0 | Train Loss: 2.0374 | Val Loss: 1.9107 | LR: 6.69e-05 | No Improve: 0/5
+2026-02-01 17:03:02 | INFO | New best model saved! Val Loss: 1.9107
+2026-02-01 19:25:23 | INFO | Step 310000 | Epoch 0 | Train Loss: 2.2203 | Val Loss: 1.9033 | LR: 6.54e-05 | No Improve: 0/5
+2026-02-01 19:25:32 | INFO | New best model saved! Val Loss: 1.9033
+2026-02-01 21:47:56 | INFO | Step 320000 | Epoch 0 | Train Loss: 2.1543 | Val Loss: 1.8985 | LR: 6.39e-05 | No Improve: 0/5
+2026-02-01 21:48:08 | INFO | New best model saved! Val Loss: 1.8985
+2026-02-02 00:10:31 | INFO | Step 330000 | Epoch 0 | Train Loss: 2.1165 | Val Loss: 1.8909 | LR: 6.24e-05 | No Improve: 0/5
+2026-02-02 00:10:40 | INFO | New best model saved! Val Loss: 1.8909
+2026-02-02 02:33:04 | INFO | Step 340000 | Epoch 0 | Train Loss: 2.2622 | Val Loss: 1.8859 | LR: 6.10e-05 | No Improve: 0/5
+2026-02-02 02:33:14 | INFO | New best model saved! Val Loss: 1.8859
+2026-02-02 04:55:36 | INFO | Step 350000 | Epoch 0 | Train Loss: 1.9897 | Val Loss: 1.8799 | LR: 5.95e-05 | No Improve: 0/5
+2026-02-02 04:55:45 | INFO | New best model saved! Val Loss: 1.8799
+2026-02-02 07:18:08 | INFO | Step 360000 | Epoch 0 | Train Loss: 2.0583 | Val Loss: 1.8748 | LR: 5.80e-05 | No Improve: 0/5
+2026-02-02 07:18:17 | INFO | New best model saved! Val Loss: 1.8748
+2026-02-02 09:40:43 | INFO | Step 370000 | Epoch 0 | Train Loss: 2.1883 | Val Loss: 1.8706 | LR: 5.65e-05 | No Improve: 0/5
+2026-02-02 09:40:52 | INFO | New best model saved! Val Loss: 1.8706
+2026-02-02 12:03:16 | INFO | Step 380000 | Epoch 0 | Train Loss: 2.0206 | Val Loss: 1.8643 | LR: 5.50e-05 | No Improve: 0/5
+2026-02-02 12:03:26 | INFO | New best model saved! Val Loss: 1.8643
+2026-02-02 14:25:39 | INFO | Step 390000 | Epoch 0 | Train Loss: 2.0294 | Val Loss: 1.8593 | LR: 5.36e-05 | No Improve: 0/5
+2026-02-02 14:25:48 | INFO | New best model saved! Val Loss: 1.8593
+2026-02-02 16:48:00 | INFO | Step 400000 | Epoch 0 | Train Loss: 2.2020 | Val Loss: 1.8550 | LR: 5.21e-05 | No Improve: 0/5
+2026-02-02 16:48:09 | INFO | New best model saved! Val Loss: 1.8550
+2026-02-02 19:10:21 | INFO | Step 410000 | Epoch 0 | Train Loss: 2.1682 | Val Loss: 1.8507 | LR: 5.06e-05 | No Improve: 0/5
+2026-02-02 19:10:30 | INFO | New best model saved! Val Loss: 1.8507
+2026-02-02 21:32:38 | INFO | Step 420000 | Epoch 0 | Train Loss: 2.0118 | Val Loss: 1.8454 | LR: 4.91e-05 | No Improve: 0/5
+2026-02-02 21:32:48 | INFO | New best model saved! Val Loss: 1.8454
+2026-02-02 23:54:58 | INFO | Step 430000 | Epoch 0 | Train Loss: 2.0108 | Val Loss: 1.8412 | LR: 4.77e-05 | No Improve: 0/5
+2026-02-02 23:55:07 | INFO | New best model saved! Val Loss: 1.8412
+2026-02-03 02:17:19 | INFO | Step 440000 | Epoch 0 | Train Loss: 1.9782 | Val Loss: 1.8365 | LR: 4.62e-05 | No Improve: 0/5
+2026-02-03 02:17:29 | INFO | New best model saved! Val Loss: 1.8365
+2026-02-03 04:39:38 | INFO | Step 450000 | Epoch 0 | Train Loss: 1.9684 | Val Loss: 1.8323 | LR: 4.47e-05 | No Improve: 0/5
+2026-02-03 04:39:47 | INFO | New best model saved! Val Loss: 1.8323
+2026-02-03 07:01:56 | INFO | Step 460000 | Epoch 0 | Train Loss: 1.9343 | Val Loss: 1.8267 | LR: 4.32e-05 | No Improve: 0/5
+2026-02-03 07:02:05 | INFO | New best model saved! Val Loss: 1.8267
+2026-02-03 09:24:14 | INFO | Step 470000 | Epoch 0 | Train Loss: 1.8700 | Val Loss: 1.8235 | LR: 4.18e-05 | No Improve: 0/5
+2026-02-03 09:24:23 | INFO | New best model saved! Val Loss: 1.8235
+2026-02-03 11:46:37 | INFO | Step 480000 | Epoch 0 | Train Loss: 2.2185 | Val Loss: 1.8189 | LR: 4.03e-05 | No Improve: 0/5
+2026-02-03 11:46:46 | INFO | New best model saved! Val Loss: 1.8189
+2026-02-03 14:09:06 | INFO | Step 490000 | Epoch 0 | Train Loss: 2.0920 | Val Loss: 1.8150 | LR: 3.88e-05 | No Improve: 0/5
+2026-02-03 14:09:15 | INFO | New best model saved! Val Loss: 1.8150
+2026-02-03 16:31:33 | INFO | Step 500000 | Epoch 0 | Train Loss: 1.9971 | Val Loss: 1.8107 | LR: 3.73e-05 | No Improve: 0/5
+2026-02-03 16:31:42 | INFO | New best model saved! Val Loss: 1.8107
+2026-02-03 18:53:54 | INFO | Step 510000 | Epoch 0 | Train Loss: 2.2417 | Val Loss: 1.8081 | LR: 3.59e-05 | No Improve: 0/5
+2026-02-03 18:54:04 | INFO | New best model saved! Val Loss: 1.8081
+2026-02-03 21:16:15 | INFO | Step 520000 | Epoch 0 | Train Loss: 1.8999 | Val Loss: 1.8034 | LR: 3.44e-05 | No Improve: 0/5
+2026-02-03 21:16:25 | INFO | New best model saved! Val Loss: 1.8034
+2026-02-03 23:38:35 | INFO | Step 530000 | Epoch 0 | Train Loss: 2.4083 | Val Loss: 1.7999 | LR: 3.29e-05 | No Improve: 0/5
+2026-02-03 23:38:44 | INFO | New best model saved! Val Loss: 1.7999
+2026-02-04 02:00:53 | INFO | Step 540000 | Epoch 0 | Train Loss: 2.2054 | Val Loss: 1.7947 | LR: 3.14e-05 | No Improve: 0/5
+2026-02-04 02:01:02 | INFO | New best model saved! Val Loss: 1.7947
+2026-02-04 04:23:11 | INFO | Step 550000 | Epoch 0 | Train Loss: 2.0946 | Val Loss: 1.7909 | LR: 3.00e-05 | No Improve: 0/5
+2026-02-04 04:23:20 | INFO | New best model saved! Val Loss: 1.7909
+2026-02-04 06:45:28 | INFO | Step 560000 | Epoch 0 | Train Loss: 2.1205 | Val Loss: 1.7891 | LR: 2.85e-05 | No Improve: 0/5
+2026-02-04 06:45:38 | INFO | New best model saved! Val Loss: 1.7891
+2026-02-04 09:07:45 | INFO | Step 570000 | Epoch 0 | Train Loss: 1.9464 | Val Loss: 1.7852 | LR: 2.70e-05 | No Improve: 0/5
+2026-02-04 09:07:55 | INFO | New best model saved! Val Loss: 1.7852
+2026-02-04 11:30:08 | INFO | Step 580000 | Epoch 0 | Train Loss: 2.0778 | Val Loss: 1.7819 | LR: 2.55e-05 | No Improve: 0/5
+2026-02-04 11:30:18 | INFO | New best model saved! Val Loss: 1.7819
+2026-02-04 13:52:35 | INFO | Step 590000 | Epoch 0 | Train Loss: 2.0159 | Val Loss: 1.7775 | LR: 2.41e-05 | No Improve: 0/5
+2026-02-04 13:52:45 | INFO | New best model saved! Val Loss: 1.7775
+2026-02-04 16:15:01 | INFO | Step 600000 | Epoch 0 | Train Loss: 2.2848 | Val Loss: 1.7748 | LR: 2.26e-05 | No Improve: 0/5
+2026-02-04 16:15:10 | INFO | New best model saved! Val Loss: 1.7748
+2026-02-04 18:37:27 | INFO | Step 610000 | Epoch 0 | Train Loss: 1.8740 | Val Loss: 1.7721 | LR: 2.11e-05 | No Improve: 0/5
+2026-02-04 18:37:37 | INFO | New best model saved! Val Loss: 1.7721
+2026-02-04 20:59:47 | INFO | Step 620000 | Epoch 0 | Train Loss: 1.9328 | Val Loss: 1.7692 | LR: 1.96e-05 | No Improve: 0/5
+2026-02-04 20:59:56 | INFO | New best model saved! Val Loss: 1.7692
+2026-02-04 23:22:08 | INFO | Step 630000 | Epoch 0 | Train Loss: 1.9990 | Val Loss: 1.7661 | LR: 1.82e-05 | No Improve: 0/5
+2026-02-04 23:22:18 | INFO | New best model saved! Val Loss: 1.7661
+2026-02-05 01:44:28 | INFO | Step 640000 | Epoch 0 | Train Loss: 2.0187 | Val Loss: 1.7626 | LR: 1.67e-05 | No Improve: 0/5
+2026-02-05 01:44:38 | INFO | New best model saved! Val Loss: 1.7626
+2026-02-05 04:06:48 | INFO | Step 650000 | Epoch 0 | Train Loss: 2.1211 | Val Loss: 1.7605 | LR: 1.52e-05 | No Improve: 0/5
+2026-02-05 04:06:58 | INFO | New best model saved! Val Loss: 1.7605
+2026-02-05 06:29:14 | INFO | Step 660000 | Epoch 0 | Train Loss: 1.9800 | Val Loss: 1.7579 | LR: 1.37e-05 | No Improve: 0/5
+2026-02-05 06:29:25 | INFO | New best model saved! Val Loss: 1.7579
+2026-02-05 08:51:35 | INFO | Step 670000 | Epoch 0 | Train Loss: 2.0417 | Val Loss: 1.7553 | LR: 1.23e-05 | No Improve: 0/5
+2026-02-05 08:51:45 | INFO | New best model saved! Val Loss: 1.7553
+2026-02-05 11:13:55 | INFO | Step 680000 | Epoch 0 | Train Loss: 2.0927 | Val Loss: 1.7520 | LR: 1.08e-05 | No Improve: 0/5
+2026-02-05 11:14:05 | INFO | New best model saved! Val Loss: 1.7520
+2026-02-05 13:36:11 | INFO | Step 690000 | Epoch 0 | Train Loss: 2.2267 | Val Loss: 1.7497 | LR: 9.31e-06 | No Improve: 0/5
+2026-02-05 13:36:21 | INFO | New best model saved! Val Loss: 1.7497
+2026-02-05 15:58:30 | INFO | Step 700000 | Epoch 0 | Train Loss: 1.9599 | Val Loss: 1.7464 | LR: 7.84e-06 | No Improve: 0/5
+2026-02-05 15:58:42 | INFO | New best model saved! Val Loss: 1.7464
+2026-02-05 18:20:54 | INFO | Step 710000 | Epoch 0 | Train Loss: 1.6997 | Val Loss: 1.7441 | LR: 6.36e-06 | No Improve: 0/5
+2026-02-05 18:21:04 | INFO | New best model saved! Val Loss: 1.7441
+2026-02-05 20:43:15 | INFO | Step 720000 | Epoch 0 | Train Loss: 1.8623 | Val Loss: 1.7417 | LR: 4.89e-06 | No Improve: 0/5
+2026-02-05 20:43:24 | INFO | New best model saved! Val Loss: 1.7417
+2026-02-05 23:05:31 | INFO | Step 730000 | Epoch 0 | Train Loss: 1.9085 | Val Loss: 1.7398 | LR: 3.41e-06 | No Improve: 0/5
+2026-02-05 23:05:41 | INFO | New best model saved! Val Loss: 1.7398
+2026-02-06 01:27:50 | INFO | Step 740000 | Epoch 0 | Train Loss: 1.7830 | Val Loss: 1.7382 | LR: 1.94e-06 | No Improve: 0/5
+2026-02-06 01:27:59 | INFO | New best model saved! Val Loss: 1.7382
+2026-02-06 03:50:11 | INFO | Step 750000 | Epoch 0 | Train Loss: 2.0596 | Val Loss: 1.7372 | LR: 4.63e-07 | No Improve: 0/5
+2026-02-06 03:50:20 | INFO | New best model saved! Val Loss: 1.7372
+2026-02-06 04:34:45 | INFO | Training summary saved to: /scratch/hyonghua/thoth_project/models/experiments/r2_full_lr1e4_wd1e3_warmup01/training_summary.json
+2026-02-06 04:34:45 | INFO | Training completed after 753138 steps
+2026-02-06 04:34:50 | INFO | Final model saved to /scratch/hyonghua/thoth_project/models/experiments/r2_full_lr1e4_wd1e3_warmup01/final_checkpoint.pt

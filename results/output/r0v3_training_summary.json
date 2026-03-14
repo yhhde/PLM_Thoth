@@ -1,0 +1,10 @@
+{
+  "run_name": "r0v3_lr3e5_cos_w05_wd001_d015_fp16",
+  "status": "completed",
+  "lr_scheduler_type": "cosine",
+  "total_steps": 753138,
+  "total_epochs": 1,
+  "final_train_loss": 1.9531567096710205,
+  "final_val_loss": 1.8280685038392386,
+  "best_val_loss": 1.8280685038392386
+}
