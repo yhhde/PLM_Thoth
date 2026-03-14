@@ -1,0 +1,12 @@
+{
+  "ppl_fr_given_en": 67.94602219210628,
+  "ppl_en_given_fr": 9.358357502332396,
+  "num_samples": 4096,
+  "disc_accuracy": 0.9443359375,
+  "disc_recall": 0.92626953125,
+  "disc_f1": 0.9433117851815017,
+  "disc_best_threshold": -1.743038535118103,
+  "avg_real_score": -0.8693068804799395,
+  "avg_fake_score": -3.3875708331761416,
+  "score_gap": 2.518263952696202
+}
