@@ -1,0 +1,16 @@
+============================================================
+TRANSLATION QUALITY: GPT-Cosine 2 (no-repeat-3-gram)
+============================================================
+
+Task: Translation Quality (EN->FR, greedy decode)
+------------------------------------------------------------
+  chrF        : 60.33  [PASS]
+  chrF 95% CI : [58.43, 60.31]
+  chrF-LP     : 60.33  [PASS]
+  COMET       : 0.6459  [WARN]
+  COMET 95% CI: [0.6390, 0.6535]
+  Rep rate    : 0.0000
+  Avg gen len : 43.4
+  Avg ref len : 34.4
+  Len ratio   : 1.26
+  Samples     : 1024

@@ -1,0 +1,16 @@
+{
+  "chrf": 61.87,
+  "chrf_ci_low": 59.61,
+  "chrf_ci_high": 61.52,
+  "chrf_lp": 61.87,
+  "rep_rate": 0.0,
+  "avg_gen_len": 45.3,
+  "avg_ref_len": 34.4,
+  "len_ratio": 1.32,
+  "num_samples": 1024,
+  "comet": 0.648,
+  "comet_model": "Unbabel/wmt22-comet-da",
+  "comet_ci_low": 0.6414,
+  "comet_ci_high": 0.6545,
+  "no_repeat_ngram_size": 3
+}

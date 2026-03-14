@@ -1,0 +1,16 @@
+============================================================
+TRANSLATION QUALITY: GPT-Reg+ (no-repeat-3-gram)
+============================================================
+
+Task: Translation Quality (EN->FR, greedy decode)
+------------------------------------------------------------
+  chrF        : 61.73  [PASS]
+  chrF 95% CI : [59.65, 61.48]
+  chrF-LP     : 61.73  [PASS]
+  COMET       : 0.6516  [WARN]
+  COMET 95% CI: [0.6445, 0.6587]
+  Rep rate    : 0.0000
+  Avg gen len : 45.8
+  Avg ref len : 34.4
+  Len ratio   : 1.33
+  Samples     : 1024

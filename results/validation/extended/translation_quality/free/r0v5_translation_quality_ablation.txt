@@ -1,0 +1,16 @@
+============================================================
+TRANSLATION QUALITY: r0v5 (no ngram blocking)
+============================================================
+
+Task: Translation Quality (EN->FR, greedy decode)
+------------------------------------------------------------
+  chrF        : 66.00  [PASS]
+  chrF 95% CI : [64.34, 66.24]
+  chrF-LP     : 48.98  [PASS]
+  COMET       : 0.6618  [WARN]
+  COMET 95% CI: [0.6544, 0.6697]
+  Rep rate    : 0.1722
+  Avg gen len : 45.4
+  Avg ref len : 33.7
+  Len ratio   : 1.35
+  Samples     : 1024
