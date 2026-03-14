@@ -71,8 +71,8 @@ class ModelWrapper:
 # Utilities
 # ---------------------------
 
-def split_pair_ids(ids, en_id, fr_id):
-    """Given token ids for full pair, return (src_list, tgt_list).
+def split_pair_ids(ids, en_id, fr_id, pad_id=1):
+    """Given token ids for full pair, return (src_list, tgt_list) with padding stripped.
        If tags not found, return ([], [])."""
     ids_t = torch.tensor(ids, dtype=torch.long)
     en_pos = (ids_t == en_id).nonzero(as_tuple=False)
@@ -83,8 +83,8 @@ def split_pair_ids(ids, en_id, fr_id):
     fr_last = int(fr_pos[-1].item())
     if en_last >= fr_last:
         return [], []
-    src = ids_t[en_last + 1:fr_last].tolist()
-    tgt = ids_t[fr_last + 1:].tolist()
+    src = [x for x in ids_t[en_last + 1:fr_last].tolist() if x != pad_id]
+    tgt = [x for x in ids_t[fr_last + 1:].tolist() if x != pad_id]
     return src, tgt
 
 
@@ -195,7 +195,6 @@ def format_results_table(results):
         best=0.90,
         higher_is_better=True,
     )
-
     row_no_ref("Best threshold", results.get("disc_best_threshold"))
     row_no_ref("Avg real score", results.get("avg_real_score"))
     row_no_ref("Avg fake score", results.get("avg_fake_score"))
@@ -243,22 +242,34 @@ def eval_ppl(model, ds, en_id, fr_id, device, max_samples):
     if max_samples and len(ds) > max_samples:
         ds = ds.select(np.random.choice(len(ds), max_samples, replace=False))
 
-    ppls_tgt_given_src = []
-    ppls_src_given_tgt = []
-    for ex in tqdm(ds, desc="PPL"):
-        inp = torch.tensor(ex["input_ids"], device=device).unsqueeze(0)
-        att = torch.tensor(ex["attention_mask"], device=device).unsqueeze(0)
-        # tgt|src : target is FR (fr_id) given EN
-        ppls_tgt_given_src.append(conditional_ppl_from_pair(model, inp, att, fr_id, device))
-        # src|tgt : target is EN (en_id) given FR
-        ppls_src_given_tgt.append(conditional_ppl_from_pair(model, inp, att, en_id, device))
+    pad_id = model.config["tokenizer"]["pad_token_id"]
+    max_len = 128
 
-    # filter Inf
-    fwd = [x for x in ppls_tgt_given_src if np.isfinite(x)]
-    rev = [x for x in ppls_src_given_tgt if np.isfinite(x)]
+    ppls_fwd, ppls_rev = [], []
+    for ex in tqdm(ds, desc="PPL"):
+        src, tgt = split_pair_ids(ex["input_ids"], en_id, fr_id, pad_id)
+        if not src or not tgt:
+            continue
+
+        # PPL(FR|EN): <en> src <fr> tgt — evaluate tgt given src context
+        fwd_ids = [en_id] + src + [fr_id] + tgt
+        if len(fwd_ids) > max_len:
+            fwd_ids = fwd_ids[:max_len]
+        fwd_t = torch.tensor(fwd_ids, device=device).unsqueeze(0)
+        ppls_fwd.append(conditional_ppl_from_pair(model, fwd_t, torch.ones_like(fwd_t), fr_id, device))
+
+        # PPL(EN|FR): <fr> tgt <en> src — reversed so EN tokens can attend to FR context
+        rev_ids = [fr_id] + tgt + [en_id] + src
+        if len(rev_ids) > max_len:
+            rev_ids = rev_ids[:max_len]
+        rev_t = torch.tensor(rev_ids, device=device).unsqueeze(0)
+        ppls_rev.append(conditional_ppl_from_pair(model, rev_t, torch.ones_like(rev_t), en_id, device))
+
+    fwd = [x for x in ppls_fwd if np.isfinite(x)]
+    rev = [x for x in ppls_rev if np.isfinite(x)]
     return {
-        "ppl_fr_given_en": float(np.mean(fwd)) if len(fwd) > 0 else float("inf"),
-        "ppl_en_given_fr": float(np.mean(rev)) if len(rev) > 0 else float("inf"),
+        "ppl_fr_given_en": float(np.mean(fwd)) if fwd else float("inf"),
+        "ppl_en_given_fr": float(np.mean(rev)) if rev else float("inf"),
         "num_samples": len(fwd),
     }
 
@@ -344,7 +355,7 @@ def eval_discrimination(model, ds, en_id, fr_id, device, max_samples=None):
         target_len = len(ex["input_ids"])
 
         # -------- Real pair: src_i + tgt_i --------
-        src_i, tgt_i = split_pair_ids(ex["input_ids"], en_id, fr_id)
+        src_i, tgt_i = split_pair_ids(ex["input_ids"], en_id, fr_id, pad_id)
         if len(src_i) == 0 or len(tgt_i) == 0:
             continue  # skip malformed example
 
@@ -353,7 +364,7 @@ def eval_discrimination(model, ds, en_id, fr_id, device, max_samples=None):
         pos_scores.append(score_pair_safe(model, real_ids, real_att, fr_id, device))
 
         # -------- Fake pair: src_i + tgt_(i+1) --------
-        _, tgt_j = split_pair_ids(ex2["input_ids"], en_id, fr_id)
+        _, tgt_j = split_pair_ids(ex2["input_ids"], en_id, fr_id, pad_id)
         if len(tgt_j) == 0:
             continue  # skip if the next one is malformed
 
@@ -435,6 +446,10 @@ def parse_args():
     p.add_argument("--device", type=int, default=0, help="CUDA device")
     p.add_argument("--en_id", type=int, default=4, help="Token ID for <en>")
     p.add_argument("--fr_id", type=int, default=5, help="Token ID for <fr>")
+    p.add_argument("--out_dir", type=str, default=None,
+                    help="Output directory for results (defaults to model_path)")
+    p.add_argument("--model_id", type=str, default=None,
+                    help="Short model ID for output filenames (e.g. r0v0)")
     return p.parse_args()
 
 
@@ -469,19 +484,32 @@ def main():
     results = {**res_ppl, **res_disc}
 
     # --------------------------------------------------
+    # Determine output paths
+    # --------------------------------------------------
+    out_dir = args.out_dir if args.out_dir else args.model_path
+    os.makedirs(out_dir, exist_ok=True)
+
+    model_id = args.model_id if args.model_id else os.path.basename(args.model_path.rstrip("/"))
+    json_out = os.path.join(out_dir, f"{model_id}_validation.json")
+    txt_out = os.path.join(out_dir, f"{model_id}_validation.txt")
+
+    # --------------------------------------------------
     # Save JSON (machine-readable)
     # --------------------------------------------------
-    json_out = os.path.join(args.model_path, "validation_results.json")
     with open(json_out, "w") as f:
         json.dump(results, f, indent=2)
 
     # --------------------------------------------------
     # Save pretty text report (human-readable)
     # --------------------------------------------------
+    report_header = (
+        "=" * 60 + "\n"
+        f"EVALUATION REPORT: {model_id}\n"
+        + "=" * 60 + "\n\n"
+    )
     table = format_results_table(results)
-    txt_out = os.path.join(args.model_path, "validation_results.txt")
     with open(txt_out, "w") as f:
-        f.write(table)
+        f.write(report_header + table)
 
     # --------------------------------------------------
     # Print nicely

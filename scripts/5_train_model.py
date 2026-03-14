@@ -425,10 +425,8 @@ def train(config, device_idx, resume_path=None):
             "Refusing to train."
         )
 
-    if resume_path:
-        model = GPT2.load(resume_path, config)
-    else:
-        model = GPT2(config)
+    # Always create model fresh; if resuming, load_checkpoint will load weights later
+    model = GPT2(config)
 
     model.to(device)
     print(f"Parameters: {model.get_num_params():,}")
