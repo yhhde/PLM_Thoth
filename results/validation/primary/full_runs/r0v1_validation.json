@@ -1,5 +1,5 @@
 {
-  "run_name" : "r0v1_GPT-LR",
+  "run_name" : "r0v1_lr1e4_wd1e3_warmup01",
   "num_samples": 4096,
   "num_pools": 204,
   "ppl_fr_en": 85.51330179490772,

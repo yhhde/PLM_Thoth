@@ -1,5 +1,5 @@
 {
-  "run_name" : "r0v1_GPT-Cosine 2",
+  "run_name" : "r0v3_lr3e5_cos_w05_wd001_d015_fp16",
   "num_samples": 4096,
   "num_pools": 204,
   "ppl_fr_en": 115.13172881829706,

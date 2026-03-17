@@ -1,5 +1,5 @@
 {
-  "run_name" : "r0v1_GPT-Reg+",
+  "run_name" : "r0v5_lr1e4_cos_w05_wd01_d015_fp16",
   "num_samples": 4096,
   "num_pools": 204,
   "ppl_fr_en": 39.27113246714066,

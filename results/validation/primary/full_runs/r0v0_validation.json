@@ -1,0 +1,11 @@
+{
+  "run_name" : "r0v0_baseline",
+  "num_samples": 4096,
+  "num_pools": 204,
+  "ppl_fr_en": 19.006708889058984,
+  "ppl_en_fr": 19.578865665898114,
+  "retr_pass@1": 0.90478515625,
+  "retr_pass@5": 0.9755859375,
+  "retr_mrr": 0.9370632509300038,
+  "disc_auc": 0.9758
+}
