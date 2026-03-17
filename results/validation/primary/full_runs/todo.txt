@@ -1,0 +1,8 @@
+Merge the results: 
+ 1. PPL from ppl+disc_acc
+ 2. Retrieval form retrieval+disc_auc
+ 3. Disc from retrieval+disc_auc
+ (disc_gap and avg_real_score are not nescessary)
+
+ Missing:
+ - r0v0_validation.json ! 
