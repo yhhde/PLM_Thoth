@@ -1,4 +1,5 @@
 {
+  "run_name" : "r0v1_GPT-Cosine 1",
   "num_samples": 4096,
   "num_pools": 204,
   "ppl_fr_en": 67.94602219210628,
