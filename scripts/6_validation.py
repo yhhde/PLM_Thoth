@@ -440,6 +440,7 @@ def detokenize_and_generate(model, tok, ds, en_id, fr_id, device, n=5):
 def parse_args():
     p = argparse.ArgumentParser(description="Evaluate trained model downstream.")
     p.add_argument("--model_path", required=True, help="Path to model directory")
+    p.add_argument("--tokenizer_path", required=True, help="Path to tokenizer directory")
     p.add_argument("--data_path", required=True, help="Tokenized dataset path")
     p.add_argument("--split", default="test", help="Dataset split")
     p.add_argument("--max_n", type=int, default=None, help="Max samples to evaluate")
@@ -456,21 +457,44 @@ def parse_args():
 def main():
     args = parse_args()
 
+    if not os.path.isdir(args.model_path):
+        raise FileNotFoundError(f"Model path does not exist: {args.model_path}")
+    if not os.path.isdir(args.tokenizer_path):
+        raise FileNotFoundError(f"Tokenizer path does not exist: {args.tokenizer_path}")
+    if not os.path.isdir(args.data_path):
+        raise FileNotFoundError(f"Dataset path does not exist: {args.data_path}")
+
     assert torch.cuda.is_available(), "CUDA required"
     device = torch.device(f"cuda:{args.device}")
 
-    # Load tokenizer from model output directory
-    tok = PreTrainedTokenizerFast.from_pretrained(args.model_path)
+    # Load tokenizer from explicit tokenizer directory
+    print(f"Loading tokenizer from: {args.tokenizer_path}")
+    tok = PreTrainedTokenizerFast.from_pretrained(
+        args.tokenizer_path,
+        local_files_only=True
+    )
     pad_id = tok.pad_token_id if tok.pad_token_id is not None else 1
 
     # Load model checkpoint
     ckpt = os.path.join(args.model_path, "best_checkpoint", "model.pt")
+    if not os.path.isfile(ckpt):
+        raise FileNotFoundError(f"Checkpoint not found: {ckpt}")
+
+    print(f"Loading model checkpoint from: {ckpt}")
     raw_model = GPT2.load(ckpt).to(device).eval()
 
     # Wrap model for HF-style API compatibility
     model = ModelWrapper(raw_model, pad_token_id=pad_id)
 
-    ds = load_from_disk(args.data_path)[args.split]
+    print(f"Loading dataset from: {args.data_path}")
+    ds_dict = load_from_disk(args.data_path)
+    if args.split not in ds_dict:
+        raise ValueError(
+            f"Split '{args.split}' not found in dataset. "
+            f"Available splits: {list(ds_dict.keys())}"
+        )
+    ds = ds_dict[args.split]
+
     EN_ID, FR_ID = args.en_id, args.fr_id
 
     print("\nRunning evaluation on split:", args.split)
