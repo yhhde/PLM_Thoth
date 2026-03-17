@@ -132,8 +132,8 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--jsonl", required=True, help="Experiments JSONL")
     p.add_argument("--device", type=int, required=True)
-    p.add_argument("--train_script", default="./scripts/6_train_model.py")
-    p.add_argument("--eval_script", default="./scripts/7_validation_ppl+dics_acc.py")   # temporary
+    p.add_argument("--train_script", default="/scripts/6_train_model.py")
+    p.add_argument("--eval_script", default="/scripts/7_validation_ppl+dics_acc.py")   # temporary
     p.add_argument("--eval_checkpoint", default="best",
                    choices=["best", "last", "final"])
     args = p.parse_args()
