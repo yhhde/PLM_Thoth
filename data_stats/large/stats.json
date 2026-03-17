@@ -1,0 +1,16 @@
+{
+  "total_tokens_raw": 1848921327,
+  "total_rows_raw": 30340652,
+  "total_rows_cleaned": 18636189,
+  "total_tokens_cleaned": 1136771482,
+  "removed_untranslated": 3262019,
+  "removed_too_long": 2582420,
+  "removed_duplicates": 5860022,
+  "removed_empty": 2,
+  "rows_train": 18627997,
+  "rows_val": 4096,
+  "rows_test": 4096,
+  "tokens_val": 187451,
+  "tokens_test": 181306,
+  "tokens_train": 1136402725
+}
