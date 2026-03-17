@@ -1,5 +1,3 @@
-#model.py
-
 """
 Custom GPT-2 Model Implementation with the following modifications:
 - Config loading from dict/JSON

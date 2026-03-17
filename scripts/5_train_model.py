@@ -1,19 +1,16 @@
-#5_train_model_advanced.py
-
 """
 Training script for custom GPT-2 model with Cosine LR Schedule.
+Uses cosine annealing scheduler  as recommended by pretrainLLM
+project for better convergence.
 
-Based on 5_train_model.py, but uses cosine annealing scheduler 
-as recommended by pretrainLLM project for better convergence.
-
-Key differences from 5_train_model.py:
+Key differences from prev version of 5_train_model.py:
 - Uses get_cosine_schedule_with_warmup instead of linear
 - Adds lr_scheduler_type config option ("cosine" or "linear")
 - Default warmup ratio is 0.03 (3%) as per pretrainLLM
 - Progress-based checkpoint saving at 10%, 20%, ..., 100% intervals
 
 Works in two modes:
-1) Standalone: python 5_train_model_cosine.py --config config.json --device 0
+1) Standalone: python 5_train_model.py --config config.json --device 0
 2) Orchestrated: Called by run_experiments.py with generated config.json
 
 ALL paths, hyperparameters, and metadata MUST come from config.json.

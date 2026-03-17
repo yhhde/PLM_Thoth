@@ -1,4 +1,3 @@
-# 0_bootstrap_tokenizer.py
 # Bootstrap tokenizer training directly from raw data
 # This solves the circular dependency between preprocessing and tokenizer training
 
