@@ -1,6 +1,6 @@
 {
   "run": {
-    "name": "r2_full_lr1e4_wd1e3_warmup01"
+    "name": "r0v1_lr1e4_wd1e3_warmup01"
   },
   "paths": {
     "data": "/scratch/hyonghua/thoth_project/datasets/unpc_en-fr/large/tokenized_bucketed_mono",
