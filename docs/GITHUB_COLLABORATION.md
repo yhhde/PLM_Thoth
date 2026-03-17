@@ -296,17 +296,6 @@ git checkout main                 # Switch to main
 
 ---
 
-## 🔗 Important Files
-
-| File | Purpose | Notes |
-|------|---------|-------|
-| `5_train_model.py` | Model training | Fixed next-token prediction shift |
-| `6_validation.py` | Model validation | Uses conditional probability method |
-| `model.py` | GPT-2 model | Core architecture definition |
-| `experiments_*.jsonl` | Experiment configs | Hyperparameter settings |
-
----
-
 ## 💡 Collaboration Tips
 
 ### Avoiding Conflicts
