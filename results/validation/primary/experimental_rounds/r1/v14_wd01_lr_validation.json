@@ -1,0 +1,14 @@
+{
+  "ppl_fr_given_en": 327.992668895887,
+  "ppl_en_given_fr": 2951.7762837421224,
+  "num_samples_ppl": 4096,
+  "pass@1": 0.83544921875,
+  "pass@5": 0.92919921875,
+  "mrr": 0.8790204868657814,
+  "num_queries": 4096,
+  "disc_auc": 0.9465053081512451,
+  "avg_real_score": -2.266400923459969,
+  "num_samples_disc": 4096,
+  "pool_size": 20,
+  "ret_negative_mode": "hard"
+}
