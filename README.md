@@ -125,8 +125,8 @@ PLM_Checkpoint/
 ├── r0v1_gpt_lr/model.pt
 ├── r0v2_gpt_cosine1/model.pt
 ├── r0v3_gpt_cosine2/model.pt
-├── r0v4_gpt_reg/model.pt
-├── r0v5_gpt_reg_plus/model.pt
+├── r0v4_gpt_reg1/model.pt
+├── r0v5_gpt_reg2/model.pt
 └── tokenizer/
 ```
 
@@ -165,13 +165,13 @@ python supplementary_validation/retrieval_discrimination.py \
 |--------|-------------|
 | **PPL FR\|EN** | Perplexity of French given English context |
 | **PPL EN\|FR** | Perplexity of English given French context |
-| **ACC** | Discrimination accuracy (real vs. shuffled pairs) |
+| **MRR** | Mean Reciprocal Rank on hard-negative retrieval |
+| **AUC** | Area Under ROC Curve for discrimination |
 
 ### Extended (Supplementary)
 | Metric | Description |
 |--------|-------------|
 | **chrF** | Character-level F-score for translation quality |
 | **COMET** | Neural MT evaluation (wmt22-comet-da) |
-| **MRR** | Mean Reciprocal Rank on hard-negative retrieval |
-| **AUC** | Area Under ROC Curve for discrimination |
+
 
