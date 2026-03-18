@@ -1,7 +1,7 @@
 #!/bin/bash
 # PPL + Retrieval + Discrimination evaluation for r2 / r3 / r4 experiments
 
-SCRIPT_PATH="/nethome/${USER}/Thoth/6_validation_ppl_ret_disc.py"
+SCRIPT_PATH="/nethome/${USER}/Thoth/7_validation.py"
 DEVICE=3
 
 DATA_PATH="/scratch/${USER}/thoth_project/datasets/unpc_en-fr/large/tokenized_bucketed_mono"
