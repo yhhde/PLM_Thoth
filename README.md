@@ -13,7 +13,7 @@ Six GPT-2 variants were trained on the full UN Parallel Corpus (EN–FR), each e
 | `r0v2` | **GPT-Cos 1**  | Cosine-annealing LR schedule (η_min = 1e-6) |
 | `r0v3` | **GPT-Cos 2**  | Cosine-annealing with higher peak LR (5e-4, η_min = 1e-6) |
 | `r0v4` | **GPT-Reg 1**  | Label smoothing (0.1) + increased dropout (0.2) |
-| `r0v5` | **GPT-Reg 2**  | GPT-Reg + cosine-annealing schedule |
+| `r0v5` | **GPT-Reg 2**  | GPT-Reg 1 + cosine-annealing schedule |
 
 ## Model Architecture
 
