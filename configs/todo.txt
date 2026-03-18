@@ -1,5 +1,2 @@
 Missing:
-- round 4 medium configs !
-- round 2 v6 & v14 names
-- round 2 v0-v5 configs
-- round 4 v7-v9 configs
+- round 2 names
