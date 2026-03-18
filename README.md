@@ -1,4 +1,4 @@
-# PLM_Thoth
+# PLM_Thoth (to update)
 
 Bilingual (English–French) GPT-2 pretraining project for the UdS Pretraining LLMs seminar.
 
@@ -8,12 +8,12 @@ Six GPT-2 variants were trained on the full UN Parallel Corpus (EN–FR), each e
 
 | ID | Name | Description |
 |----|------|-------------|
-| `r0v0` | **GPT-Base** | Baseline — fixed LR 1e-5, no scheduling, no extra regularization |
-| `r0v1` | **GPT-LR** | Higher learning rate (5e-4) with linear warmup, no cosine decay |
-| `r0v2` | **GPT-Cosine 1** | Cosine-annealing LR schedule (η_min = 1e-6) |
-| `r0v3` | **GPT-Cosine 2** | Cosine-annealing with higher peak LR (5e-4, η_min = 1e-6) |
-| `r0v4` | **GPT-Reg** | Label smoothing (0.1) + increased dropout (0.2) |
-| `r0v5` | **GPT-Reg+** | GPT-Reg + cosine-annealing schedule |
+| `r0v0` | **GPT-Base**   | Baseline — fixed LR 1e-5, no scheduling, no extra regularization |
+| `r0v1` | **GPT-LR**     | Higher learning rate (5e-4) with linear warmup, no cosine decay |
+| `r0v2` | **GPT-Cos 1**  | Cosine-annealing LR schedule (η_min = 1e-6) |
+| `r0v3` | **GPT-Cos 2**  | Cosine-annealing with higher peak LR (5e-4, η_min = 1e-6) |
+| `r0v4` | **GPT-Reg 1**  | Label smoothing (0.1) + increased dropout (0.2) |
+| `r0v5` | **GPT-Reg 2**  | GPT-Reg + cosine-annealing schedule |
 
 ## Model Architecture
 
