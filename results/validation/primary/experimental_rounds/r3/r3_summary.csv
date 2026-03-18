@@ -1,4 +1,4 @@
-run_name,num_samples,num_pools,ppl_fr_en,ppl_en_fr,retr_pass@1,retr_pass@5,retr_mrr,disc_auc
-r3v10_lr3e-4_cos_w03_fp16_b999,4096,4096,18.687,19.748,0.891,0.972,0.928,0.974
-r3v11_noacc_lr3e-4_cos_w03_fp16_b999,4096,4096,13.646,16.999,0.888,0.971,0.926,0.973
-r3v12_medium_lr2e-4_cos_w03_fp16_b999,4096,4096,19.634,15.956,0.88,0.969,0.92,0.972
+run_name,num_samples,ppl_fr_en,ppl_en_fr,retr_pass@1,retr_pass@5,retr_mrr,disc_auc
+r3v10_lr3e-4_cos_w03_fp16_b999,4096,18.687,19.748,0.891,0.972,0.928,0.974
+r3v11_noacc_lr3e-4_cos_w03_fp16_b999,4096,13.646,16.999,0.888,0.971,0.926,0.973
+r3v12_medium_lr2e-4_cos_w03_fp16_b999,4096,19.634,15.956,0.88,0.969,0.92,0.972
