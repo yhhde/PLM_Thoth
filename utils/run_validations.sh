@@ -98,7 +98,7 @@ R2_EXPERIMENTS=(
     "r2v5_lr5e-5_wr001"
     "r2v6_lr1e-4_wr001"
     "r2v7_lr1e-4_wr01"
-    "r2r2v8_lr1e-4_wr001v8"
+    "r2v8_lr1e-4_wr001v8"
     "r2v9_lr5e-4_wr0"
     "r2v10_lr5e-4_wr01"
     "r2v11_lr5e-4_wr001"
