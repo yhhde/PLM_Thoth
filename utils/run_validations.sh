@@ -66,6 +66,7 @@ R1_EXPERIMENTS=(
     "r1_v5_drop02_preproc"
     "r1_v6_drop02_lr"
     "r1_v7_drop02_lr_preproc"
+    "r1_v8_drop005"
     "r1_v9_drop005_preproc"
     "r1_v10_drop005_lr"
     "r1_v11_drop005_lr_preproc"
