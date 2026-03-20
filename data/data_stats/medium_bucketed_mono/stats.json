@@ -1,0 +1,15 @@
+{
+  "total_tokens_before": 113624184,
+  "total_rows_before": 1862799,
+  "mono_en": 558839,
+  "mono_fr": 558839,
+  "bi_en_fr": 651980,
+  "bi_fr_en": 651980,
+  "bucket_0_rows": 674660,
+  "bucket_1_rows": 852088,
+  "bucket_2_rows": 474947,
+  "bucket_3_rows": 265864,
+  "bucket_4_rows": 154079,
+  "total_rows": 2421638,
+  "total_tokens": 113624184
+}

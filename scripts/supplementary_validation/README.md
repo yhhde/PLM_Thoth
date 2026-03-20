@@ -21,7 +21,7 @@ designed to run sequentially:
 Assume:
 
 - `MODEL_DIR=/path/to/models/experiments/r0/r0v0_full`  
-- `DATA_PATH=/path/to/tokenized_bucketed_mono`  
+- `DATA_PATH=data`  
 - `RESULT_SUPP=results/validation/supplementary`
 
 ```bash
