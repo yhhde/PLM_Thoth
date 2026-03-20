@@ -42,11 +42,12 @@ PLM_Thoth/
 │   ├── 0_bootstrap_tokenizer.py      # Download pretrained tokenizer
 │   ├── 1_download_dataset.py         # Download UN Parallel Corpus
 │   ├── 2_preprocess_and_split.py     # Clean and split dataset
-│   ├── 2+_mono_and_bucket.py         # Monolingual format + bucketing
-│   ├── 3_train_tokenizer.py          # Train BPE tokenizer
+│   ├── 3_mono_and_bucket.py          # Monolingual format + bucketing
 │   ├── 4_pretokenize.py              # Pre-tokenize dataset
-│   ├── 5_train_model.py              # Train GPT-2 model
-│   └── 6_validation.py               # Primary validation (PPL + ACC)
+│   ├── 5_train_tokenizer.py          # Train BPE tokenizer
+│   ├── 6_train_model.py              # Train GPT-2 model
+│   ├── 7_validation.py               # Primary validation (PPL, MRR, AUC)
+│   └── secondary_validation/         # Additional validation scripts
 │
 ├── supplementary_validation/         # Extended evaluation suite
 │   ├── README.md                     # Usage guide
@@ -88,13 +89,13 @@ python scripts/1_download_dataset.py
 python scripts/2_preprocess_and_split.py
 
 # Create monolingual pairs and bucket by length
-python scripts/2+_mono_and_bucket.py
-
-# Train BPE tokenizer
-python scripts/3_train_tokenizer.py --vocab_size 50000
+python scripts/3_mono_and_bucket.py
 
 # Pre-tokenize
 python scripts/4_pretokenize.py
+
+# Train BPE tokenizer
+python scripts/5_train_tokenizer.py --vocab_size 50000
 ```
 
 ### 3. Training
@@ -106,7 +107,7 @@ python utils/run_experiments.py \
   --device 0
 
 # Or run training directly
-python scripts/5_train_model.py \
+python scripts/6_train_model.py \
   --data_path /path/to/tokenized_bucketed_mono \
   --tok_path /path/to/tokenizer \
   --output_dir /path/to/output \
@@ -133,8 +134,8 @@ PLM_Checkpoint/
 ### 4. Validation
 
 ```bash
-# Primary validation (PPL + discrimination ACC)
-python scripts/6_validation.py \
+# Primary validation (PPL, MRR, AUC)
+python scripts/7_validation.py \
   --model_path /path/to/model.pt \
   --data_path /path/to/tokenized_bucketed_mono \
   --split test \
