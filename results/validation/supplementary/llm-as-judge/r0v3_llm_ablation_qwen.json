@@ -1,0 +1,507 @@
+{
+  "summary": {
+    "model_id": "r0v3",
+    "num_paired": 12,
+    "blocked": {
+      "averages": {
+        "accuracy": 2.67,
+        "fluency": 2.83,
+        "completeness": 2.42,
+        "conciseness": 2.42,
+        "overall": 2.25
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 5,
+          "avg_overall": 2.4
+        },
+        "under_gen": {
+          "count": 4,
+          "avg_overall": 1.75
+        },
+        "random": {
+          "count": 3,
+          "avg_overall": 2.67
+        }
+      }
+    },
+    "free": {
+      "averages": {
+        "accuracy": 3.42,
+        "fluency": 3.75,
+        "completeness": 3.08,
+        "conciseness": 3.0,
+        "overall": 3.0
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 5,
+          "avg_overall": 2.6
+        },
+        "under_gen": {
+          "count": 4,
+          "avg_overall": 3.5
+        },
+        "random": {
+          "count": 3,
+          "avg_overall": 3.0
+        }
+      }
+    },
+    "delta_blocked_minus_free": {
+      "accuracy": -0.75,
+      "fluency": -0.92,
+      "completeness": -0.66,
+      "conciseness": -0.58,
+      "overall": -0.75
+    }
+  },
+  "blocked": [
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "Statut de la catégorie des activités de la Commission économique pour l & apos ; Europe , 1993 , 56 . . .",
+      "gen_len": 105,
+      "ref_len": 14,
+      "rep_rate": 0.0,
+      "len_ratio": 7.5,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not match the source text. It is also not fluent due to incorrect grammar and unnatural phrasing. The translation is incomplete as it includes additional information not present in the source. It is not concise as it adds unnecessary details."
+      }
+    },
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) b , c , d , e , f , f et g",
+      "gen_len": 40,
+      "ref_len": 6,
+      "rep_rate": 0.0,
+      "len_ratio": 6.666666666666667,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 2,
+        "overall": 3,
+        "comment": "The translation conveys the main elements but is not entirely accurate and lacks conciseness."
+      }
+    },
+    {
+      "en": "51 . Conclusion 2 .",
+      "ref": "Conclusion 2 .",
+      "gen": "51 . Conclusions 2 . 1 . 1 : Les États parties prennent toutes les mesures appropriées",
+      "gen_len": 86,
+      "ref_len": 14,
+      "rep_rate": 0.0,
+      "len_ratio": 6.142857142857143,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The model output is not accurate as it includes additional numbers and text that are not present in the source. It lacks the necessary context to be considered complete and concise."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 : Droit à la vie , à la survie et au développement",
+      "gen_len": 61,
+      "ref_len": 10,
+      "rep_rate": 0.0,
+      "len_ratio": 6.1,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 2,
+        "conciseness": 4,
+        "overall": 3,
+        "comment": "The accuracy is moderate as the model added additional information not present in the source. Completeness is low due to the omission of the main part of the sentence. Fluency and conciseness are good."
+      }
+    },
+    {
+      "en": "25 May 200 7 ( a )",
+      "ref": "25 mai 200 7 ( a )",
+      "gen": "25 mai 200 7 a ) Région nord : 21 sorties effectuées à une vitesse de 600 à 900 km",
+      "gen_len": 82,
+      "ref_len": 18,
+      "rep_rate": 0.0,
+      "len_ratio": 4.555555555555555,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The date is accurate but the reference number 'a)' is incorrectly formatted. The output is incomplete as it adds irrelevant information about the region and speed. It is concise in terms of the date format."
+      }
+    },
+    {
+      "en": "A / RES / 61 / 134 Item 69 ( a ) - - Strengthening of the coordination of emergency humanitarian assistance of the United Nations [ A C E F R S ]",
+      "ref": "A / RES / 61 / 134 Point 69 a ) - - Renforcement de la coordination de l & apos ; aide humanitaire d & apos ; urgence fournie par les organismes des Nations Unies [ A A C E F R ]",
+      "gen": "A / 61 . A / C . 5 / 61 /... [ A A C F R ]",
+      "gen_len": 42,
+      "ref_len": 178,
+      "rep_rate": 0.0,
+      "len_ratio": 0.23595505617977527,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 1,
+        "fluency": 2,
+        "completeness": 1,
+        "conciseness": 1,
+        "overall": 1,
+        "comment": "The output is accurate but lacks fluency due to incorrect abbreviation usage and missing context."
+      }
+    },
+    {
+      "en": "M itigation of climate change was one of several reasons for implementing the majority of measures , the main rationale often being economic , in particular for measures improving energy efficiency in all sectors .",
+      "ref": "27 . La majorité des mesures étaient appliquées pour plusieurs raisons , notamment pour atténuer les incidences des changements climatiques , mais les considérations économiques étaient souvent leur principale justification , en particulier dans le cas des mesures visant à améliorer l & apos ; efficacité énergétique dans tous les secteurs .",
+      "gen": "L & apos ; atténuation des changements climatiques est l & apos to ver de plusieurs facteurs , la principale raison étant souvent la nécessité d & apos ); l & lt ; & lt ); l ) l & g t ; & g ; a ) d & g lt ; u v rer à l & amp ;",
+      "gen_len": 226,
+      "ref_len": 342,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6608187134502924,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 1,
+        "completeness": 2,
+        "conciseness": 1,
+        "overall": 1,
+        "comment": "The translation is inaccurate, lacks fluency, is incomplete, and is not concise. It fails to capture the original meaning and structure."
+      }
+    },
+    {
+      "en": "HIV sensitization programme for all personnel , including peer education",
+      "ref": ": : Exécution d & apos ; un programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & apos ; éducation entre pair s",
+      "gen": "Programme de sensibilisation au VIH à l & apos ; intention de l & lt ; & lt , pour tout le personnel , y",
+      "gen_len": 104,
+      "ref_len": 157,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6624203821656051,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation conveys the main idea but is incomplete and lacks fluency due to missing parts and grammatical issues."
+      }
+    },
+    {
+      "en": "For this reason , it is difficult to speak of the right of officials of that entity to immunity or of the obligation , corresponding to that right , of the State exercising jurisdiction not to grant immunity .",
+      "ref": "C & apos ; est pourquoi il est difficile de parler d & apos ; un droit à l & apos ; immunité qu & apos ; auraient les représentants de cette entité , et d & apos ; une obligation - faisant pendant à ce droit - qu & apos ; aurait l & apos ; État exerçant sa juridiction de ne pas accorder l & apos ; immunité .",
+      "gen": "C & apos ; est pourquoi il est difficile de parler du droit des fonctionnaires de cette entité à l & apos to iture ou à l ’ obligation , ce qui correspond à ce droit de l ’ État exerçant sa compétence . » . & quot ;",
+      "gen_len": 215,
+      "ref_len": 309,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6957928802588996,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation conveys the main idea but lacks some clarity and precision. It also omits the concept of 'not granting immunity' and uses less natural phrasing."
+      }
+    },
+    {
+      "en": "Sto pping is forbidden ( except in cases of force majeure ) ( article 25 bis of the Vienna Convention );",
+      "ref": "Il est interdit de s & apos ; arrêter ( sauf en cas de force majeure ) ( article 25 bis de la Convention Vienne ) ;",
+      "gen": "L & apos ; interdiction de l & apos ); enlèvement est interdite ( sauf en cas de force majeure ); ( art . 25 bis de la Convention de Vienne ) ; et ( art .) ( art .. )",
+      "gen_len": 166,
+      "ref_len": 115,
+      "rep_rate": 0.0,
+      "len_ratio": 1.4434782608695653,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation conveys the main idea but has several issues including incorrect grammar, missing punctuation, and unnecessary content."
+      }
+    },
+    {
+      "en": "( g ) Assist least developed countries to enhance capacities in clean energy production , trade and distribution , including renewable energy development . ( move under action by development partners )",
+      "ref": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , commercialisation et distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( déplacer sous Mesures à prendre par les partenaires de développement )",
+      "gen": "g ) Aider les pays les moins avancés à renforcer leurs capacités dans le domaine de la production , du commerce et de la distribution d & apos ; énergie propre , y compris le développement des énergies renouvelables ( action entreprise par les partenaires de développement ) . ( projet exécuté par les pays partenaires de la",
+      "gen_len": 324,
+      "ref_len": 272,
+      "rep_rate": 0.0,
+      "len_ratio": 1.1911764705882353,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise. The only minor issue is that 'action entreprise par les partenaires de développement' could be slightly more precise as 'déplacer sous Mesures à prendre par les partenaires de développement', but this does not significantly impact the overall quality."
+      }
+    },
+    {
+      "en": "1 . Innovative models of anti - discrimination legislation",
+      "ref": "1 . Législation type novatrice contre la discrimination",
+      "gen": "1 . Mod èles novateurs de législation contre la discrimination . . . .. . . ... . .",
+      "gen_len": 83,
+      "ref_len": 55,
+      "rep_rate": 0.0,
+      "len_ratio": 1.509090909090909,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is partially accurate but contains errors and lacks fluency. The term 'Modèles' should be capitalized as 'Modèles', and the ellipsis suggests issues with spacing and punctuation."
+      }
+    }
+  ],
+  "free": [
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "Statut de la catégorie des activités de la Commission économique pour l & apos ; Europe , 1993 . 56 Français Page",
+      "gen_len": 22,
+      "ref_len": 4,
+      "rep_rate": 0.0,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not match the source text. It is also not fluent due to grammatical errors and lacks clarity. The translation is incomplete and not concise."
+      }
+    },
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) b , c , d , e , f , f , f",
+      "gen_len": 19,
+      "ref_len": 3,
+      "rep_rate": 0.1176,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation does not accurately reflect the source text and is not concise."
+      }
+    },
+    {
+      "en": "51 . Conclusion 2 .",
+      "ref": "Conclusion 2 .",
+      "gen": "51 . Conclusion 2 . 1 . 1 . 1 . 1 . 2 . 1 .",
+      "gen_len": 17,
+      "ref_len": 3,
+      "rep_rate": 0.4667,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 1,
+        "overall": 2,
+        "comment": "The translation is accurate but incomplete and lacks fluency due to unnecessary elements."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 . Droit à la vie , à la survie et au développement",
+      "gen_len": 14,
+      "ref_len": 2,
+      "rep_rate": 0.0,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is accurate but incomplete as it adds unnecessary content. It should only include 'Article 40'."
+      }
+    },
+    {
+      "en": "25 May 200 7 ( a )",
+      "ref": "25 mai 200 7 ( a )",
+      "gen": "25 mai 200 7 ( a ) : état des lieux ; état des lieux ; état des lieux ;",
+      "gen_len": 20,
+      "ref_len": 7,
+      "rep_rate": 0.3333,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "overall": 5,
+        "comment": "The translation is accurate, fluent, complete, and concise."
+      }
+    },
+    {
+      "en": "A / RES / 61 / 134 Item 69 ( a ) - - Strengthening of the coordination of emergency humanitarian assistance of the United Nations [ A C E F R S ]",
+      "ref": "A / RES / 61 / 134 Point 69 a ) - - Renforcement de la coordination de l & apos ; aide humanitaire d & apos ; urgence fournie par les organismes des Nations Unies [ A A C E F R ]",
+      "gen": "A / RES / 61 / 134 Point 69 a ) - - Renforcement de la coordination de l & apos ; aide humanitaire d & apos ; urgence fournie par les organismes des Nations Unies [ A A C E F R ] - - 3 pages",
+      "gen_len": 48,
+      "ref_len": 44,
+      "rep_rate": 0.0217,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but the '3 pages' at the end is not part of the original text and should be removed for completeness."
+      }
+    },
+    {
+      "en": "M itigation of climate change was one of several reasons for implementing the majority of measures , the main rationale often being economic , in particular for measures improving energy efficiency in all sectors .",
+      "ref": "27 . La majorité des mesures étaient appliquées pour plusieurs raisons , notamment pour atténuer les incidences des changements climatiques , mais les considérations économiques étaient souvent leur principale justification , en particulier dans le cas des mesures visant à améliorer l & apos ; efficacité énergétique dans tous les secteurs .",
+      "gen": "L & apos ; atténuation des changements climatiques est l & apos ; une des raisons pour lesquelles la plupart des mesures sont appliquées , la principale raison étant souvent la nécessité d & apos ; améliorer l & apos ; efficacité énergétique dans tous les secteurs . & g t ; & g t ; . & g t ; &",
+      "gen_len": 62,
+      "ref_len": 52,
+      "rep_rate": 0.1667,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation captures the main idea but lacks some details and is not entirely fluent."
+      }
+    },
+    {
+      "en": "HIV sensitization programme for all personnel , including peer education",
+      "ref": ": : Exécution d & apos ; un programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & apos ; éducation entre pair s",
+      "gen": "Programme de sensibilisation au VIH à l & apos ; intention de l & apos ; ensemble du personnel , y compris l & apos",
+      "gen_len": 25,
+      "ref_len": 35,
+      "rep_rate": 0.1304,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation is mostly accurate but lacks the phrase 'peer education' and could be more fluent."
+      }
+    },
+    {
+      "en": "For this reason , it is difficult to speak of the right of officials of that entity to immunity or of the obligation , corresponding to that right , of the State exercising jurisdiction not to grant immunity .",
+      "ref": "C & apos ; est pourquoi il est difficile de parler d & apos ; un droit à l & apos ; immunité qu & apos ; auraient les représentants de cette entité , et d & apos ; une obligation - faisant pendant à ce droit - qu & apos ; aurait l & apos ; État exerçant sa juridiction de ne pas accorder l & apos ; immunité .",
+      "gen": "C & apos ; est pourquoi il est difficile de parler du droit des fonctionnaires de cette entité à l & apos ; immunité ou de l & apos ; obligation , qui correspond à celle de l & apos ; État exerçant sa compétence , de ne pas accorder l & apos ; immunité . & g t ; & g t ; . & g t",
+      "gen_len": 68,
+      "ref_len": 71,
+      "rep_rate": 0.197,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise, but there is a minor issue with the use of 'exerçant sa compétence' instead of 'exerçant sa juridiction', which slightly affects accuracy."
+      }
+    },
+    {
+      "en": "Sto pping is forbidden ( except in cases of force majeure ) ( article 25 bis of the Vienna Convention );",
+      "ref": "Il est interdit de s & apos ; arrêter ( sauf en cas de force majeure ) ( article 25 bis de la Convention Vienne ) ;",
+      "gen": "L & apos ; interdiction de l & apos ; incendie est interdite ( sauf en cas de force majeure ) ( art . 25 bis de la Convention de Vienne ); et ( art . 25 bis ) de la",
+      "gen_len": 41,
+      "ref_len": 27,
+      "rep_rate": 0.1026,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is inaccurate as it mistranslates 'stopping' to 'fire prohibition'. It lacks the context of the article number and the convention name. The grammar is mostly correct but the phrasing is unnatural."
+      }
+    },
+    {
+      "en": "( g ) Assist least developed countries to enhance capacities in clean energy production , trade and distribution , including renewable energy development . ( move under action by development partners )",
+      "ref": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , commercialisation et distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( déplacer sous Mesures à prendre par les partenaires de développement )",
+      "gen": "g ) Aider les pays les moins avancés à renforcer leurs capacités dans le domaine de la production , du commerce et de la distribution d & apos ; énergie propre , y compris le développement des énergies renouvelables ( action entreprise par les partenaires de développement ) . ( projet exécuté par les partenaires de développement )",
+      "gen_len": 58,
+      "ref_len": 47,
+      "rep_rate": 0.0714,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but there is a slight redundancy in mentioning 'action entreprise par les partenaires de développement' and 'projet exécuté par les partenaires de développement'. The completeness is slightly reduced due to this redundancy."
+      }
+    },
+    {
+      "en": "1 . Innovative models of anti - discrimination legislation",
+      "ref": "1 . Législation type novatrice contre la discrimination",
+      "gen": "1 . Mod èles novateurs de législation contre la discrimination . . . . . . . . . . . . .",
+      "gen_len": 23,
+      "ref_len": 8,
+      "rep_rate": 0.4762,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 3,
+        "comment": "The translation is mostly accurate but lacks the article 'des' before 'modèles', which is necessary for grammatical correctness in French. The ellipsis at the end is not needed and reduces fluency."
+      }
+    }
+  ]
+}

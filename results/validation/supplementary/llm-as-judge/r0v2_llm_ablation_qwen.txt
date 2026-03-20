@@ -1,0 +1,25 @@
+=======================================================
+LLM ABLATION: r0v2 (qwen)
+=======================================================
+Paired samples: 12
+
+--- BLOCKED (no_repeat_ngram_size=3) ---
+  Accuracy        |  2.73
+  Fluency         |  3.00
+  Completeness    |  2.55
+  Conciseness     |  2.73
+  Overall         |  2.36
+
+--- FREE (original greedy) ---
+  Accuracy        |  3.67
+  Fluency         |  4.17
+  Completeness    |  3.58
+  Conciseness     |  3.75
+  Overall         |  3.62
+
+--- DELTA (blocked - free) ---
+  Accuracy        | -0.94
+  Fluency         | -1.17
+  Completeness    | -1.03
+  Conciseness     | -1.02
+  Overall         | -1.26

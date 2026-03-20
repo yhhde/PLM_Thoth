@@ -1,3 +1,0 @@
-At the very end:
- - Rewrite README
- - Publish the repo!

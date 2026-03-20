@@ -1,0 +1,392 @@
+{
+  "summary": {
+    "model_id": "r0v1",
+    "num_paired": 9,
+    "blocked": {
+      "averages": {
+        "accuracy": 3.25,
+        "fluency": 3.25,
+        "completeness": 3.0,
+        "conciseness": 2.88,
+        "overall": 2.69
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 5,
+          "avg_overall": 2.7
+        },
+        "under_gen": {
+          "count": 2,
+          "avg_overall": 2.0
+        },
+        "random": {
+          "count": 1,
+          "avg_overall": 4.0
+        }
+      }
+    },
+    "free": {
+      "averages": {
+        "accuracy": 3.67,
+        "fluency": 4.11,
+        "completeness": 3.67,
+        "conciseness": 3.11,
+        "overall": 3.22
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 5,
+          "avg_overall": 2.6
+        },
+        "under_gen": {
+          "count": 3,
+          "avg_overall": 4.0
+        },
+        "random": {
+          "count": 1,
+          "avg_overall": 4.0
+        }
+      }
+    },
+    "delta_blocked_minus_free": {
+      "accuracy": -0.42,
+      "fluency": -0.86,
+      "completeness": -0.67,
+      "conciseness": -0.23,
+      "overall": -0.53
+    }
+  },
+  "blocked": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) Personnel recruté sur le plan international : augmentation de 1 poste ( 1",
+      "gen_len": 87,
+      "ref_len": 6,
+      "rep_rate": 0.0,
+      "len_ratio": 14.5,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not reflect the original meaning. It is somewhat fluent but lacks naturalness. It is incomplete as it adds information not present in the source. It is not concise due to the addition of irrelevant details."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 : Droit à la liberté et à la sécurité de la personne",
+      "gen_len": 63,
+      "ref_len": 10,
+      "rep_rate": 0.0,
+      "len_ratio": 6.3,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is accurate but incomplete as it adds extraneous information not present in the source. It lacks the colon which is necessary for proper formatting."
+      }
+    },
+    {
+      "en": "51 . Conclusion 2 .",
+      "ref": "Conclusion 2 .",
+      "gen": "Conclusion 2 : Le Comité : & lt ; & lt .; la Convention relative aux droits",
+      "gen_len": 75,
+      "ref_len": 14,
+      "rep_rate": 0.0,
+      "len_ratio": 5.357142857142857,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 4,
+        "completeness": 5,
+        "conciseness": 5,
+        "overall": 4.5,
+        "comment": "The translation is accurate and complete, but the additional punctuation and text are not needed."
+      }
+    },
+    {
+      "en": "25 May 200 7 ( a )",
+      "ref": "25 mai 200 7 ( a )",
+      "gen": "25 mai 200 7 a ) Northern Ireland ( Northern Ireland ) ( Northern Irish ) ( Irlande du Nord",
+      "gen_len": 91,
+      "ref_len": 18,
+      "rep_rate": 0.0,
+      "len_ratio": 5.055555555555555,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 2,
+        "conciseness": 1,
+        "overall": 2,
+        "comment": "The translation is partially accurate but includes extraneous information and lacks fluency."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "Statut spécial , 1993 56 . 0 - 57 . 0 . 1 . 2 . 1 A . 1 , 2 .",
+      "gen_len": 61,
+      "ref_len": 14,
+      "rep_rate": 0.0,
+      "len_ratio": 4.357142857142857,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 4,
+        "overall": 3,
+        "comment": "The translation is partially accurate but lacks precision. It conveys the general idea but does not match the reference closely. The fluency is good, and the output is concise."
+      }
+    },
+    {
+      "en": "I assure the Assembly of Japan & apos ; s continued support for the IAEA in fulfilling its vital mission .",
+      "ref": "Je puis assurer l & apos ; Assemblée que le Japon continuera d & apos ; appuyer l & apos ; AIEA alors qu & apos ; elle s & apos ; efforce d & apos ; accomplir sa mission cruciale .",
+      "gen": "Je donne à l & apos I AC l & lt ; & lt , et à l Assemblée du Japon , le plein appui de l & g t ; & g g t , pour que l &",
+      "gen_len": 119,
+      "ref_len": 180,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6611111111111111,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is partially accurate but lacks clarity and fluency. It misses the context of the Japanese Assembly's support and the mission of the IAEA."
+      }
+    },
+    {
+      "en": "Foc using on evaluation issues , he underscored the importance of rigorous evaluation for the overall effectiveness of UNFPA operations and the delivery of programme results .",
+      "ref": "Met tant l & apos ; accent sur les questions relatives à l & apos ; évaluation , il a souligné l & apos ; importance d & apos ; une évaluation rigoureuse pour l & apos ; efficacité globale des opérations du FNUAP et la réalisation des résultats du programme .",
+      "gen": "S & apos ; attachant aux questions d & apos . évaluation , il a souligné l & apos , d & g t ; & g ; & lt ; & quot ; évaluation rigoureuse & quot g t t ale & quot , l & quot lt ;",
+      "gen_len": 177,
+      "ref_len": 259,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6833976833976834,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation conveys the main idea but is not fluent due to incorrect use of quotation marks and spacing issues. It is incomplete as it misses some words and is not concise due to the improper formatting."
+      }
+    },
+    {
+      "en": "No injuries were reported , however . ( Ha ’ aretz , Jerusalem Post , 4 March )",
+      "ref": "On n ’ a toutefois déploré aucun blessé . ( Ha ’ aretz , Jerusalem Post , 4 mars )",
+      "gen": "Aucun blessé n ’ a été signalé . ( Jerusalem Post : 4 mars )",
+      "gen_len": 60,
+      "ref_len": 82,
+      "rep_rate": 0.0,
+      "len_ratio": 0.7317073170731707,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "error": "No JSON found",
+        "raw": "{\n  \"accuracy\": 4,\n  \"fluency\": 5,\n  \"completeness\": 4,\n  \"conciseness\": 5,\n  \"overall\": 4,\n  \"comment\": \"The translation is accurate and fluent, but it omits the source of the information ('Ha\\'aretz"
+      }
+    },
+    {
+      "en": "27 . The Human Rights Amendment Act , 10 / intended to redress racial imbalances in the workplace , was adopted by the House of Assembly on 18 December 1994 .",
+      "ref": "27 . Le Human Rights Amendment Act ( loi portant modification de la loi relative aux droits de l & apos ; homme ) 10 , qui vise à corriger les déséquilibres entre les races sur le lieu de travail , a été adopté par la Chambre d & apos ; assemblée le 18 décembre 1994 .",
+      "gen": "27 . La loi portant modification de la loi sur les droits de l & apos ; homme , qui vise à remédier aux déséquilibres raciaux sur le lieu de travail , a été adoptée par la Chambre des députés le 18 décembre 1994 . & quot ; . & g t ; & g ;",
+      "gen_len": 238,
+      "ref_len": 268,
+      "rep_rate": 0.0,
+      "len_ratio": 0.8880597014925373,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but could improve completeness by including '10/' and using 'race' instead of 'races'. It is concise, avoiding unnecessary content."
+      }
+    }
+  ],
+  "free": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) Personnel recruté sur le plan international : augmentation de 1 poste ( 1",
+      "gen_len": 19,
+      "ref_len": 3,
+      "rep_rate": 0.0,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not reflect the original meaning. It is somewhat fluent but lacks naturalness. It is incomplete as it adds information not present in the source. It is not concise due to the addition of irrelevant details."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 . Droit à la liberté et à la sécurité de la personne",
+      "gen_len": 14,
+      "ref_len": 2,
+      "rep_rate": 0.0,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "overall": 5,
+        "comment": "The model accurately, fluently, completely, and concisely translated the source."
+      }
+    },
+    {
+      "en": "51 . Conclusion 2 .",
+      "ref": "Conclusion 2 .",
+      "gen": "Conclusion 2 . 1 . 1 . 1 . 1 . 1 . 1 . 1 .",
+      "gen_len": 17,
+      "ref_len": 3,
+      "rep_rate": 0.7333,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 1,
+        "overall": 3,
+        "comment": "The translation is accurate, fluent, and complete, but it is overly verbose."
+      }
+    },
+    {
+      "en": "25 May 200 7 ( a )",
+      "ref": "25 mai 200 7 ( a )",
+      "gen": "25 mai 200 7 a ) Northern Ireland ( Northern Ireland ) ( Northern Ireland ) ( Northern Ireland )",
+      "gen_len": 20,
+      "ref_len": 7,
+      "rep_rate": 0.3333,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 2,
+        "conciseness": 1,
+        "overall": 1,
+        "comment": "The date is accurate but the extra content about Northern Ireland is not relevant and makes the translation confusing."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "Statut spécial , 1993 . 56 Français Page II . Statut spécial : 1995 , 1995 , 1997 , 1998 , 1999 ,",
+      "gen_len": 23,
+      "ref_len": 4,
+      "rep_rate": 0.0,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as 'sp a cial' is misspelled and does not match the reference. It lacks the page number and additional information from the reference. The fluency is acceptable but could be improved."
+      }
+    },
+    {
+      "en": "I assure the Assembly of Japan & apos ; s continued support for the IAEA in fulfilling its vital mission .",
+      "ref": "Je puis assurer l & apos ; Assemblée que le Japon continuera d & apos ; appuyer l & apos ; AIEA alors qu & apos ; elle s & apos ; efforce d & apos ; accomplir sa mission cruciale .",
+      "gen": "Je donne à l & apos ; Assemblée le soutien constant du Japon pour que l & apos ; AIEA puisse s & apos ; acquitter de sa mission vitale . Français Page",
+      "gen_len": 33,
+      "ref_len": 42,
+      "rep_rate": 0.0968,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but it slightly misses the continuous nature of support and the reference to the Japanese Assembly's commitment."
+      }
+    },
+    {
+      "en": "Foc using on evaluation issues , he underscored the importance of rigorous evaluation for the overall effectiveness of UNFPA operations and the delivery of programme results .",
+      "ref": "Met tant l & apos ; accent sur les questions relatives à l & apos ; évaluation , il a souligné l & apos ; importance d & apos ; une évaluation rigoureuse pour l & apos ; efficacité globale des opérations du FNUAP et la réalisation des résultats du programme .",
+      "gen": "S & apos ; attachant aux questions d & apos ; évaluation , il a souligné l & apos ; importance d & apos ; une évaluation rigoureuse pour l & apos ; efficacité générale des opérations du FNUAP et la réalisation des résultats des programmes . Figure 1 .",
+      "gen_len": 50,
+      "ref_len": 52,
+      "rep_rate": 0.125,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise. The only minor issue is the use of 'S' before 'attachant', which is not necessary in French."
+      }
+    },
+    {
+      "en": "No injuries were reported , however . ( Ha ’ aretz , Jerusalem Post , 4 March )",
+      "ref": "On n ’ a toutefois déploré aucun blessé . ( Ha ’ aretz , Jerusalem Post , 4 mars )",
+      "gen": "Aucun blessé n ’ a été signalé . ( Ha ’ aretz , Jerusalem Post , 4 mars ) : . . . . . . . . . . . . . . . . .",
+      "gen_len": 37,
+      "ref_len": 20,
+      "rep_rate": 0.4,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but it slightly omits the 'however' which provides context. It is concise but could be marginally improved."
+      }
+    },
+    {
+      "en": "27 . The Human Rights Amendment Act , 10 / intended to redress racial imbalances in the workplace , was adopted by the House of Assembly on 18 December 1994 .",
+      "ref": "27 . Le Human Rights Amendment Act ( loi portant modification de la loi relative aux droits de l & apos ; homme ) 10 , qui vise à corriger les déséquilibres entre les races sur le lieu de travail , a été adopté par la Chambre d & apos ; assemblée le 18 décembre 1994 .",
+      "gen": "27 . La loi portant modification de la loi sur les droits de l & apos ; homme , qui vise à remédier aux déséquilibres raciaux sur le lieu de travail , a été adoptée par la Chambre des députés le 18 décembre 1994 . & quot ; . & quot ; .",
+      "gen_len": 53,
+      "ref_len": 57,
+      "rep_rate": 0.0588,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but could improve completeness by including '10/' and using 'race' instead of 'races'. It is concise but could be slightly more precise."
+      }
+    }
+  ]
+}

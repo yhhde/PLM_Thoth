@@ -1,0 +1,503 @@
+{
+  "summary": {
+    "model_id": "r0v0",
+    "num_paired": 12,
+    "blocked": {
+      "averages": {
+        "accuracy": 2.36,
+        "fluency": 2.73,
+        "completeness": 2.09,
+        "conciseness": 2.64,
+        "overall": 2.09
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 5,
+          "avg_overall": 2.0
+        },
+        "under_gen": {
+          "count": 4,
+          "avg_overall": 2.25
+        },
+        "random": {
+          "count": 2,
+          "avg_overall": 2.0
+        }
+      }
+    },
+    "free": {
+      "averages": {
+        "accuracy": 3.42,
+        "fluency": 4.0,
+        "completeness": 3.42,
+        "conciseness": 2.92,
+        "overall": 3.12
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 5,
+          "avg_overall": 3.0
+        },
+        "under_gen": {
+          "count": 5,
+          "avg_overall": 3.2
+        },
+        "random": {
+          "count": 2,
+          "avg_overall": 3.25
+        }
+      }
+    },
+    "delta_blocked_minus_free": {
+      "accuracy": -1.06,
+      "fluency": -1.27,
+      "completeness": -1.33,
+      "conciseness": -0.28,
+      "overall": -1.03
+    }
+  },
+  "blocked": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 FS ( 8 AL ) et 1 AL ) ( 1 AN ) ( 2 AL )",
+      "gen_len": 41,
+      "ref_len": 6,
+      "rep_rate": 0.0,
+      "len_ratio": 6.833333333333333,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is partially accurate but lacks clarity and fluency. It includes extraneous information not present in the source."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 : & quot ; Les États parties s & apos ; engagent",
+      "gen_len": 59,
+      "ref_len": 10,
+      "rep_rate": 0.0,
+      "len_ratio": 5.9,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 1,
+        "conciseness": 3,
+        "overall": 1,
+        "comment": "The model output is incomplete as it does not fully translate the source text and lacks context. It also introduces unnecessary punctuation and content."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "catégorie de la situation de la dette , 1993 56 . 57 . . . .. . . 56 . . 58 .",
+      "gen_len": 77,
+      "ref_len": 14,
+      "rep_rate": 0.0,
+      "len_ratio": 5.5,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as it changes the meaning from a category to a country context. It lacks fluency due to grammatical issues and excessive content. Completeness is lacking as it includes additional numbers not present in the source. Conciseness is poor due to the inclusion of unnecessary information."
+      }
+    },
+    {
+      "en": "51 . Conclusion 2 .",
+      "ref": "Conclusion 2 .",
+      "gen": "Conclusion 2 : Conclusion générale . . . 1 - 3 . 4 . 1 . 1",
+      "gen_len": 58,
+      "ref_len": 14,
+      "rep_rate": 0.0,
+      "len_ratio": 4.142857142857143,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 3,
+        "comment": "The translation is accurate but not fluent due to the unexpected additional content. It is incomplete as it adds information not present in the source. The translation is concise but overly detailed."
+      }
+    },
+    {
+      "en": "IV . Northern Kosovo",
+      "ref": "IV . Nord du Kosovo",
+      "gen": "IV . Kosovo - Metohija ( Serbie ) ( Serbie et Monténégro ) ( République de",
+      "gen_len": 74,
+      "ref_len": 19,
+      "rep_rate": 0.0,
+      "len_ratio": 3.8947368421052633,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is not accurate as it includes additional information not present in the source. It lacks the 'Nord' (Nord) designation and incorrectly splits the region into two separate entities."
+      }
+    },
+    {
+      "en": "A / RES / 61 / 134 Item 69 ( a ) - - Strengthening of the coordination of emergency humanitarian assistance of the United Nations [ A C E F R S ]",
+      "ref": "A / RES / 61 / 134 Point 69 a ) - - Renforcement de la coordination de l & apos ; aide humanitaire d & apos ; urgence fournie par les organismes des Nations Unies [ A A C E F R ]",
+      "gen": "A / 61 /... [ A A C F R ] - - 2 pages",
+      "gen_len": 37,
+      "ref_len": 178,
+      "rep_rate": 0.0,
+      "len_ratio": 0.20786516853932585,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 1,
+        "fluency": 2,
+        "completeness": 1,
+        "conciseness": 2,
+        "overall": 1,
+        "comment": "The translation is accurate but lacks context and is not fluent or concise."
+      }
+    },
+    {
+      "en": "27 . The Human Rights Amendment Act , 10 / intended to redress racial imbalances in the workplace , was adopted by the House of Assembly on 18 December 1994 .",
+      "ref": "27 . Le Human Rights Amendment Act ( loi portant modification de la loi relative aux droits de l & apos ; homme ) 10 , qui vise à corriger les déséquilibres entre les races sur le lieu de travail , a été adopté par la Chambre d & apos ; assemblée le 18 décembre 1994 .",
+      "gen": "27 . La loi sur l & apos ; amendement des droits de l & quot ; homme & quot %; a été adoptée le 18 décembre 1994 par la Chambre des députés .",
+      "gen_len": 141,
+      "ref_len": 268,
+      "rep_rate": 0.0,
+      "len_ratio": 0.5261194029850746,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 4,
+        "overall": 3,
+        "comment": "The translation is generally accurate but lacks some specificity regarding the amendment act's name and its purpose. It is fluent and mostly complete, but could be more concise."
+      }
+    },
+    {
+      "en": "On the ninth and tenth grades & apos ; education and teaching laying the foundations of general knowledge is performed , furthermore , career orientation , vocational preparatory knowledge and vocational foundation teaching may also be performed .",
+      "ref": "Une éducation et un enseignement jetant les bases des connaissances générales sont dispensés aux neuvième et dixième degrés , outre la possibilité d & apos ; y voir aussi assurés une orientation professionnelle , une préparation à une formation professionnelle et un enseignement professionnel de base .",
+      "gen": "Les activités d & apos to iture et d & lt ; & lt %; & lt .; & lt , & lt ); & lt & lt t & g t ; & g ; , & g ou & g g t to & g c & g les valeurs de l & apos & apos t e & g tal & g u",
+      "gen_len": 179,
+      "ref_len": 303,
+      "rep_rate": 0.0,
+      "len_ratio": 0.5907590759075908,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 1,
+        "fluency": 1,
+        "completeness": 1,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation conveys the meaning accurately and is grammatically correct, but it uses incorrect symbols instead of words, making it less concise."
+      }
+    },
+    {
+      "en": "Foc using on evaluation issues , he underscored the importance of rigorous evaluation for the overall effectiveness of UNFPA operations and the delivery of programme results .",
+      "ref": "Met tant l & apos ; accent sur les questions relatives à l & apos ; évaluation , il a souligné l & apos ; importance d & apos ; une évaluation rigoureuse pour l & apos ; efficacité globale des opérations du FNUAP et la réalisation des résultats du programme .",
+      "gen": "En mettant l & apos ; accent sur les questions d & apos .; il a souligné l & lt ; & lt %; & lt .; & lt ` évaluer & g t ; & g ; , & lt , & g our de & g ou &",
+      "gen_len": 155,
+      "ref_len": 259,
+      "rep_rate": 0.0,
+      "len_ratio": 0.5984555984555985,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "error": "No JSON found",
+        "raw": "{\"accuracy\": 2, \"fluency\": 1, \"completeness\": 2, \"conciseness\": 1, \"overall\": 1, \"comment\": \"The translation is inaccurate, lacks fluency, is incomplete, and is not concise. The phrase 'questions d\\';"
+      }
+    },
+    {
+      "en": "However , these are oriented primarily towards procurement for headquarters activities .",
+      "ref": "Cependant , ces principes s & apos ; appliquent au premier chef à la passation des marchés nécessaires aux activités du Siège .",
+      "gen": "Toutefois , ces activités sont essentiellement axées sur les achats au siège .",
+      "gen_len": 78,
+      "ref_len": 127,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6141732283464567,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 4,
+        "overall": 3,
+        "comment": "The translation is accurate in conveying the main idea but lacks some specificity from the original text. It is fluent and concise, but not fully complete as it does not capture the exact nuance of 'oriented primarily towards'."
+      }
+    },
+    {
+      "en": "Agenda item 68 : Right of peoples to self - determination ( continued ) ( A / C . 3 / 67 / L . 54 )",
+      "ref": "Point 68 de l & apos ; ordre du jour : Droit des peuples à l & apos ; autodétermination ( suite ) ( A / C . 3 / 67 / L . 54 )",
+      "gen": "Point 68 de l & apos ; ordre du jour : Droit des peuples à l & lt ; & lt .; et , par conséquent , le droit des peuples de disposer d & apos » ( suite ) ( suite ). ( A ) ( E / C",
+      "gen_len": 176,
+      "ref_len": 125,
+      "rep_rate": 0.0,
+      "len_ratio": 1.408,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is partially accurate but lacks clarity and fluency. It misses the continuation part and has incorrect symbols."
+      }
+    },
+    {
+      "en": "25 . The foregoing dis clo ses the arbitrary nature of Mr . López Mendoza & apos ; s detention .",
+      "ref": "Ce qui précède met en évidence le caractère arbitraire de la détention de M . López Mendoza .",
+      "gen": "25 . Le caractère arbitraire de la détention de M . López Ortiz est décrit ci - après . & quot ; . & g t ; & g ; & quot .",
+      "gen_len": 121,
+      "ref_len": 93,
+      "rep_rate": 0.0,
+      "len_ratio": 1.3010752688172043,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as it refers to a different person ('López Ortiz' instead of 'López Mendoza'). It lacks fluency due to the awkward phrasing 'est décrit ci-après'. It is incomplete as it does not convey the same information as the reference. It is also not concise as it adds unnecessary words."
+      }
+    }
+  ],
+  "free": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 FS , 8 AL ) ( 1 AN , 8 AL ) ( 1 AN , 1 AN",
+      "gen_len": 19,
+      "ref_len": 3,
+      "rep_rate": 0.3529,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 3,
+        "comment": "The translation conveys the main elements but is not fully accurate and lacks completeness. It is somewhat fluent but could be more concise."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 . . . . . . . . . . . .",
+      "gen_len": 14,
+      "ref_len": 2,
+      "rep_rate": 0.75,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "overall": 5,
+        "comment": "The translation is exact, fluent, complete, and concise."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "catégorie de la situation de la dette , 1993 56 . 57 . . . . . . . . . . .",
+      "gen_len": 23,
+      "ref_len": 4,
+      "rep_rate": 0.381,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not match the source text. It is also not fluent due to grammatical issues and lacks completeness by adding unnecessary information."
+      }
+    },
+    {
+      "en": "51 . Conclusion 2 .",
+      "ref": "Conclusion 2 .",
+      "gen": "Conclusion 2 . Conclusion 2 . 1 . 1 . 1 . 1 . 1 . 1",
+      "gen_len": 17,
+      "ref_len": 3,
+      "rep_rate": 0.6,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 1,
+        "overall": 3,
+        "comment": "The translation is accurate, fluent, and complete, but it is overly verbose due to repeated 'Conclusion 2'."
+      }
+    },
+    {
+      "en": "IV . Northern Kosovo",
+      "ref": "IV . Nord du Kosovo",
+      "gen": "IV . Kosovo - Metohija ( Serbie ) ( Serbie ) ( Serbie ) ( Serbie",
+      "gen_len": 16,
+      "ref_len": 5,
+      "rep_rate": 0.4286,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is partially accurate but lacks context and is not concise."
+      }
+    },
+    {
+      "en": "A / RES / 61 / 134 Item 69 ( a ) - - Strengthening of the coordination of emergency humanitarian assistance of the United Nations [ A C E F R S ]",
+      "ref": "A / RES / 61 / 134 Point 69 a ) - - Renforcement de la coordination de l & apos ; aide humanitaire d & apos ; urgence fournie par les organismes des Nations Unies [ A A C E F R ]",
+      "gen": "A / RES / 61 / 134 Point 69 a ) - - Renforcement de la coordination de l & apos ; aide humanitaire d & apos ; urgence fournie par les organismes des Nations Unies [ A A C E F R ] - - 4 pages",
+      "gen_len": 48,
+      "ref_len": 44,
+      "rep_rate": 0.0217,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but the '4 pages' at the end is not part of the original text and should be removed for conciseness."
+      }
+    },
+    {
+      "en": "27 . The Human Rights Amendment Act , 10 / intended to redress racial imbalances in the workplace , was adopted by the House of Assembly on 18 December 1994 .",
+      "ref": "27 . Le Human Rights Amendment Act ( loi portant modification de la loi relative aux droits de l & apos ; homme ) 10 , qui vise à corriger les déséquilibres entre les races sur le lieu de travail , a été adopté par la Chambre d & apos ; assemblée le 18 décembre 1994 .",
+      "gen": "27 . La loi sur l & apos ; amendement des droits de l & apos ; homme , adoptée le 18 décembre 1994 , a été adoptée par la Chambre des députés . Elle a été adoptée le 18 décembre 1994 . . . . . . . . . . . . . .",
+      "gen_len": 56,
+      "ref_len": 57,
+      "rep_rate": 0.3148,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 2,
+        "conciseness": 1,
+        "overall": 2,
+        "comment": "The translation is partially accurate but contains significant errors and redundancies. The fluency is poor due to grammatical issues and word choice."
+      }
+    },
+    {
+      "en": "On the ninth and tenth grades & apos ; education and teaching laying the foundations of general knowledge is performed , furthermore , career orientation , vocational preparatory knowledge and vocational foundation teaching may also be performed .",
+      "ref": "Une éducation et un enseignement jetant les bases des connaissances générales sont dispensés aux neuvième et dixième degrés , outre la possibilité d & apos ; y voir aussi assurés une orientation professionnelle , une préparation à une formation professionnelle et un enseignement professionnel de base .",
+      "gen": "Les activités d & apos ; éducation et d & apos ; enseignement de base sont menées dans les neuvième et dixième années , et les cours de formation professionnelle , de formation professionnelle et de formation professionnelle sont également dispensés . & g t ; & g t ; . & g t ; . . . . . . . . . . . .",
+      "gen_len": 67,
+      "ref_len": 47,
+      "rep_rate": 0.2923,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation conveys the main idea but lacks precision and fluency. It misses some key elements like 'career orientation' and 'vocational preparatory knowledge'. The phrase 'activities of basic education and teaching' is not as clear as 'education and teaching laying the foundations of general knowledge'."
+      }
+    },
+    {
+      "en": "Foc using on evaluation issues , he underscored the importance of rigorous evaluation for the overall effectiveness of UNFPA operations and the delivery of programme results .",
+      "ref": "Met tant l & apos ; accent sur les questions relatives à l & apos ; évaluation , il a souligné l & apos ; importance d & apos ; une évaluation rigoureuse pour l & apos ; efficacité globale des opérations du FNUAP et la réalisation des résultats du programme .",
+      "gen": "En mettant l & apos ; accent sur les questions d & apos ; évaluation , il a souligné l & apos ; importance de l & apos ; évaluation rigoureuse pour l & apos ; efficacité globale des activités du FNUAP et la réalisation des résultats des programmes .",
+      "gen_len": 50,
+      "ref_len": 52,
+      "rep_rate": 0.1667,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but there is a slight difference in terminology ('operations' vs 'activités') and 'programme results' vs 'résultats des programmes'. The sentence is concise but could be slightly more precise."
+      }
+    },
+    {
+      "en": "However , these are oriented primarily towards procurement for headquarters activities .",
+      "ref": "Cependant , ces principes s & apos ; appliquent au premier chef à la passation des marchés nécessaires aux activités du Siège .",
+      "gen": "Toutefois , ces activités sont essentiellement axées sur les achats au siège .",
+      "gen_len": 13,
+      "ref_len": 23,
+      "rep_rate": 0.0,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 4,
+        "overall": 3,
+        "comment": "The translation is accurate in conveying the main idea but lacks some specificity from the original text. It is fluent and concise, but not fully complete as it does not capture the exact nuance of 'oriented primarily towards'."
+      }
+    },
+    {
+      "en": "Agenda item 68 : Right of peoples to self - determination ( continued ) ( A / C . 3 / 67 / L . 54 )",
+      "ref": "Point 68 de l & apos ; ordre du jour : Droit des peuples à l & apos ; autodétermination ( suite ) ( A / C . 3 / 67 / L . 54 )",
+      "gen": "Point 68 de l & apos ; ordre du jour : Droit des peuples à l & apos ; autodétermination ( suite ) ( A / C . 3 / 67 / L . 54 ) [ point 68 ] Point 68 de l & apos ; ordre du",
+      "gen_len": 50,
+      "ref_len": 36,
+      "rep_rate": 0.1875,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 4,
+        "overall": 4.5,
+        "comment": "The translation is accurate, fluent, and complete. However, there is some redundancy in repeating 'Point 68' twice."
+      }
+    },
+    {
+      "en": "25 . The foregoing dis clo ses the arbitrary nature of Mr . López Mendoza & apos ; s detention .",
+      "ref": "Ce qui précède met en évidence le caractère arbitraire de la détention de M . López Mendoza .",
+      "gen": "25 . Le caractère arbitraire de la détention de M . López Mendoza est décrit ci - après . & quot ; . & quot ; . & quot ; . & quot ; . & quot ; . & quot",
+      "gen_len": 41,
+      "ref_len": 18,
+      "rep_rate": 0.4359,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as it changes the focus from what precedes to what follows. It lacks fluency due to awkward phrasing. Completeness is lacking as it does not capture the essence of the original sentence. Conciseness is poor due to the use of 'ci-après' which is not necessary."
+      }
+    }
+  ]
+}

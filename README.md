@@ -47,26 +47,32 @@ PLM_Thoth/
 │   ├── 5_train_tokenizer.py          # Train BPE tokenizer
 │   ├── 6_train_model.py              # Train GPT-2 model
 │   ├── 7_validation.py               # Primary validation (PPL, MRR, AUC)
-│   └── secondary_validation/         # Additional validation scripts
-│
-├── supplementary_validation/         # Extended evaluation suite
-│   ├── README.md                     # Usage guide
-│   ├── translation_quality.py        # chrF + COMET scoring
-│   ├── retrieval_discrimination.py   # Retrieval MRR + discrimination AUC
-│   └── llm_scoring_colab.ipynb       # LLM-as-a-judge (Colab notebook)
+│   └── supplementary_validation/     # Extended evaluation suite
+│       ├── README.md                 # Usage guide
+│       ├── translation_quality.py    # chrF + COMET scoring
+│       └── llm_scoring_colab.ipynb   # LLM-as-a-judge (Colab notebook)
 │
 ├── utils/
 │   ├── run_experiments.py            # Batch experiment launcher
-│   └── create_subset_dataset.py      # Create dataset subsets
+│   ├── create_subset_dataset.py      # Create dataset subsets
+│   ├── merge_results.ipynb           # Merge evaluation results
+│   └── run_validations.sh            # Validation execution script
+│
+├── data_stats/                       # Dataset dimensions and statistics
+│   ├── full/                         # Full dataset
+│   ├── full_bucketed_mono/           # Full monolingual buckets
+│   └── medium_bucketed_mono/         # Subset monolingual buckets
 │
 ├── results/
-│   ├── output/                       # Training logs (r0v0–r0v5)
-│   └── validation/
-│       ├── primary/                  # PPL + ACC results
-│       │   ├── full/                 # Full-dataset models (r0v0–r0v5)
-│       │   └── medium/              # Subset models (r2–r4)
-│       ├── extended/                 # chrF, COMET, retrieval, LLM results
-│       └── legacy/                   # Earlier round results (r1–r4), T5 baselines
+│   ├── logs/                         # Training histories and metrics
+│   │   └── full_runs/                # Full dataset runs (r0v0–r0v5)
+│   └── validation/                   # Evaluation results
+│       ├── primary/                  # Core PPL + ACC + MRR metrics
+│       └── supplementary/            # chrF, COMET, LLM results
+│           ├── llm-as-judge/         # LLM eval scoring data
+│           ├── retrieval_disc/       # Retrieval metrics data
+│           ├── translation_quality/  # chrF and COMET scoring data
+│           └── tsv/                  # Generated translation text files
 │
 └── docs/                             # Additional documentation
 ```
@@ -143,19 +149,11 @@ python scripts/7_validation.py \
   --device 0
 
 # Extended: chrF + COMET translation quality
-python supplementary_validation/translation_quality.py \
+python scripts/supplementary_validation/translation_quality.py \
   --model_path /path/to/model.pt \
   --data_path /path/to/tokenized_bucketed_mono \
   --split test \
-  --output_dir results/validation/extended/ \
-  --device 0
-
-# Extended: retrieval MRR + discrimination AUC
-python supplementary_validation/retrieval_discrimination.py \
-  --model_path /path/to/model.pt \
-  --data_path /path/to/tokenized_bucketed_mono \
-  --split test \
-  --output_dir results/validation/extended/ \
+  --output_dir results/validation/supplementary/ \
   --device 0
 ```
 
@@ -169,10 +167,9 @@ python supplementary_validation/retrieval_discrimination.py \
 | **MRR** | Mean Reciprocal Rank on hard-negative retrieval |
 | **AUC** | Area Under ROC Curve for discrimination |
 
-### Extended (Supplementary)
+### Supplementary
 | Metric | Description |
 |--------|-------------|
 | **chrF** | Character-level F-score for translation quality |
 | **COMET** | Neural MT evaluation (wmt22-comet-da) |
-
-
+| **LLM-as-Judge** | External LLM scores accuracy, fluency, completeness, conciseness (1–5) |

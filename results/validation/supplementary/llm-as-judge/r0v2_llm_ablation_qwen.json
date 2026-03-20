@@ -1,0 +1,503 @@
+{
+  "summary": {
+    "model_id": "r0v2",
+    "num_paired": 12,
+    "blocked": {
+      "averages": {
+        "accuracy": 2.73,
+        "fluency": 3.0,
+        "completeness": 2.55,
+        "conciseness": 2.73,
+        "overall": 2.36
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 4,
+          "avg_overall": 2.25
+        },
+        "under_gen": {
+          "count": 4,
+          "avg_overall": 1.75
+        },
+        "random": {
+          "count": 3,
+          "avg_overall": 3.33
+        }
+      }
+    },
+    "free": {
+      "averages": {
+        "accuracy": 3.67,
+        "fluency": 4.17,
+        "completeness": 3.58,
+        "conciseness": 3.75,
+        "overall": 3.62
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 4,
+          "avg_overall": 2.75
+        },
+        "under_gen": {
+          "count": 4,
+          "avg_overall": 4.12
+        },
+        "random": {
+          "count": 4,
+          "avg_overall": 4.0
+        }
+      }
+    },
+    "delta_blocked_minus_free": {
+      "accuracy": -0.94,
+      "fluency": -1.17,
+      "completeness": -1.03,
+      "conciseness": -1.02,
+      "overall": -1.26
+    }
+  },
+  "blocked": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) Services contractuels ( services de consultants et de vac ataires ) : 1",
+      "gen_len": 85,
+      "ref_len": 6,
+      "rep_rate": 0.0,
+      "len_ratio": 14.166666666666666,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not match the source. It is fluent but lacks clarity due to the inclusion of additional information not present in the source. It is incomplete as it translates more than what was provided. It is concise but the added content detracts from this."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "la catégorie de statut de la profession , 1993 56 Français Page Page . . . , tableau 1 . 2 . 1",
+      "gen_len": 94,
+      "ref_len": 14,
+      "rep_rate": 0.0,
+      "len_ratio": 6.714285714285714,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as it changes the meaning from a specific category to a profession category. It lacks context and is not concise."
+      }
+    },
+    {
+      "en": "IV . Northern Kosovo",
+      "ref": "IV . Nord du Kosovo",
+      "gen": "IV . Kosovo septentrional : situation au Kosovo - Metohija , en particulier les Serbes de",
+      "gen_len": 89,
+      "ref_len": 19,
+      "rep_rate": 0.0,
+      "len_ratio": 4.684210526315789,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation is partially accurate but lacks context and is not concise."
+      }
+    },
+    {
+      "en": "Type of court",
+      "ref": "Type de juridiction",
+      "gen": "Type de tribunal ; tribunal ; tribunaux ; tribunaux de district ; tribunaux pour",
+      "gen_len": 80,
+      "ref_len": 19,
+      "rep_rate": 0.0,
+      "len_ratio": 4.2105263157894735,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is partially accurate but lacks precision. It includes multiple translations of 'court' which is redundant. The fluency is good, but the completeness is poor due to missing context. Conciseness is affected by the redundancy."
+      }
+    },
+    {
+      "en": "Japan ( through the Japan International Cooperation Agency ), Germany ( through the German Agency for Technical Cooperation ), Sweden and the European Union have cooperated with Chile as a provider of technical assistance to Latin American and Caribbean countries .",
+      "ref": "Le Japon ( l & apos ; Agence japonaise de coopération internationale ), l & apos ; Allemagne ( l & apos ; Agence allemande de coopération technique ), la Suède et l & apos ; Union européenne ont collaboré avec le Chili en tant que fournisseur d & apos ; une assistance technique à des pays de l & apos ; Amérique latine et des Caraïbes .",
+      "gen": "Le Japon ( par l & apos ; intermédiaire de l & g t ; & g ; Agence japonaise de coopération internationale & g g t ); l & lt ; & lt .; l & quot ; Allemagne & g r & g ts & g V & g & g .; la Suède et l & amp ; l & v & g b & g G .",
+      "gen_len": 226,
+      "ref_len": 337,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6706231454005934,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is partially accurate but contains several errors and issues. The use of '&' symbols instead of proper punctuation and spacing is problematic. The reference to 'Germany' is incomplete and unclear due to improper formatting. The sentence is not fluent due to these issues."
+      }
+    },
+    {
+      "en": "HIV sensitization programme for all personnel , including peer education",
+      "ref": ": : Exécution d & apos ; un programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & apos ; éducation entre pair s",
+      "gen": "Programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & g t ; &",
+      "gen_len": 107,
+      "ref_len": 157,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6815286624203821,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation conveys the main idea but is incomplete and lacks fluency due to incorrect symbols and missing parts."
+      }
+    },
+    {
+      "en": "A / RES / 61 / 134 Item 69 ( a ) - - Strengthening of the coordination of emergency humanitarian assistance of the United Nations [ A C E F R S ]",
+      "ref": "A / RES / 61 / 134 Point 69 a ) - - Renforcement de la coordination de l & apos ; aide humanitaire d & apos ; urgence fournie par les organismes des Nations Unies [ A A C E F R ]",
+      "gen": "A / 61 /... A / AC . 109 / 200 6 / L . 13 A / C . 6 / 61 . L . 14 A / 60 / L 14 / Rev . 1 . A / 59 / L 15 . L 15 / Rev 1 .",
+      "gen_len": 122,
+      "ref_len": 178,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6853932584269663,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 1,
+        "fluency": 1,
+        "completeness": 1,
+        "conciseness": 1,
+        "overall": 1,
+        "comment": "The model output is completely incorrect and does not convey any meaningful translation of the source text."
+      }
+    },
+    {
+      "en": "I assure the Assembly of Japan & apos ; s continued support for the IAEA in fulfilling its vital mission .",
+      "ref": "Je puis assurer l & apos ; Assemblée que le Japon continuera d & apos ; appuyer l & apos ; AIEA alors qu & apos ; elle s & apos ; efforce d & apos ; accomplir sa mission cruciale .",
+      "gen": "Je assure l & apos ); Assemblée du Japon de son appui continu à l & g t ; & g ; Agence & g r . d & apos .; & g g t . d . & g &",
+      "gen_len": 126,
+      "ref_len": 180,
+      "rep_rate": 0.0,
+      "len_ratio": 0.7,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not convey the idea that Japan will continue to support the IAEA. It lacks clarity and fluency due to incorrect punctuation and grammar. The translation is incomplete and not concise."
+      }
+    },
+    {
+      "en": "( g ) Assist least developed countries to enhance capacities in clean energy production , trade and distribution , including renewable energy development . ( move under action by development partners )",
+      "ref": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , commercialisation et distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( déplacer sous Mesures à prendre par les partenaires de développement )",
+      "gen": "g ) Aider les pays les moins avancés à renforcer leurs capacités en matière de production , de commerce et de distribution d & apos ; énergie propre , y compris en ce qui concerne le développement des énergies renouvelables ( action menée par les partenaires de développement ). ( Projet de décision ) ( suite ) (",
+      "gen_len": 313,
+      "ref_len": 272,
+      "rep_rate": 0.0,
+      "len_ratio": 1.150735294117647,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise. The only minor issue is the addition of 'Projet de décision' and 'suite', which are not present in the source text."
+      }
+    },
+    {
+      "en": "Agenda item 68 : Right of peoples to self - determination ( continued ) ( A / C . 3 / 67 / L . 54 )",
+      "ref": "Point 68 de l & apos ; ordre du jour : Droit des peuples à l & apos ; autodétermination ( suite ) ( A / C . 3 / 67 / L . 54 )",
+      "gen": "Point 68 de l & apos ; ordre du jour : Droit des peuples à l & amp ; État de Palestine ( suite ) ( L . 64 / L / 67 ) ( suite )*",
+      "gen_len": 127,
+      "ref_len": 125,
+      "rep_rate": 0.0,
+      "len_ratio": 1.016,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation is mostly accurate but contains some errors and omissions. The reference number is incorrect, and the document number is not consistent with the source."
+      }
+    },
+    {
+      "en": "What is clear from a review of the studies in question is that on certain crucial issues different methodologies led to different conclusions .",
+      "ref": "L & apos ; examen des études en question fait clairement apparaître que l & apos ; utilisation de méthodes différentes pour certaines questions cruciales a abouti à des conclusions différentes .",
+      "gen": "Il ressort clairement d & apos ; une étude sur ces questions que , sur certaines questions cruciales , différentes méthodes ont abouti à des conclusions différentes . & g t ; & g ; . . . & lt ; & lt t ; .",
+      "gen_len": 204,
+      "ref_len": 194,
+      "rep_rate": 0.0,
+      "len_ratio": 1.0515463917525774,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "error": "No JSON found",
+        "raw": "{\n  \"accuracy\": 4,\n  \"fluency\": 4,\n  \"completeness\": 4,\n  \"conciseness\": 4,\n  \"overall\": 4,\n  \"comment\": \"The translation is accurate, fluent, complete, and concise, but there is a minor issue with th"
+      }
+    },
+    {
+      "en": "25 . The foregoing dis clo ses the arbitrary nature of Mr . López Mendoza & apos ; s detention .",
+      "ref": "Ce qui précède met en évidence le caractère arbitraire de la détention de M . López Mendoza .",
+      "gen": "25 . Ces faits se sont produits sous le coup de la détention arbitraire de M . López . & quot ; ( M . Mendoza , par . 20 )",
+      "gen_len": 122,
+      "ref_len": 93,
+      "rep_rate": 0.0,
+      "len_ratio": 1.3118279569892473,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 4,
+        "overall": 3,
+        "comment": "The translation captures the main idea but lacks some context and is not entirely fluent."
+      }
+    }
+  ],
+  "free": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) Services contractuels ( services de consultants et de vac ataires ) : 1",
+      "gen_len": 19,
+      "ref_len": 3,
+      "rep_rate": 0.0,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not match the source. It is fluent but lacks clarity due to the inclusion of additional information not present in the source. It is incomplete as it translates more than what was provided. It is concise but the added content detracts from this."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "la catégorie de statut de la profession , 1993 56 Français Page Page . . . . . . . . . .",
+      "gen_len": 23,
+      "ref_len": 4,
+      "rep_rate": 0.3333,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not match the source text. It introduces new elements like 'profession' and 'Français Page Page', which are not present in the original. The fluency and completeness are also affected by these additions."
+      }
+    },
+    {
+      "en": "IV . Northern Kosovo",
+      "ref": "IV . Nord du Kosovo",
+      "gen": "IV . Kosovo septentrional : situation au Kosovo - Metohija , en particulier les Serbes de",
+      "gen_len": 16,
+      "ref_len": 5,
+      "rep_rate": 0.0,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation is partially accurate but lacks context and is not concise."
+      }
+    },
+    {
+      "en": "Type of court",
+      "ref": "Type de juridiction",
+      "gen": "Type de tribunal ; tribunal ; tribunal ; tribunal ; tribunal ; tribunal ;",
+      "gen_len": 14,
+      "ref_len": 3,
+      "rep_rate": 0.6667,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 3,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but there is unnecessary repetition and the translation could be more concise."
+      }
+    },
+    {
+      "en": "Japan ( through the Japan International Cooperation Agency ), Germany ( through the German Agency for Technical Cooperation ), Sweden and the European Union have cooperated with Chile as a provider of technical assistance to Latin American and Caribbean countries .",
+      "ref": "Le Japon ( l & apos ; Agence japonaise de coopération internationale ), l & apos ; Allemagne ( l & apos ; Agence allemande de coopération technique ), la Suède et l & apos ; Union européenne ont collaboré avec le Chili en tant que fournisseur d & apos ; une assistance technique à des pays de l & apos ; Amérique latine et des Caraïbes .",
+      "gen": "Le Japon ( par l & apos ; intermédiaire de l & apos ; Agence japonaise de coopération internationale ), l & apos ; Allemagne ( par l & apos ; intermédiaire de l & apos ; Agence allemande de coopération technique ), la Suède et l & apos ; Union européenne ont coopéré avec le Chili en tant que fournisseur d & apos ; assistance technique aux pays d &",
+      "gen_len": 71,
+      "ref_len": 68,
+      "rep_rate": 0.2609,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 4,
+        "overall": 3.5,
+        "comment": "The translation is accurate and fluent, but it is incomplete as it does not end the sentence properly."
+      }
+    },
+    {
+      "en": "HIV sensitization programme for all personnel , including peer education",
+      "ref": ": : Exécution d & apos ; un programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & apos ; éducation entre pair s",
+      "gen": "Programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & apos ; éducation par",
+      "gen_len": 25,
+      "ref_len": 35,
+      "rep_rate": 0.087,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise, but 'par' should be added before 'éducation' to maintain the original structure."
+      }
+    },
+    {
+      "en": "A / RES / 61 / 134 Item 69 ( a ) - - Strengthening of the coordination of emergency humanitarian assistance of the United Nations [ A C E F R S ]",
+      "ref": "A / RES / 61 / 134 Point 69 a ) - - Renforcement de la coordination de l & apos ; aide humanitaire d & apos ; urgence fournie par les organismes des Nations Unies [ A A C E F R ]",
+      "gen": "A / RES / 61 / 134 Point 69 a ) - - Renforcement de la coordination de l & apos ; aide humanitaire d & apos ; urgence fournie par les organismes des Nations Unies [ A A C E F R ]",
+      "gen_len": 44,
+      "ref_len": 44,
+      "rep_rate": 0.0238,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "overall": 5,
+        "comment": "The translation is accurate, fluent, complete, and concise, matching the reference closely."
+      }
+    },
+    {
+      "en": "I assure the Assembly of Japan & apos ; s continued support for the IAEA in fulfilling its vital mission .",
+      "ref": "Je puis assurer l & apos ; Assemblée que le Japon continuera d & apos ; appuyer l & apos ; AIEA alors qu & apos ; elle s & apos ; efforce d & apos ; accomplir sa mission cruciale .",
+      "gen": "Je assure l & apos ; Assemblée du soutien constant du Japon à l & apos ; AIEA dans l & apos ; accomplissement de sa mission vitale . Français Page",
+      "gen_len": 31,
+      "ref_len": 42,
+      "rep_rate": 0.1379,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but it slightly omits the continuous nature of support and uses 'accomplishment' instead of 'fulfillment'."
+      }
+    },
+    {
+      "en": "( g ) Assist least developed countries to enhance capacities in clean energy production , trade and distribution , including renewable energy development . ( move under action by development partners )",
+      "ref": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , commercialisation et distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( déplacer sous Mesures à prendre par les partenaires de développement )",
+      "gen": "g ) Aider les pays les moins avancés à renforcer leurs capacités en matière de production , de commerce et de distribution d & apos ; énergie propre , y compris en ce qui concerne le développement des énergies renouvelables ( action menée par les partenaires de développement ). ( Projet de décision ) ( suite ) (",
+      "gen_len": 58,
+      "ref_len": 47,
+      "rep_rate": 0.0,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise. The only minor issue is the addition of 'Projet de décision' and 'suite', which are not present in the source text."
+      }
+    },
+    {
+      "en": "Agenda item 68 : Right of peoples to self - determination ( continued ) ( A / C . 3 / 67 / L . 54 )",
+      "ref": "Point 68 de l & apos ; ordre du jour : Droit des peuples à l & apos ; autodétermination ( suite ) ( A / C . 3 / 67 / L . 54 )",
+      "gen": "Point 68 de l & apos ; ordre du jour : Droit des peuples à l & apos ; autodétermination ( suite ) ( A / C . 3 / 67 / L . 54 ) ( A / C . 3 / 67 / L . 54 ) (",
+      "gen_len": 50,
+      "ref_len": 36,
+      "rep_rate": 0.3125,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "overall": 5,
+        "comment": "The translation is accurate, fluent, complete, and concise."
+      }
+    },
+    {
+      "en": "What is clear from a review of the studies in question is that on certain crucial issues different methodologies led to different conclusions .",
+      "ref": "L & apos ; examen des études en question fait clairement apparaître que l & apos ; utilisation de méthodes différentes pour certaines questions cruciales a abouti à des conclusions différentes .",
+      "gen": "Il ressort clairement d & apos ; une étude sur ces questions que , sur certaines questions cruciales , différentes méthodes ont abouti à des conclusions différentes . & g t ; & g t ; . . . . . . . . . .",
+      "gen_len": 46,
+      "ref_len": 32,
+      "rep_rate": 0.2045,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise, with minor adjustments needed for better fluency."
+      }
+    },
+    {
+      "en": "25 . The foregoing dis clo ses the arbitrary nature of Mr . López Mendoza & apos ; s detention .",
+      "ref": "Ce qui précède met en évidence le caractère arbitraire de la détention de M . López Mendoza .",
+      "gen": "25 . Ces faits se sont produits sous le coup de la détention arbitraire de M . López Mendoza . & quot ; ( M . López Mendoza , témoin No 2 , A / AC . 145 / RT .",
+      "gen_len": 41,
+      "ref_len": 18,
+      "rep_rate": 0.0513,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation captures the essence of the original sentence but is not as concise as possible. It also lacks some clarity in conveying the exact meaning of 'dis closes' and does not fully capture the passive voice from the source."
+      }
+    }
+  ]
+}

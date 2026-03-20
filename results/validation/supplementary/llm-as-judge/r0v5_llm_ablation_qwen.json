@@ -1,0 +1,359 @@
+{
+  "summary": {
+    "model_id": "r0v5",
+    "num_paired": 8,
+    "blocked": {
+      "averages": {
+        "accuracy": 3.0,
+        "fluency": 3.88,
+        "completeness": 3.0,
+        "conciseness": 3.12,
+        "overall": 2.88
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 4,
+          "avg_overall": 2.5
+        },
+        "under_gen": {
+          "count": 1,
+          "avg_overall": 3.0
+        },
+        "random": {
+          "count": 3,
+          "avg_overall": 3.33
+        }
+      }
+    },
+    "free": {
+      "averages": {
+        "accuracy": 3.75,
+        "fluency": 3.88,
+        "completeness": 3.62,
+        "conciseness": 3.5,
+        "overall": 3.5
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 4,
+          "avg_overall": 3.75
+        },
+        "under_gen": {
+          "count": 1,
+          "avg_overall": 3.0
+        },
+        "random": {
+          "count": 3,
+          "avg_overall": 3.33
+        }
+      }
+    },
+    "delta_blocked_minus_free": {
+      "accuracy": -0.75,
+      "fluency": 0.0,
+      "completeness": -0.62,
+      "conciseness": -0.38,
+      "overall": -0.62
+    }
+  },
+  "blocked": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) [ 1 P - 4 , 1 P 3 , 1 G (",
+      "gen_len": 39,
+      "ref_len": 6,
+      "rep_rate": 0.0,
+      "len_ratio": 6.5,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation conveys the main elements but lacks clarity and is not fully complete."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "Statut de la catégorie des personnes de sexe féminin , 1993 56 . 51 . 52 . 52 - 52 . 53 .",
+      "gen_len": 89,
+      "ref_len": 14,
+      "rep_rate": 0.0,
+      "len_ratio": 6.357142857142857,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is inaccurate as it introduces gender-specific information not present in the source. It lacks fluency due to grammatical issues and excessive detail. Completeness is lacking as it includes unnecessary elements. Conciseness is poor due to the inclusion of multiple repetitions."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 : Droit à la liberté et à la sécurité de la personne",
+      "gen_len": 63,
+      "ref_len": 10,
+      "rep_rate": 0.0,
+      "len_ratio": 6.3,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is accurate but incomplete as it adds extraneous information not present in the source. It lacks the colon which is necessary for proper formatting."
+      }
+    },
+    {
+      "en": "25 May 200 7 ( a )",
+      "ref": "25 mai 200 7 ( a )",
+      "gen": "25 mai 200 7 a ) Région nord : 17 sorties effectuées à une vitesse de 600 à 900 km",
+      "gen_len": 82,
+      "ref_len": 18,
+      "rep_rate": 0.0,
+      "len_ratio": 4.555555555555555,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The date is accurately translated, but the model added an extra space after '7' and included additional information that was not in the source."
+      }
+    },
+    {
+      "en": "HIV sensitization programme for all personnel , including peer education",
+      "ref": ": : Exécution d & apos ; un programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & apos ; éducation entre pair s",
+      "gen": "Programme de sensibilisation au VIH à l & apos ; intention de l & lt ; & lt , notamment , de tous les membres",
+      "gen_len": 109,
+      "ref_len": 157,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6942675159235668,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation conveys the main idea but lacks clarity and fluency due to incorrect use of punctuation and grammar."
+      }
+    },
+    {
+      "en": "Sto pping is forbidden ( except in cases of force majeure ) ( article 25 bis of the Vienna Convention );",
+      "ref": "Il est interdit de s & apos ; arrêter ( sauf en cas de force majeure ) ( article 25 bis de la Convention Vienne ) ;",
+      "gen": "L & apos ; interdiction de la mise en liberté est interdite ( sauf en cas de force majeure ), ( art . 25 bis de la Convention de Vienne ); et",
+      "gen_len": 141,
+      "ref_len": 115,
+      "rep_rate": 0.0,
+      "len_ratio": 1.2260869565217392,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is not accurate as 'sto pping' does not translate to 'interdiction de la mise en liberté'. It lacks the correct use of 's' before 'arrêter'. The reference to the article number is incorrect. It is also not concise as it repeats 'interdiction'."
+      }
+    },
+    {
+      "en": "( g ) Assist least developed countries to enhance capacities in clean energy production , trade and distribution , including renewable energy development . ( move under action by development partners )",
+      "ref": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , commercialisation et distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( déplacer sous Mesures à prendre par les partenaires de développement )",
+      "gen": "g ) Aider les pays les moins avancés à renforcer leurs capacités en matière de production , de commerce et de distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( Voir la décision prise par les partenaires de développement .) ( en cours d & amp ; en",
+      "gen_len": 296,
+      "ref_len": 272,
+      "rep_rate": 0.0,
+      "len_ratio": 1.088235294117647,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise. The only minor issue is that 'move under action by development partners' is translated as 'Voir la décision prise par les partenaires de développement', which is slightly less clear than the original 'move under action by development partners'."
+      }
+    },
+    {
+      "en": "It would provide a demonstration of the global solidarity called for by the Secretary - General .",
+      "ref": "Ce serait là une démonstration de la solidarité mondiale souhaitée par le Secrétaire général .",
+      "gen": "Il serait une démonstration de la solidarité mondiale que le Secrétaire général a demandée . & g t ; & g ; .",
+      "gen_len": 108,
+      "ref_len": 94,
+      "rep_rate": 0.0,
+      "len_ratio": 1.148936170212766,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but 'a demandée' is slightly redundant as 'called for' implies a request."
+      }
+    }
+  ],
+  "free": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) [ 1 P - 4 , 1 P - 3 , 1 G",
+      "gen_len": 19,
+      "ref_len": 3,
+      "rep_rate": 0.0588,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation is partially accurate but lacks clarity and completeness. It does not fully convey the meaning of the source and includes extraneous information."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "Statut de la catégorie des personnes de sexe féminin , 1993 . 56 . 51 . 1 . 1 . 1 . 2",
+      "gen_len": 23,
+      "ref_len": 4,
+      "rep_rate": 0.1429,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is not accurate as it does not match the source text. It is also not fluent due to the excessive detail added. Completeness is lacking as it does not match the reference. Conciseness is poor due to the addition of unnecessary details."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 . . . . . . . . . . . .",
+      "gen_len": 14,
+      "ref_len": 2,
+      "rep_rate": 0.75,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "overall": 5,
+        "comment": "The translation is exact, fluent, complete, and concise."
+      }
+    },
+    {
+      "en": "25 May 200 7 ( a )",
+      "ref": "25 mai 200 7 ( a )",
+      "gen": "25 mai 200 7 ( a ) : aucune réponse ; aucune réponse ; aucune réponse ; aucune réponse ;",
+      "gen_len": 20,
+      "ref_len": 7,
+      "rep_rate": 0.3889,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "overall": 5,
+        "comment": "The translation is accurate, fluent, complete, and concise."
+      }
+    },
+    {
+      "en": "HIV sensitization programme for all personnel , including peer education",
+      "ref": ": : Exécution d & apos ; un programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & apos ; éducation entre pair s",
+      "gen": "Programme de sensibilisation au VIH à l & apos ; intention de l & apos ; ensemble du personnel , y compris par l &",
+      "gen_len": 25,
+      "ref_len": 35,
+      "rep_rate": 0.087,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 3,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation is mostly accurate but lacks the phrase 'peer education' and could be more fluent."
+      }
+    },
+    {
+      "en": "Sto pping is forbidden ( except in cases of force majeure ) ( article 25 bis of the Vienna Convention );",
+      "ref": "Il est interdit de s & apos ; arrêter ( sauf en cas de force majeure ) ( article 25 bis de la Convention Vienne ) ;",
+      "gen": "L & apos ; interdiction de la mise en liberté est interdite ( sauf en cas de force majeure ) ( art . 25 bis de la Convention de Vienne ); ; et",
+      "gen_len": 33,
+      "ref_len": 27,
+      "rep_rate": 0.0,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is partially accurate but contains several errors and omissions. The concept of 'sto pping' is incorrectly translated as 'interdiction de la mise en liberté', which does not accurately reflect the original meaning. The grammar and punctuation are also incorrect, making the sentence less fluent. Additionally, the reference to the article number is incomplete."
+      }
+    },
+    {
+      "en": "( g ) Assist least developed countries to enhance capacities in clean energy production , trade and distribution , including renewable energy development . ( move under action by development partners )",
+      "ref": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , commercialisation et distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( déplacer sous Mesures à prendre par les partenaires de développement )",
+      "gen": "g ) Aider les pays les moins avancés à renforcer leurs capacités en matière de production , de commerce et de distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( Voir la décision prise par les partenaires de développement .) ( en cours d & apos ; application",
+      "gen_len": 58,
+      "ref_len": 47,
+      "rep_rate": 0.0357,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise. The only minor issue is that 'move under action by development partners' is translated as 'Voir la décision prise par les partenaires de développement', which slightly changes the meaning. However, the overall message is preserved."
+      }
+    },
+    {
+      "en": "It would provide a demonstration of the global solidarity called for by the Secretary - General .",
+      "ref": "Ce serait là une démonstration de la solidarité mondiale souhaitée par le Secrétaire général .",
+      "gen": "Il serait une démonstration de la solidarité mondiale que le Secrétaire général a demandée . & g t ; & g t ; .",
+      "gen_len": 24,
+      "ref_len": 15,
+      "rep_rate": 0.0909,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but 'a demandée' is slightly redundant as 'called for' implies a request."
+      }
+    }
+  ]
+}

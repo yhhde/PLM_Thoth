@@ -1,0 +1,396 @@
+{
+  "summary": {
+    "model_id": "r0v4",
+    "num_paired": 9,
+    "blocked": {
+      "averages": {
+        "accuracy": 3.0,
+        "fluency": 3.22,
+        "completeness": 2.89,
+        "conciseness": 2.78,
+        "overall": 2.56
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 4,
+          "avg_overall": 2.5
+        },
+        "under_gen": {
+          "count": 4,
+          "avg_overall": 2.25
+        },
+        "random": {
+          "count": 1,
+          "avg_overall": 4.0
+        }
+      }
+    },
+    "free": {
+      "averages": {
+        "accuracy": 3.67,
+        "fluency": 3.89,
+        "completeness": 3.56,
+        "conciseness": 3.44,
+        "overall": 3.39
+      },
+      "by_selection": {
+        "over_gen": {
+          "count": 4,
+          "avg_overall": 2.75
+        },
+        "under_gen": {
+          "count": 4,
+          "avg_overall": 3.88
+        },
+        "random": {
+          "count": 1,
+          "avg_overall": 4.0
+        }
+      }
+    },
+    "delta_blocked_minus_free": {
+      "accuracy": -0.67,
+      "fluency": -0.67,
+      "completeness": -0.67,
+      "conciseness": -0.66,
+      "overall": -0.83
+    }
+  },
+  "blocked": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) 1 P - 5 , 1 P — 4 , 1 G (",
+      "gen_len": 39,
+      "ref_len": 6,
+      "rep_rate": 0.0,
+      "len_ratio": 6.5,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation conveys the main elements but is not fully accurate and lacks fluency due to the inclusion of additional information."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 : Droit à la liberté et à la sécurité de la personne",
+      "gen_len": 63,
+      "ref_len": 10,
+      "rep_rate": 0.0,
+      "len_ratio": 6.3,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is accurate but incomplete as it adds extraneous information not present in the source. It lacks the colon which is necessary for proper formatting."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "catégorie de statut de réfugié , 1993 56 . 0 . 1 . 1 - 2 . 2 . 1 , 1 .",
+      "gen_len": 70,
+      "ref_len": 14,
+      "rep_rate": 0.0,
+      "len_ratio": 5.0,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 3,
+        "overall": 2,
+        "comment": "The translation is not accurate as 'special status category' does not translate to 'catégorie de statut de réfugié'. It lacks the term 'spécial'. The grammar is mostly correct but the phrase structure is unnatural. It is incomplete as it misses the 'special' part. It is somewhat concise but the inclusion of '. 0 . 1 . 1 - 2 . 2 . 1 , 1 .' is unnecessary."
+      }
+    },
+    {
+      "en": "25 May 200 7 ( a )",
+      "ref": "25 mai 200 7 ( a )",
+      "gen": "25 mai 200 7 a ) Région nord : 18 sorties effectuées à une vitesse de 600 à 900 km",
+      "gen_len": 82,
+      "ref_len": 18,
+      "rep_rate": 0.0,
+      "len_ratio": 4.555555555555555,
+      "selection_reason": "over_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The date is accurately translated, but the model added an extra space after '7' and included additional information that was not in the source."
+      }
+    },
+    {
+      "en": "HIV sensitization programme for all personnel , including peer education",
+      "ref": ": : Exécution d & apos ; un programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & apos ; éducation entre pair s",
+      "gen": "Programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris l & g t ; & g",
+      "gen_len": 105,
+      "ref_len": 157,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6687898089171974,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is partially accurate but lacks fluency and completeness. It misses the concept of 'peer education' and uses incorrect HTML-like characters. The sentence is also repetitive."
+      }
+    },
+    {
+      "en": "Japan ( through the Japan International Cooperation Agency ), Germany ( through the German Agency for Technical Cooperation ), Sweden and the European Union have cooperated with Chile as a provider of technical assistance to Latin American and Caribbean countries .",
+      "ref": "Le Japon ( l & apos ; Agence japonaise de coopération internationale ), l & apos ; Allemagne ( l & apos ; Agence allemande de coopération technique ), la Suède et l & apos ; Union européenne ont collaboré avec le Chili en tant que fournisseur d & apos ; une assistance technique à des pays de l & apos ; Amérique latine et des Caraïbes .",
+      "gen": "Le Japon ( par l & apos ; intermédiaire de l & amp ; I J S ), l & g t ; & g g t , l & lt ; & lt , l , l et l & quot ; Allemagne & g ; & quot , la Suède et l Union européenne ont coopéré avec le Chili en tant que prest ataire d & apos .",
+      "gen_len": 235,
+      "ref_len": 337,
+      "rep_rate": 0.0,
+      "len_ratio": 0.6973293768545994,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 3,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is partially accurate but contains several errors and omissions. The fluency is poor due to incorrect use of punctuation and grammar."
+      }
+    },
+    {
+      "en": "In connection with this sub - item , the General Assembly now has before it a draft resolution issued as document A / 60 / L . 34 and an amendment thereto contained in document A / 60 / L . 35 .",
+      "ref": "Au titre de ce sous - point de l & apos ; ordre du jour , l & apos ; Assemblée générale est maintenant saisie d & apos ; un projet de résolution , publié sous la cote A / 60 / L . 34 , et d & apos ; un amendement à celui - ci , publié sous la cote A / 60 / L . 35 .",
+      "gen": "L & apos ; Assemblée générale est saisie d & apos . un projet de résolution publié sous la cote A / 61 / L 34 et d & quot ; un amendement à ce texte & quot . Le texte en est le suivant :",
+      "gen_len": 186,
+      "ref_len": 265,
+      "rep_rate": 0.0,
+      "len_ratio": 0.7018867924528301,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but it misses the reference to document A/60/L.35 and the mention of the document number for the amendment. It is concise but could be slightly more precise."
+      }
+    },
+    {
+      "en": "In the matter in question , since the investigation was completed in April 2001 , the case should have been referred to the June 2001 sitting but was not .",
+      "ref": "En l & apos ; espèce , l & apos ; instruction de l & apos ; affaire ayant été close en avril 2001 , l & apos ; affaire aurait dû être renvoyée à la session du mois de juin 2001 , ce qui n & apos ; a pas été fait .",
+      "gen": "En l & apos ; espèce , depuis que l & lt ; & lt . E & g t ; & g g t . a été mené à terme en avril 2001 , l & g ; & apos . E . & g lt ; . E ., & lt , &",
+      "gen_len": 150,
+      "ref_len": 213,
+      "rep_rate": 0.0,
+      "len_ratio": 0.704225352112676,
+      "selection_reason": "under_gen",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 1,
+        "completeness": 2,
+        "conciseness": 1,
+        "overall": 1,
+        "comment": "The translation is inaccurate and lacks fluency. It misses important parts of the original sentence and uses incorrect symbols."
+      }
+    },
+    {
+      "en": "( g ) Assist least developed countries to enhance capacities in clean energy production , trade and distribution , including renewable energy development . ( move under action by development partners )",
+      "ref": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , commercialisation et distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( déplacer sous Mesures à prendre par les partenaires de développement )",
+      "gen": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , de commerce et de distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( Le point de l & apos . de l ’ action des partenaires de développement ) ( en cours d",
+      "gen_len": 283,
+      "ref_len": 272,
+      "rep_rate": 0.0,
+      "len_ratio": 1.0404411764705883,
+      "selection_reason": "random",
+      "condition": "blocked",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise, but there is a minor issue with the placement of the phrase 'Le point de l de l action des partenaires de développement' which should be integrated more smoothly."
+      }
+    }
+  ],
+  "free": [
+    {
+      "en": "2 FS , 8 LL )",
+      "ref": "8 AL )",
+      "gen": "2 SM , 8 AL ) 1 P - 5 , 1 P - 4 , 1 P -",
+      "gen_len": 19,
+      "ref_len": 3,
+      "rep_rate": 0.1765,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 3,
+        "overall": 3,
+        "comment": "The translation conveys the main elements but is not entirely accurate and lacks some context."
+      }
+    },
+    {
+      "en": "Article 40 .",
+      "ref": "Article 40",
+      "gen": "Article 40 . Droit à la liberté et à la sécurité de la personne",
+      "gen_len": 14,
+      "ref_len": 2,
+      "rep_rate": 0.0,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 5,
+        "fluency": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "overall": 5,
+        "comment": "The model accurately, fluently, completely, and concisely translated the source."
+      }
+    },
+    {
+      "en": "sp a cial status category , 1993 . 56",
+      "ref": "pays , 1993 52",
+      "gen": "catégorie de statut de réfugié , 1993 . 56 . 1 . 1 . 1 . 1 . 1 . 1 . 1",
+      "gen_len": 23,
+      "ref_len": 4,
+      "rep_rate": 0.4762,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 2,
+        "fluency": 3,
+        "completeness": 2,
+        "conciseness": 2,
+        "overall": 2,
+        "comment": "The translation is not accurate as 'special status category' does not translate to 'catégorie de statut de réfugié'. It lacks fluency due to the unnatural phrasing. Completeness is lacking as the translation does not match the source text. Conciseness is poor due to excessive repetition."
+      }
+    },
+    {
+      "en": "25 May 200 7 ( a )",
+      "ref": "25 mai 200 7 ( a )",
+      "gen": "25 mai 200 7 ( a ) 20 juin 200 7 ( a ) 20 juin 200 7 ( a",
+      "gen_len": 20,
+      "ref_len": 7,
+      "rep_rate": 0.5,
+      "selection_reason": "over_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 3,
+        "fluency": 2,
+        "completeness": 2,
+        "conciseness": 1,
+        "overall": 1,
+        "comment": "The translation is partially accurate but contains redundant information. The date format is correct, but the repetition of dates makes the output unclear and incorrect."
+      }
+    },
+    {
+      "en": "HIV sensitization programme for all personnel , including peer education",
+      "ref": ": : Exécution d & apos ; un programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris par l & apos ; éducation entre pair s",
+      "gen": "Programme de sensibilisation au VIH à l & apos ; intention de tout le personnel , y compris l & apos ; éducation par les",
+      "gen_len": 25,
+      "ref_len": 35,
+      "rep_rate": 0.087,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise, but 'par les' at the end is incomplete."
+      }
+    },
+    {
+      "en": "Japan ( through the Japan International Cooperation Agency ), Germany ( through the German Agency for Technical Cooperation ), Sweden and the European Union have cooperated with Chile as a provider of technical assistance to Latin American and Caribbean countries .",
+      "ref": "Le Japon ( l & apos ; Agence japonaise de coopération internationale ), l & apos ; Allemagne ( l & apos ; Agence allemande de coopération technique ), la Suède et l & apos ; Union européenne ont collaboré avec le Chili en tant que fournisseur d & apos ; une assistance technique à des pays de l & apos ; Amérique latine et des Caraïbes .",
+      "gen": "Le Japon ( par l & apos ; intermédiaire de l & apos ; Agence japonaise de coopération internationale ), l & apos ; Allemagne ( par l & apos ; intermédiaire de l & apos ; Agence allemande de coopération technique ), la Suède et l & apos ; Union européenne ont coopéré avec le Chili en tant que fournisseur d & apos ; assistance technique aux pays d &",
+      "gen_len": 71,
+      "ref_len": 68,
+      "rep_rate": 0.2609,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 3,
+        "conciseness": 4,
+        "overall": 3.5,
+        "comment": "The translation is accurate and fluent, but it is incomplete as it does not end the sentence properly."
+      }
+    },
+    {
+      "en": "In connection with this sub - item , the General Assembly now has before it a draft resolution issued as document A / 60 / L . 34 and an amendment thereto contained in document A / 60 / L . 35 .",
+      "ref": "Au titre de ce sous - point de l & apos ; ordre du jour , l & apos ; Assemblée générale est maintenant saisie d & apos ; un projet de résolution , publié sous la cote A / 60 / L . 34 , et d & apos ; un amendement à celui - ci , publié sous la cote A / 60 / L . 35 .",
+      "gen": "L & apos ; Assemblée générale est saisie d & apos ; un projet de résolution publié sous la cote A / 60 / L . 34 et d & apos ; un amendement à ce texte , qui figure dans le document A / 60 / L . 35 . L & apos ; Assemblée générale est saisie de ce point .",
+      "gen_len": 63,
+      "ref_len": 70,
+      "rep_rate": 0.2295,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 5,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate and fluent, but it omits the reference to 'this sub-item' and slightly repeats 'A / 60 / L . 35'."
+      }
+    },
+    {
+      "en": "In the matter in question , since the investigation was completed in April 2001 , the case should have been referred to the June 2001 sitting but was not .",
+      "ref": "En l & apos ; espèce , l & apos ; instruction de l & apos ; affaire ayant été close en avril 2001 , l & apos ; affaire aurait dû être renvoyée à la session du mois de juin 2001 , ce qui n & apos ; a pas été fait .",
+      "gen": "En l & apos ; espèce , depuis que l & apos ; enquête a été menée à terme en avril 2001 , l & apos ; affaire aurait dû être renvoyée à l & apos ; audience de juin 2001 , mais n & apos ; a pas été renvoyée . & g t",
+      "gen_len": 55,
+      "ref_len": 54,
+      "rep_rate": 0.1321,
+      "selection_reason": "under_gen",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise. The only minor issue is that 'menée à terme' might be slightly less common than 'terminée', but the overall meaning is preserved."
+      }
+    },
+    {
+      "en": "( g ) Assist least developed countries to enhance capacities in clean energy production , trade and distribution , including renewable energy development . ( move under action by development partners )",
+      "ref": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , commercialisation et distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( déplacer sous Mesures à prendre par les partenaires de développement )",
+      "gen": "g ) Aider les pays les moins avancés à renforcer leurs capacités de production , de commerce et de distribution d & apos ; énergie propre , y compris la mise en valeur des énergies renouvelables . ( Le point de l & apos ; ordre du jour est placé sous la rubrique & lt ; & lt",
+      "gen_len": 58,
+      "ref_len": 47,
+      "rep_rate": 0.0179,
+      "selection_reason": "random",
+      "condition": "free",
+      "llm_scores": {
+        "accuracy": 4,
+        "fluency": 4,
+        "completeness": 4,
+        "conciseness": 4,
+        "overall": 4,
+        "comment": "The translation is accurate, fluent, complete, and concise. The only minor issue is that the phrase 'move under action by development partners' is not fully translated into French, but this does not significantly impact the overall quality."
+      }
+    }
+  ]
+}
