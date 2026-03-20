@@ -57,10 +57,12 @@ PLM_Thoth/
 │   ├── merge_results.ipynb           # Merge evaluation results
 │   └── run_validations.sh            # Validation execution script
 │
-├── data_stats/                       # Dataset dimensions and statistics
-│   ├── full/                         # Full dataset
-│   ├── full_bucketed_mono/           # Full monolingual buckets
-│   └── medium_bucketed_mono/         # Subset monolingual buckets
+├── data/                             # Datasets and statistics
+│   ├── data_stats/                   # Dataset dimensions and statistics
+│   │   ├── full/                     # Full dataset stats
+│   │   ├── full_bucketed_mono/       # Full monolingual buckets stats
+│   │   └── medium_bucketed_mono/     # Subset monolingual buckets stats
+│   └── test/                         # Tokenized test set split
 │
 ├── results/
 │   ├── logs/                         # Training histories and metrics
@@ -142,7 +144,7 @@ PLM_Checkpoint/
 # Primary validation (PPL, MRR, AUC)
 python scripts/7_validation.py \
   --model_path /path/to/model.pt \
-  --data_path /path/to/tokenized_bucketed_mono \
+  --data_path data \
   --split test \
   --output_dir results/validation/primary/ \
   --device 0
@@ -150,7 +152,7 @@ python scripts/7_validation.py \
 # Extended: chrF + COMET translation quality
 python scripts/supplementary_validation/translation_quality.py \
   --model_path /path/to/model.pt \
-  --data_path /path/to/tokenized_bucketed_mono \
+  --data_path data \
   --split test \
   --output_dir results/validation/supplementary/ \
   --device 0
